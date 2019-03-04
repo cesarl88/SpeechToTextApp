@@ -1,23 +1,47 @@
 <!DOCTYPE html>
-<html ng-app="SpeechApplication">
-    <head>
-        <meta charset="utf-8">
-        <title>SpeechToTextApp</title>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>User Registration and Login</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link href="app-content/app.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+    <div class="credits text-center">
+        <p>
+            <a href="">User Registration and Login </a>
+        </p>
+        <p>
+            <a href="">Speech To Text App</a>
+        </p>
+    </div>
 
-        <!--  Angular Setup -->
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
 
-        <!-- Application Setup -->
-        <script src="public/appRoutes.js"></script>
-        <script src="public/app.js"></script>
+    <script src="public/app.js"></script>
+    <script src="public/appRoutes.js"></script>
+    <script src="app-services/authentication.service.js"></script>
+    <script src="app-services/flash.service.js"></script>
 
-        <!--  Controllers -->
-        <script src="public/components/controllers/login.control.js"></script>
-    </head>
-    <body>
-        <p>Base HTML</p>
-        <!-- The dynamic templates will be served within this div -->
-        <ui-view></ui-view>
-    </body>
+    <!-- Real user service that uses an api -->
+    <!-- <script src="app-services/user.service.js"></script> -->
+
+    <!-- Fake user service for demo that uses local storage -->
+    <script src="app-services/user.service.local-storage.js"></script>
+
+    <script src="public/components/controllers/home.controller.js"></script>
+    <script src="public/components/controllers/login.controller.js"></script>
+    <script src="public/components/controllers/register.controller.js"></script>
+</body>
 </html>
