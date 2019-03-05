@@ -1,3 +1,6 @@
 a {
     cursor: pointer;
+    background-color: blue;
+
 }
+.col-md-6 col-md-offset-3{background-color: blueviolet}
