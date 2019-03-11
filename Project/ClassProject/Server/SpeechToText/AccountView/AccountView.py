@@ -8,9 +8,8 @@ from rest_framework.views import APIView
 from SpeechToText.permissions import PublicEndpoint
 from knox.models import AuthToken
 from .serializers import UserRegisterSerializer, CreateUserSerializer, UserSerializer, LoginUserSerializer
-
-from django.contrib.auth.models import User
-from django.db.models import Q
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.response import Response
 # Create your views here.
 
 from rest_framework import serializers
@@ -20,7 +19,7 @@ from django.contrib.auth.models import User
 class RegistrationAPI(generics.GenericAPIView):
     serializer_class = CreateUserSerializer
     permission_classes = [PublicEndpoint]
-        
+
     def post(self, request, *args, **kwargs):
         #print("Here")
         serializer = self.get_serializer(data=request.data)
@@ -40,9 +39,9 @@ class LoginAPI(generics.GenericAPIView):
     def post(self, request, *args, **kwargs):
         print("Here")
         serializer = self.get_serializer(data=request.data)
-        
+
         serializer.is_valid(raise_exception=True)
-        
+
         user = serializer.validated_data
         print(user)
         #token = Token.objects.create(user=user)
@@ -50,3 +49,9 @@ class LoginAPI(generics.GenericAPIView):
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
             "token": AuthToken.objects.create(user)
         })
+
+class LogoutView(APIView):
+    authentication_classes = (TokenAuthentication, )
+    def post(self, request):
+        django_logout(request)
+        return Response(status=204)
