@@ -51,7 +51,11 @@ class LoginAPI(generics.GenericAPIView):
         })
 
 class LogoutView(APIView):
-    authentication_classes = (TokenAuthentication, )
+    #authentication_classes = (TokenAuthentication, )
     def post(self, request):
-        django_logout(request)
+        tokens = AuthToken.objects.filter(user = self.request.user)
+
+        for t in tokens:
+            t.delete()
+        #django_logout(request)
         return Response(status=204)
