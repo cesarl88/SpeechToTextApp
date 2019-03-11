@@ -12,13 +12,39 @@ angular
         name: 'login',
         url: '/login',
         templateUrl: 'public/components/templates/login.view.html',
-        controller: 'LoginController'
+        controller: 'LoginController',
+        controllerAs: 'vm',
+        resolve :
+        {
+            deps:  ['$ocLazyLoad', function($ocLazyLoad){
+                return $ocLazyLoad.load({
+                    name : 'app',
+                    files : [
+                        'public/components/controllers/login.controller.js'
+                    ]
+                });
+            }]
+
+        }
     });
     $stateProvider.state({
         name: 'register',
         url: '/register',
         templateUrl: 'public/components/templates/register.view.html',
-        controller: 'RegisterController'
+        controller: 'RegisterController',
+        controllerAs: 'vm',
+        resolve :
+        {
+            deps:  ['$ocLazyLoad', function($ocLazyLoad){
+                return $ocLazyLoad.load({
+                    name : 'app',
+                    files : [
+                        'public/components/controllers/register.controller.js'
+                    ]
+                });
+            }]
+
+        }
     });
     $stateProvider.state({
         name: 'dashboard',

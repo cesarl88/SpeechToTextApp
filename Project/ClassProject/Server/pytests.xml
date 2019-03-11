@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="13" time="3.680"><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="11" name="test_noAuthenticated" time="0.479"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="15" name="test_authenticated" time="0.159"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="19" name="test_register" time="0.303"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="29" name="test_register_no_user_name" time="0.156"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="39" name="test_register_no_user_password" time="0.156"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="49" name="test_login" time="0.276"><system-out>Here
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="13" time="4.932"><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="11" name="test_noAuthenticated" time="0.573"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="15" name="test_authenticated" time="0.179"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="19" name="test_register" time="0.434"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="29" name="test_register_no_user_name" time="0.195"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="39" name="test_register_no_user_password" time="0.221"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="49" name="test_login" time="0.371"><system-out>Here
 cesar
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="56" name="test_login_wrong_username" time="0.282"><system-out>Here
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="63" name="test_login_wrong_password" time="0.305"><system-out>Here
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="70" name="test_login_wrong_credentials" time="0.284"><system-out>Here
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="53" name="test_PostAudioFileMp3" time="0.183"><system-out>1
-./Files/user_1/2f27725b-1716-4572-bf1b-1e9282d6c3ca.mp3
+</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="56" name="test_login_wrong_username" time="0.337"><system-out>Here
+</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="63" name="test_login_wrong_password" time="0.382"><system-out>Here
+</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="70" name="test_login_wrong_credentials" time="0.374"><system-out>Here
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="53" name="test_PostAudioFileMp3" time="0.234"><system-out>1
+./Files/user_1/085c80e4-5a11-4dbb-aea4-91c255ddb2af.mp3
 cesar
 &lt;QueryDict: {&apos;Type&apos;: [&apos;1&apos;], &apos;Name&apos;: [&apos;Tes1&apos;], &apos;Content&apos;: [&lt;TemporaryUploadedFile: AudioTestFile1.mp3 (audio/mp3)&gt;]}&gt;
 1
-./Files/user_1/fc482702-e6d2-4d76-ac24-4fb2f1d37e0d.mp3
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="71" name="test_GetAudioFileList" time="0.162"><system-out>1
-./Files/user_1/d8fc1867-aa12-4889-9460-926b8ffed0a9.mp3
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="84" name="test_GetAudioFileByID" time="0.158"><system-out>1
-./Files/user_1/d9973976-aabe-40e4-94b0-36dcd70f9f69.mp3
+./Files/user_1/e42c709d-e3d2-403c-8cef-5e16e73e53c4.mp3
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="71" name="test_GetAudioFileList" time="0.233"><system-out>1
+./Files/user_1/400bd82b-12b6-41ea-b36e-2760c13cea42.mp3
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="84" name="test_GetAudioFileByID" time="0.199"><system-out>1
+./Files/user_1/7dcdcef5-fa6f-4273-9d45-1f9329e4135a.mp3
 ID
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="96" name="test_DeleteAudioFileByID" time="0.164"><system-out>1
-./Files/user_1/acadcb22-cee4-4b77-b847-22bf35ba0422.mp3
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="96" name="test_DeleteAudioFileByID" time="0.279"><system-out>1
+./Files/user_1/b0043e56-ae9b-4923-a321-70dba1199993.mp3
 </system-out></testcase></testsuite>

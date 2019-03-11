@@ -2,32 +2,32 @@
     'use strict';
 
     angular
-        .module('app', ['ngRoute', 'ngCookies'])
-        .config(config)
+        .module('app', ['ngCookies', 'oc.lazyLoad', 'appRoutes'])
+        //.config(config)
         .run(run);
 
-    config.$inject = ['$routeProvider', '$locationProvider'];
-    function config($routeProvider, $locationProvider) {
-        $routeProvider
-            .when('/', {
-                controller: 'HomeController',
-                templateUrl: 'public/components/templates/home.view.html',
-                controllerAs: 'vm'
-            })
+    //config.$inject = ['$routeProvider', '$locationProvider'];
+    // function config($routeProvider, $locationProvider) {
+    //     $routeProvider
+    //         .when('/', {
+    //             controller: 'HomeController',
+    //             templateUrl: 'public/components/templates/home.view.html',
+    //             controllerAs: 'vm'
+    //         })
 
-            .when('/login', {
-                controller: 'LoginController',
-                templateUrl: 'public/components/templates/login.view.html',
-                controllerAs: 'vm'
-            })
+    //         .when('/login', {
+    //             controller: 'LoginController',
+    //             templateUrl: 'public/components/templates/login.view.html',
+    //             controllerAs: 'vm'
+    //         })
 
-            .when('/register', {
-                controller: 'RegisterController',
-                templateUrl: 'public/components/templates/register.view.html',
-                controllerAs: 'vm'
-            })
-            .otherwise({ redirectTo: '/login' });
-    }
+    //         .when('/register', {
+    //             controller: 'RegisterController',
+    //             templateUrl: 'public/components/templates/register.view.html',
+    //             controllerAs: 'vm'
+    //         })
+    //         .otherwise({ redirectTo: '/login' });
+    // }
 
     run.$inject = ['$rootScope', '$location', '$cookies', '$http'];
     function run($rootScope, $location, $cookies, $http) {

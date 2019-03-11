@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'SpeechToText',
     'rest_framework',
     'knox',
+    'corsheaders',
     #'django_jenkins'
 
 
@@ -55,7 +56,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware'
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8000',
+    'localhost:8081',
+)
 
 ROOT_URLCONF = 'urls'
 
