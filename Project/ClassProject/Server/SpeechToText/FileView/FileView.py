@@ -5,6 +5,8 @@ from rest_framework.response import Response
 from SpeechToText.permissions import IsOwner, PublicEndpoint
 from .serializers import FileSerializer
 from SpeechToText.models import File
+from rest_framework.views import APIView
+from django.shortcuts import get_object_or_404
 
 class UploadedFileView(mixins.CreateModelMixin,generics.ListAPIView):
     lookup_field            = 'id'
@@ -19,8 +21,6 @@ class UploadedFileView(mixins.CreateModelMixin,generics.ListAPIView):
         return qs
 
     def perform_create(self, serializer):
-        print(self.request.user)
-        print(self.request.data)
         serializer.save(User=self.request.user)
 
     def post(self, request, *args, **kwargs):
@@ -29,12 +29,39 @@ class UploadedFileView(mixins.CreateModelMixin,generics.ListAPIView):
     def get_serializer_context(self, *args, **kwargs):
         return {"request": self.request}
 
-
 class DeleteFileView(generics.DestroyAPIView):
     lookup_field            = 'id' 
     serializer_class = FileSerializer
     permission_classes = [IsOwner]
     queryset = File.objects.all()
     
+
+class InitTranscript(APIView):
+    lookup_field            = 'id' 
+    serializer_class        = FileSerializer
+    permission_classes      = [IsOwner]
+    queryset = File.objects.all()
+    
+
+    def post(self, request):
+        files = File.objects.filter(User = self.request.user)
+        if(files):
+            file = get_object_or_404(files, id = int(request.data['id']))
+            print(file.Name)
+
+            print(file.IsAudio)
+            if(file.IsAudio):
+                print('Processing Audio File')
+            elif(file.IsVideo):
+                print('Processing Video File')
+            elif(file.IsMic):
+                print('Processing Microphonee File')
+            
+            file.TranscriptFile()
+
+            return Response(status= 200, data = file.Transcript)
+        return Response(status= 400)
+
+        
         
    

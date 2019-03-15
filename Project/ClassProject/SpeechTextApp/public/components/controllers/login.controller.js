@@ -16,6 +16,7 @@
         (function initController() {
             // reset login status
             AuthenticationService.ClearCredentials();
+            console.log('init LoginController')
         })();
 
         function login() {
@@ -25,7 +26,7 @@
                 console.log(response.data)
                 if (response.status == 200) {
                     AuthenticationService.SetCredentials(vm.username, vm.password, response.token);
-                    $location.path('/');
+                    $location.path('/home');
                 } else {
                     
                     //FlashService.Error(response.message);

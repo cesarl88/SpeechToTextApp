@@ -9,6 +9,9 @@ from django.db.models.signals import post_delete
 from django.dispatch import receiver
 import os
 from .validators import validate_file_extension
+import speech_recognition as sr
+from os import path
+
 # Create your models here.
 
 def get_upload_path(instance, filename):
@@ -48,6 +51,46 @@ class File(models.Model):
 
     def get_api_url(self, request=None):
         return api_reverse("account-file-api:Files-View", kwargs={'pk': self.pk}, request=request)
+
+    @property
+    def IsAudio(self):
+        print(self.Type.id)
+        return (self.Type.id == 1)
+
+    @property
+    def IsVideo(self):
+        return self.Type.id == 2
+
+    @property
+    def IsMic(self):
+        return self.Type.id == 3
+
+    def TranscriptFile(self):
+        print('About to Transcript')
+
+        self.Transcript = 'Just transcripted'
+
+        
+        AUDIO_FILE = os.getcwd() + self.Content.path
+        print(AUDIO_FILE)
+
+        r = sr.Recognizer()
+        with sr.AudioFile(AUDIO_FILE) as source:
+            audio = r.record(source)  # read the entire audio file
+
+        # recognize speech using Google Speech Recognition
+        try:
+            # for testing purposes, we're just using the default API key
+            # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
+            # instead of `r.recognize_google(audio)`
+            self.Transcript = r.recognize_google(audio)
+            print("Google Speech Recognition thinks you said " + self.Transcript)
+        except sr.UnknownValueError:
+            print("Google Speech Recognition could not understand audio")
+        except sr.RequestError as e:
+            print("Could not request results from Google Speech Recognition service; {0}".format(e))
+
+        self.save()
 
 @receiver(post_delete, sender=File)
 def submission_delete(sender, instance, **kwargs):

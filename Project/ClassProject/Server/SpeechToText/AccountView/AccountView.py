@@ -57,5 +57,4 @@ class LogoutView(APIView):
 
         for t in tokens:
             t.delete()
-        #django_logout(request)
         return Response(status=204)
