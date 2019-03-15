@@ -71,7 +71,7 @@ class File(models.Model):
         self.Transcript = 'Just transcripted'
 
         
-        AUDIO_FILE = os.getcwd() + self.Content.path
+        AUDIO_FILE = self.Content.path
         print(AUDIO_FILE)
 
         r = sr.Recognizer()

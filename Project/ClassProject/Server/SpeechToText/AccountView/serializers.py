@@ -13,6 +13,19 @@ class UserSerializer(ModelSerializer):
         model = User
         fields = ('id', 'username')
 
+class UserUpdateProfileSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id','email', 'first_name', 'last_name')
+
+    # def update(self, instance, validated_data):
+    #     print('instance of email',instance.email)
+    #     instance.email = validated_data.get('email',instance.username)
+    #     instance.first_name = validated_data.get('first_name',instance.first_name)
+    #     instance.last_name = validated_data.get('last_name',instance.last_name)
+    #     print('instance of email',instance.email)
+    #     return instance 
+
 
 class CreateUserSerializer(ModelSerializer):
     username = serializers.CharField()

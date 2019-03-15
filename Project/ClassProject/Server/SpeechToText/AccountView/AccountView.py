@@ -3,18 +3,39 @@ from rest_framework import viewsets, permissions, generics
 from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_406_NOT_ACCEPTABLE
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.generics import DestroyAPIView, UpdateAPIView, RetrieveAPIView
 #from SpeechToText.serializers import UserSerializer
 #from SpeechToText.models import User
 from SpeechToText.permissions import PublicEndpoint
 from knox.models import AuthToken
-from .serializers import UserRegisterSerializer, CreateUserSerializer, UserSerializer, LoginUserSerializer
+from .serializers import UserRegisterSerializer, CreateUserSerializer, UserSerializer, LoginUserSerializer, UserUpdateProfileSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 from rest_framework import serializers
 from django.contrib.auth.models import User
 #from rest_framework.authtoken.models import Token
+
+class UserUpdatePassword(APIView):
+    def post(self, request):
+        user =  User.objects.filter(id = self.request.user.id)
+        return Response({
+            "user": user
+        })
+
+class UserUpdateProfile(UpdateAPIView):
+    serializer_class = UserUpdateProfileSerializer
+    queryset = User.objects.all()
+    lookup_field = 'id'
+    # def post(self, request):
+    #     user =  User.objects.filter(id = self.request.user.id)
+    #     return Response({
+    #         "user": user
+    #     })
+
 
 class RegistrationAPI(generics.GenericAPIView):
     serializer_class = CreateUserSerializer
