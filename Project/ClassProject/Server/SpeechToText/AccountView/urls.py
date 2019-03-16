@@ -2,7 +2,7 @@ from .AccountView import RegistrationAPI, LoginAPI, LogoutView, UserUpdatePasswo
 from rest_framework.routers import DefaultRouter
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url
+from django.conf.urls import url, include
 
 
 urlpatterns = [
@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^logout/$', LogoutView.as_view(), name='Logout-View'),
     url(r'^update-password/$', LogoutView.as_view(), name='Logout-View'),
     url(r'^update-profile/(?P<id>\d+)/$', UserUpdateProfile.as_view(), name='Update-Profile-View'),
+    #url('^', include('django.contrib.auth.urls')),
 
 ]

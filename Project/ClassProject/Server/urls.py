@@ -32,7 +32,6 @@ urlpatterns += [
     url(r'^test/', include('SpeechToText.TestViews.urls')),
     url(r'^account/', include(('SpeechToText.AccountView.urls','app-name'), namespace ='account-api')),
     url(r'^account-files/', include(('SpeechToText.FileView.urls','app-name'), namespace ='account-file-api')),
-
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
