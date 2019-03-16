@@ -152,10 +152,10 @@ REST_FRAMEWORK = {
 MEDIA_ROOT = os.path.join(BASE_DIR, '.','Files')
 MEDIA_URL = '/Files/'
 
-# EMAIL_USER and EMAIL_PASS Environment Variables
+# EMAIL_USER and EMAIL_PASSWORD Environment Variables
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'EMAIL_PASS'
+EMAIL_HOST_PASSWORD = 'EMAIL_PASSWORD'
 EMAIL_HOST_USER = 'EMAIL_USER'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
