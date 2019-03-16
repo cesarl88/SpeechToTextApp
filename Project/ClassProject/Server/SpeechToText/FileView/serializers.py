@@ -10,21 +10,26 @@ class FileSerializer(ModelSerializer):
 
     class Meta:
         model = File
-        fields = ('id', 'Name', 'Transcript', 'UploadedDate', 'Content', 'Type', 'User')
+        fields = ('id', 'Name', 'Transcript', 'UploadedDate', 'Content', 'Type', 'User', 'Comment')
         read_only_fields = ('User',)
         #extra_kwargs = {'password': {'write_only': True}}
 
 
 
-class LoginUserSerializer(Serializer):
-    username = serializers.CharField()
-    password = serializers.CharField()
+# class LoginUserSerializer(Serializer):
+#     username = serializers.CharField()
+#     password = serializers.CharField()
 
-    def validate(self, data):
-        user = authenticate(**data)
-        if user and user.is_active:
-            return user
-        raise serializers.ValidationError("Unable to log in with provided credentials.")
+#     def validate(self, data):
+#         user = authenticate(**data)
+#         if user and user.is_active:
+#             return user
+#         raise serializers.ValidationError("Unable to log in with provided credentials.")
+
+class FileUpdateSerializer(ModelSerializer):
+    class Meta:
+        model = File
+        fields = ('Name', 'Comment',)
 
 
 

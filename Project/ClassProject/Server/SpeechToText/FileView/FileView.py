@@ -1,12 +1,14 @@
 from rest_framework.exceptions import ParseError
-from rest_framework.parsers import FileUploadParser
+#from rest_framework.parsers import FileUploadParser
 from rest_framework import generics, mixins
 from rest_framework.response import Response
 from SpeechToText.permissions import IsOwner, PublicEndpoint
-from .serializers import FileSerializer
+from .serializers import FileSerializer, FileUpdateSerializer
 from SpeechToText.models import File
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
+
 
 class UploadedFileView(mixins.CreateModelMixin,generics.ListAPIView):
     lookup_field            = 'id'
@@ -31,16 +33,16 @@ class UploadedFileView(mixins.CreateModelMixin,generics.ListAPIView):
 
 class DeleteFileView(generics.DestroyAPIView):
     lookup_field            = 'id' 
-    serializer_class = FileSerializer
-    permission_classes = [IsOwner]
-    queryset = File.objects.all()
+    serializer_class        = FileSerializer
+    permission_classes      = [IsOwner]
+    queryset                = File.objects.all()
     
 
 class InitTranscript(APIView):
     lookup_field            = 'id' 
     serializer_class        = FileSerializer
     permission_classes      = [IsOwner]
-    queryset = File.objects.all()
+    queryset                = File.objects.all()
     
 
     def post(self, request):
@@ -61,6 +63,13 @@ class InitTranscript(APIView):
 
             return Response(status= 200, data = file.Transcript)
         return Response(status= 400)
+
+#@csrf_exempt
+class UpdateFileView(generics.UpdateAPIView):
+    lookup_field            = 'id'
+    serializer_class        = FileUpdateSerializer
+    permission_classes      = [IsOwner]
+    queryset                = File.objects.all()
 
         
         

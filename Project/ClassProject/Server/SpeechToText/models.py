@@ -38,12 +38,13 @@ class FileType(models.Model):
 
 class File(models.Model):
     """High-level File"""
-    Name = models.CharField(max_length=50)
-    Type = models.ForeignKey(FileType, on_delete = models.CASCADE)
-    Transcript = models.TextField(null=True)
-    UploadedDate = models.DateTimeField(default = timezone.now)
-    Content =models.FileField("UploadedFiles", upload_to=scramble_uploaded_filename, validators=[validate_file_extension], blank=True, null=True)
-    User = models.ForeignKey(User, on_delete = models.CASCADE)
+    Name            = models.CharField(max_length=50)
+    Type            = models.ForeignKey(FileType, on_delete = models.CASCADE)
+    Transcript      = models.TextField(null=True)
+    UploadedDate    = models.DateTimeField(default = timezone.now)
+    Content         = models.FileField("UploadedFiles", upload_to=scramble_uploaded_filename, validators=[validate_file_extension], blank=True, null=True)
+    User            = models.ForeignKey(User, on_delete = models.CASCADE)
+    Comment         = models.CharField(max_length=250, null=True)
 
     @property
     def owner(self):
