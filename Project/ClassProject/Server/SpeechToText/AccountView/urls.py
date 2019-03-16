@@ -12,6 +12,6 @@ urlpatterns = [
     url(r'^logout/$', LogoutView.as_view(), name='Logout-View'),
     url(r'^update-password/$', UserUpdatePassword.as_view(), name='Logout-View'),
     url(r'^update-profile/(?P<id>\d+)/$', UserUpdateProfile.as_view(), name='Update-Profile-View'),
-    #url('^', include('django.contrib.auth.urls')),
+    url('^accounts', include('django.contrib.auth.urls')),
 
 ]
