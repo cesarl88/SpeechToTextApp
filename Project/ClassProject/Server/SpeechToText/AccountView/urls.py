@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^register/$', RegistrationAPI.as_view(), name = 'Register-View'),
     url(r'^login/$', LoginAPI.as_view(), name = 'Login-View'),
     url(r'^logout/$', LogoutView.as_view(), name='Logout-View'),
-    url(r'^update-password/$', LogoutView.as_view(), name='Logout-View'),
+    url(r'^update-password/$', UserUpdatePassword.as_view(), name='Logout-View'),
     url(r'^update-profile/(?P<id>\d+)/$', UserUpdateProfile.as_view(), name='Update-Profile-View'),
     #url('^', include('django.contrib.auth.urls')),
 

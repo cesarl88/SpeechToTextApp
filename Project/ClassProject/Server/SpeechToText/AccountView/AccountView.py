@@ -13,6 +13,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.hashers import check_password
 # Create your views here.
 
 from rest_framework import serializers
@@ -20,10 +21,28 @@ from django.contrib.auth.models import User
 #from rest_framework.authtoken.models import Token
 
 class UserUpdatePassword(APIView):
+    serializer_class = UserSerializer
     def post(self, request):
-        user =  User.objects.filter(id = self.request.user.id)
-        return Response({
-            "user": user
+        
+        currentPassword = self.request.data['Password']
+
+        user = get_object_or_404(User, username = self.request.user.username)
+        #print(currentPassword)
+        if(not check_password(currentPassword, user.password)):
+            return Response(status=403, data= { "error": "Incorrect Password"})
+
+        newPassword = self.request.data['newPassword']
+        confirmPassword = self.request.data['confirmPassword']
+
+
+        if(newPassword != confirmPassword):
+            return Response(status=406, data= { "error": "Passwords don't match"})
+
+        user.set_password(newPassword)
+        user.save()
+
+        return Response(status = 202, data = {
+            "user": UserSerializer(user).data,
         })
 
 class UserUpdateProfile(UpdateAPIView):
