@@ -1,2 +1,8 @@
 Project/bin/*
 Project/include/*
+
+Project/ClassProject/__pycache__/*
+
+*.pyc
+
+Project/ClassProject/Server/config/base.html
