@@ -1,0 +1,15 @@
+execution:
+- concurrency: 20
+  hold-for: 2m
+  ramp-up: 20s
+  scenario: Thread Group
+scenarios:
+  Thread Group:
+    requests:
+    - label: login
+      method: POST
+      url: http://localhost:8000/account/login/
+      body-file: login.json
+      headers:
+        Content-Type: application/json
+        
