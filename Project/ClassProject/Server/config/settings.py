@@ -155,8 +155,8 @@ MEDIA_URL = '/Files/'
 # EMAIL_USER and EMAIL_PASSWORD Environment Variable
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'EMAIL_PASSWORD'
-EMAIL_HOST_USER = 'EMAIL_USER'
+EMAIL_HOST_PASSWORD = 'Testing@Njit_2019'
+EMAIL_HOST_USER = 'CS684Testing@gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

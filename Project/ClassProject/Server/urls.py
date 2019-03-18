@@ -21,6 +21,7 @@ from django.conf.urls import url, include
 from rest_framework_jwt.views import obtain_jwt_token
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,6 +33,7 @@ urlpatterns += [
     url(r'^test/', include('SpeechToText.TestViews.urls')),
     url(r'^account/', include(('SpeechToText.AccountView.urls','app-name'), namespace ='account-api')),
     url(r'^account-files/', include(('SpeechToText.FileView.urls','app-name'), namespace ='account-file-api')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
