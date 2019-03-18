@@ -1,19 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="13" time="3.417"><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="11" name="test_noAuthenticated" time="0.429"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="15" name="test_authenticated" time="0.135"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="19" name="test_register" time="0.278"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="29" name="test_register_no_user_name" time="0.137"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="39" name="test_register_no_user_password" time="0.148"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="49" name="test_login" time="0.284"><system-out>Here
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="23" time="7.389"><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="11" name="test_noAuthenticated" time="0.450"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="15" name="test_authenticated" time="0.160"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="19" name="test_register" time="0.337"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="29" name="test_register_no_user_name" time="0.162"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="39" name="test_register_no_user_password" time="0.152"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="49" name="test_login" time="0.304"><system-out>Here
 cesar
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="56" name="test_login_wrong_username" time="0.269"><system-out>Here
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="63" name="test_login_wrong_password" time="0.260"><system-out>Here
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="70" name="test_login_wrong_credentials" time="0.265"><system-out>Here
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="53" name="test_PostAudioFileMp3" time="0.179"><system-out>1
-./Files/user_1/30412c72-0104-4472-982e-83a9d56ae712.mp3
-cesar
-&lt;QueryDict: {&apos;Type&apos;: [&apos;1&apos;], &apos;Name&apos;: [&apos;Tes1&apos;], &apos;Content&apos;: [&lt;TemporaryUploadedFile: AudioTestFile1.mp3 (audio/mp3)&gt;]}&gt;
+</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="56" name="test_login_wrong_username" time="0.282"><system-out>Here
+</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="63" name="test_login_wrong_password" time="0.278"><system-out>Here
+</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="70" name="test_login_wrong_credentials" time="0.281"><system-out>Here
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="60" name="test_PostAudioFileMp3" time="0.334"><system-out>1
+./Files/user_1/7ab3ff70-10f5-43cb-8904-f7bd5a8997f3.mp3
 1
-./Files/user_1/44e0076d-b5eb-4fd2-8969-0fb19997d424.mp3
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="71" name="test_GetAudioFileList" time="0.152"><system-out>1
-./Files/user_1/73de7d61-1f27-40ee-b9bf-015c099f9c53.mp3
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="84" name="test_GetAudioFileByID" time="0.154"><system-out>1
-./Files/user_1/3a0b3178-7c28-4f52-90f9-5ee8cf10fa8b.mp3
+./Files/user_1/5666e916-657f-49cd-8005-95376f34b6db.mp3
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="78" name="test_GetAudioFileList" time="0.296"><system-out>1
+./Files/user_1/f8ea94f8-ea67-4adc-a34b-1c80417f0ef5.mp3
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="91" name="test_GetAudioFileByID" time="0.297"><system-out>1
+./Files/user_1/f33ab536-1c4d-4c39-826d-371d2f20f014.mp3
 ID
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="96" name="test_DeleteAudioFileByID" time="0.155"><system-out>1
-./Files/user_1/052786dd-43e8-4c8c-9f18-e758c104bf83.mp3
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="103" name="test_DeleteAudioFileByID_ByOwner" time="0.295"><system-out>1
+./Files/user_1/8f5fc2b1-698c-41db-ac47-80014351036f.mp3
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="116" name="test_GetAudioFileByID_WrongUser" time="0.298"><system-out>1
+./Files/user_1/31969a22-b339-4757-9fed-749eff1bd41f.mp3
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="130" name="test_UpdateFileByID_ByOwner" time="0.309"><system-out>1
+./Files/user_1/9fefacfc-6d67-43c9-a705-5ca9ddbff185.mp3
+&lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;], &apos;Comment&apos;: [&apos;Comment 12&apos;]}&gt;
+1
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="150" name="test_UpdateFileNameByID_ByOwner" time="0.310"><system-out>1
+./Files/user_1/987e0ec3-7c2d-4091-86f9-99ff08f743d2.mp3
+&lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;]}&gt;
+1
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="168" name="test_UpdateFileNameAndCommentByID_ByOwner" time="0.322"><system-out>1
+./Files/user_1/d288f54c-3d1d-47e3-b2d1-b69b9170a4a8.mp3
+&lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;], &apos;Comment&apos;: [&apos;CommentModified&apos;]}&gt;
+1
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="189" name="test_UpdateFileCommentByID_ByOwner" time="0.300"><system-out>1
+./Files/user_1/e9b463e8-9172-48f9-91d0-71ff8a93624e.mp3
+&lt;QueryDict: {&apos;Comment&apos;: [&apos;CommentModified&apos;]}&gt;
+1
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="209" name="test_TryUpdateFileContentByID_ByOwner" time="0.301"><system-out>1
+./Files/user_1/76cf81aa-f022-4157-b9b9-eb77140d689a.mp3
+&lt;QueryDict: {&apos;Content&apos;: [&apos;ContentModified&apos;]}&gt;
+1
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="227" name="test_TryUpdateFileTranscriptByID_ByOwner" time="0.308"><system-out>1
+./Files/user_1/c619ec3b-c395-48a6-9c92-04f4efee287c.mp3
+&lt;QueryDict: {&apos;Transcript&apos;: [&apos;TranscriptModified&apos;]}&gt;
+1
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="246" name="test_TryUpdateFileTypeByID_ByOwner" time="0.301"><system-out>1
+./Files/user_1/d74e4c6a-7445-4729-b49a-ee8f41a8464c.mp3
+&lt;QueryDict: {&apos;Type&apos;: [&apos;Type&apos;]}&gt;
+1
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="265" name="test_UpdateFileNameByID_ByNotOwner" time="0.287"><system-out>1
+./Files/user_1/b61b6754-2e31-49f6-9cdd-5c78e6360e80.mp3
+&lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;]}&gt;
+403
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="282" name="test_UpdateFileCommentByID_ByNotOwner" time="0.307"><system-out>1
+./Files/user_1/83c51c7d-f201-46d7-a344-0404f5e64daf.mp3
+&lt;QueryDict: {&apos;Comment&apos;: [&apos;TCommentModified&apos;]}&gt;
+403
 </system-out></testcase></testsuite>

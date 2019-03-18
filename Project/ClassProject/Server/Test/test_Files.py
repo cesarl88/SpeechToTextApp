@@ -17,6 +17,10 @@ from rest_framework.test import APIClient
 @pytest.fixture(autouse=True)
 def cleanup_files():
     pass
+
+@pytest.fixture()
+def get_audio_file():
+    pass
     #files = []
         # monkeypatch.setattr(builtins, 'open', patch_open(builtins.open, files))
         # monkeypatch.setattr(io, 'open', patch_open(io.open, files))
@@ -28,8 +32,11 @@ def cleanup_files():
 class TestFiles:
 
     def setup(self):
-        user_obj = User.objects.create_user(username = "cesar", password="1234", email="cls33@njit.edu")
+        user_obj = User.objects.create_user(username = "cesar_1", password="1234", email="cls33@njit.edu")
         user_obj.save()
+
+        user_obj_2 = User.objects.create_user(username = "cesar_2", password="1234", email="cls33@njit.edu")
+        user_obj_2.save()
 
         audio_type = FileType.objects.create(id = 1, Name='Audio')
         audio_type.save()
@@ -84,7 +91,7 @@ class TestFiles:
 
     def test_GetAudioFileByID(self, client):
         #get Token
-        token = AuthToken.objects.create(User.objects.first())
+        token = AuthToken.objects.create(User.objects.get(username = "cesar_1"))
         
         id  = File.objects.first().id
         #Authenticating user
@@ -94,7 +101,7 @@ class TestFiles:
         response = cl.get('/account-files/files/' + str(id) + "/")
         assert response.data[0]['id'] == id
 
-    def test_DeleteAudioFileByID(self, client):
+    def test_DeleteAudioFileByID_ByOwner(self, client):
         #get Token
         token = AuthToken.objects.create(User.objects.first())
         
@@ -105,3 +112,186 @@ class TestFiles:
         #Calling EndPoint
         response = cl.delete('/account-files/files-delete/' + str(id) + "/")
         assert response.status_code == 204
+
+
+    def test_GetAudioFileByID_WrongUser(self, client):
+        #get Token
+        token = AuthToken.objects.create(User.objects.get(username = "cesar_2"))
+        
+        id  = File.objects.first().id
+        #Authenticating user
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        response = cl.get('/account-files/files/' + str(id) + "/")
+        
+        assert response.status_code == 200 and not response.data
+
+    
+    def test_UpdateFileByID_ByOwner(self, client):
+        #get Token
+        token = AuthToken.objects.create(User.objects.get(username = "cesar_1"))
+        
+        id  = File.objects.first().id
+        #Authenticating user
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        data = {
+            "Name" : "Test1Modified",
+        	"Comment": "Comment 12",
+        }
+        response = cl.put('/account-files/files-update/' + str(id) + "/", data = data)
+        response_get_file = cl.get('/account-files/files/' + str(id) + "/")
+
+        data_Res = response_get_file.data[0]
+        assert response.status_code == 200 and (data_Res['Name'] == "Test1Modified" and  data_Res['Comment'] == "Comment 12")
+
+    #Update By Owner
+    def test_UpdateFileNameByID_ByOwner(self, client):
+        #get Token
+        token = AuthToken.objects.create(User.objects.get(username = "cesar_1"))
+        
+        id  = File.objects.first().id
+        #Authenticating user
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        data = {
+            "Name" : "Test1Modified"
+        }
+        response = cl.put('/account-files/files-update/' + str(id) + "/", data = data)
+        response_get_file = cl.get('/account-files/files/' + str(id) + "/")
+
+        data_Res = response_get_file.data[0]
+        assert response.status_code == 200 and (data_Res['Name'] == "Test1Modified")
+
+    def test_UpdateFileNameAndCommentByID_ByOwner(self, client):
+        #get Token
+        token = AuthToken.objects.create(User.objects.get(username = "cesar_1"))
+        
+        id  = File.objects.first().id
+        #print(token)
+        #Authenticating user
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        data = {
+            "Name" : "Test1Modified",
+            "Comment" : "CommentModified"
+        }
+        response = cl.put('/account-files/files-update/' + str(id) + "/", data = data)
+        response_get_file = cl.get('/account-files/files/' + str(id) + "/")
+
+        data_Res = response_get_file.data[0]
+        #print(data_Res)
+        assert response.status_code == 200 and (data_Res['Name'] == "Test1Modified" and data_Res['Comment'] == "CommentModified")
+
+    def test_UpdateFileCommentByID_ByOwner(self, client):
+        #get Token
+        token = AuthToken.objects.create(User.objects.get(username = "cesar_1"))
+        
+        id  = File.objects.first().id
+        #print(token)
+        #Authenticating user
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        data = {
+            "Comment" : "CommentModified"
+        }
+        response = cl.put('/account-files/files-update/' + str(id) + "/", data = data)
+        response_get_file = cl.get('/account-files/files/' + str(id) + "/")
+
+        data_Res = response_get_file.data[0]
+        #print(data_Res)
+        assert response.status_code == 200 and (data_Res['Name'] == "Audio File" and data_Res['Comment'] == "CommentModified")
+
+    def test_TryUpdateFileContentByID_ByOwner(self, client):
+        #get Token
+        token = AuthToken.objects.create(User.objects.get(username = "cesar_1"))
+        
+        id  = File.objects.first().id
+        #Authenticating user
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        data = {
+            "Content" : "ContentModified"
+        }
+        response = cl.put('/account-files/files-update/' + str(id) + "/", data = data)
+        response_get_file = cl.get('/account-files/files/' + str(id) + "/")
+
+        data_Res = response_get_file.data[0]
+        assert response.status_code == 200 and (data_Res['Content'] != "ContentModified")
+    
+    def test_TryUpdateFileTranscriptByID_ByOwner(self, client):
+        #get Token
+        token = AuthToken.objects.create(User.objects.get(username = "cesar_1"))
+        
+        id  = File.objects.first().id
+        #Authenticating user
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        data = {
+            "Transcript" : "TranscriptModified"
+        }
+        response = cl.put('/account-files/files-update/' + str(id) + "/", data = data)
+        response_get_file = cl.get('/account-files/files/' + str(id) + "/")
+
+        data_Res = response_get_file.data[0]
+        assert response.status_code == 200 and (data_Res['Transcript'] != "TranscriptModified")
+
+        
+    def test_TryUpdateFileTypeByID_ByOwner(self, client):
+        #get Token
+        token = AuthToken.objects.create(User.objects.get(username = "cesar_1"))
+        
+        id  = File.objects.first().id
+        #Authenticating user
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        data = {
+            "Type" : "Type"
+        }
+        response = cl.put('/account-files/files-update/' + str(id) + "/", data = data)
+        response_get_file = cl.get('/account-files/files/' + str(id) + "/")
+
+        data_Res = response_get_file.data[0]
+        assert response.status_code == 200 and (data_Res['Type'] == 1)
+
+    #Update By Owner
+    def test_UpdateFileNameByID_ByNotOwner(self, client):
+        #get Token
+        token = AuthToken.objects.create(User.objects.get(username = "cesar_2"))
+        
+        id  = File.objects.first().id
+        #Authenticating user
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        data = {
+            "Name" : "Test1Modified",
+        }
+        response = cl.put('/account-files/files-update/' + str(id) + "/", data = data)
+        print(response.status_code)
+        assert response.status_code == 403 
+
+    #Update By Owner
+    def test_UpdateFileCommentByID_ByNotOwner(self, client):
+        #get Token
+        token = AuthToken.objects.create(User.objects.get(username = "cesar_2"))
+        
+        id  = File.objects.first().id
+        #Authenticating user
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        data = {
+            "Comment" : "TCommentModified",
+        }
+        response = cl.put('/account-files/files-update/' + str(id) + "/", data = data)
+        print(response.status_code)
+        assert response.status_code == 403 

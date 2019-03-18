@@ -71,6 +71,24 @@ class UpdateFileView(generics.UpdateAPIView):
     permission_classes      = [IsOwner]
     queryset                = File.objects.all()
 
+    def update(self, request, *args, **kwargs):
+        print(self.request.data)
+        instance = self.get_object()
+        print(instance.id)
+        
+        if(request.data.get("Name")):
+            instance.Name = request.data.get("Name")
+
+        if(request.data.get("Comment")):
+            instance.Comment = request.data.get("Comment")
+        instance.save()
+
+        #serializer = FileUpdateSerializer(instance)
+        #serializer.is_valid(raise_exception=True)
+        #self.perform_update(serializer)
+
+        return Response(status = 200, data = request.data)
+
         
         
    
