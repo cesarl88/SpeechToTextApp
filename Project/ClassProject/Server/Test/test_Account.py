@@ -21,7 +21,7 @@ class TestAccount:
         response = client.post('/account/register/', {
             "username": "cls33",
             "password": "Cesartest",
-            "email" : "cls33@njit.edu",
+            "templates" : "cls33@njit.edu",
             "first_name" : "Cesar",
             "last_name" : "Salazar"
         })
@@ -31,7 +31,7 @@ class TestAccount:
         response = client.post('/account/register/', {
             #"username": "cls33",
             "password": "Cesartest",
-            "email" : "cls33@njit.edu",
+            "templates" : "cls33@njit.edu",
             "first_name" : "Cesar",
             "last_name" : "Salazar"
         })
@@ -41,7 +41,7 @@ class TestAccount:
         response = client.post('/account/register/', {
             #"username": "cls33",
             "password": "Cesartest",
-            "email" : "cls33@njit.edu",
+            "templates" : "cls33@njit.edu",
             "first_name" : "Cesar",
             "last_name" : "Salazar"
         })
