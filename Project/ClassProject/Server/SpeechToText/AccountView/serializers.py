@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate
 class UserRegisterSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ("first_name", "last_name", "username", "password", "email")
+        fields = ("first_name", "last_name", "username", "password", "templates")
 
 class UserSerializer(ModelSerializer):
     class Meta:
@@ -16,7 +16,7 @@ class UserSerializer(ModelSerializer):
 class UserUpdateProfileSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ('email', 'first_name', 'last_name')
+        fields = ('templates', 'first_name', 'last_name')
 
 
 
@@ -29,13 +29,13 @@ class CreateUserSerializer(ModelSerializer):
     last_name = serializers.CharField()
     class Meta:
         model = User
-        fields = ('id', 'username', 'password', 'email', 'first_name', 'last_name')
+        fields = ('id', 'username', 'password', 'templates', 'first_name', 'last_name')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
         #print(self.data)
         user = User.objects.create_user(validated_data['username'],
-                                        validated_data['email'],
+                                        validated_data['templates'],
                                         validated_data['password'])
         user.first_name = self.data['first_name']
         user.last_name = self.data['last_name']

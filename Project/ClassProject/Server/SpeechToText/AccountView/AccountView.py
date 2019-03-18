@@ -14,6 +14,9 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.hashers import check_password
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import generic
 # Create your views here.
 
 from rest_framework import serializers
@@ -98,3 +101,9 @@ class LogoutView(APIView):
         for t in tokens:
             t.delete()
         return Response(status=204)
+
+
+class Reset(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'home.html'
