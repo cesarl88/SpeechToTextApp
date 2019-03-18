@@ -5,40 +5,38 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['UserService', '$rootScope'];
-    function HomeController(UserService, $rootScope) {
+    HomeController.$inject = [ '$location', '$rootScope', '$http'];
+    function HomeController($location, $rootScope, $http) {
         var vm = this;
 
-        vm.user = null;
-        vm.allUsers = [];
-        vm.deleteUser = deleteUser;
+        vm.home = Home;
 
-        initController();
+        function home() {
+            vm.dataLoading = true;
 
-        function initController() {
-            loadCurrentUser();
-            loadAllUsers();
-        }
-
-        function loadCurrentUser() {
-            UserService.GetByUsername($rootScope.globals.currentUser.username)
-                .then(function (user) {
-                    vm.user = user;
-                });
-        }
-
-        function loadAllUsers() {
-            UserService.GetAll()
-                .then(function (users) {
-                    vm.allUsers = users;
-                });
-        }
-
-        function deleteUser(id) {
-            UserService.Delete(id)
-            .then(function () {
-                loadAllUsers();
+             $http.post('http://localhost:8000/account/home/', { username: vm.username, password: vm.password, first_name : vm.first_name, last_name: vm.last_name, email: vm.email})//, config)
+               .then(function (response) {
+                   console.log('Called home')
+                   console.log(response)
+                   
+                   //Store token DO NOT FORGET THIS PART
+                   $location.path('/home');
+                   //callback(response);
+               }, function (response) {
+                console.log("Error on home " + response)
+                //callback(response);
             });
+
+            // UserService.Create(vm.user)
+            //     .then(function (response) {
+            //         if (response.success) {
+            //             FlashService.Success('Registration successful', true);
+            //             $location.path('/login');
+            //         } else {
+            //             FlashService.Error(response.message);
+            //             vm.dataLoading = false;
+            //         }
+            //     });
         }
     }
 
