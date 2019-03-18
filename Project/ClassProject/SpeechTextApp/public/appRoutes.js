@@ -6,7 +6,20 @@ angular
         name: 'home',
         url: '/home',
         templateUrl: 'public/components/templates/home.view.html',
-        controller: 'HomeController'
+        controller: 'HomeController',
+        controllerAs: 'vm',
+        resolve :
+        {
+            deps:  ['$ocLazyLoad', function($ocLazyLoad){
+                return $ocLazyLoad.load({
+                    name : 'app',
+                    files : [
+                        'public/components/controllers/home.controller.js'
+                    ]
+                });
+            }]
+
+        }
     });
     $stateProvider.state({
         name: 'login',
@@ -48,9 +61,22 @@ angular
     });
     $stateProvider.state({
         name: 'dashboard',
-        url: '/d',
+        url: '/dashboard',
         templateUrl: 'public/components/templates/dashboard.html',
-        controller: 'DashboardController'
+        controller: 'DashboardController',
+        controllerAs: 'vm',
+        resolve :
+        {
+            deps:  ['$ocLazyLoad', function($ocLazyLoad){
+                return $ocLazyLoad.load({
+                    name : 'app',
+                    files : [
+                        'public/components/controllers/dashboard.controller.js'
+                    ]
+                });
+            }]
+
+        }
     });
 
     $urlRouterProvider.otherwise('/');
