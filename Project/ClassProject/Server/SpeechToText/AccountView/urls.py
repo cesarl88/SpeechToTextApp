@@ -15,6 +15,5 @@ urlpatterns = [
     url(r'^update-profile/(?P<id>\d+)/$', UserUpdateProfile.as_view(), name='Update-Profile-View'),
     url(r'^reset/$', Reset.as_view(), name='Reset-View'),
     url('login/', include('django.contrib.auth.urls')),
-    url('home/', TemplateView.as_view(template_name='home.html'), name='home'),
-
+    url('home/', TemplateView.as_view(template_name='home.html'), name='home')
 ]
