@@ -62,7 +62,7 @@ angular
     $stateProvider.state({
         name: 'dashboard',
         url: '/dashboard',
-        templateUrl: 'public/components/templates/dashboard.html',
+        templateUrl: 'public/components/templates/dashboard.view.html',
         controller: 'DashboardController',
         controllerAs: 'vm',
         resolve :
@@ -72,6 +72,44 @@ angular
                     name : 'app',
                     files : [
                         'public/components/controllers/dashboard.controller.js'
+                    ]
+                });
+            }]
+
+        }
+    });
+    $stateProvider.state({
+        name: 'about',
+        url: '/about',
+        templateUrl: 'public/components/templates/about.view.html',
+        controller: 'aboutController',
+        controllerAs: 'vm',
+        resolve :
+        {
+            deps:  ['$ocLazyLoad', function($ocLazyLoad){
+                return $ocLazyLoad.load({
+                    name : 'app',
+                    files : [
+                        'public/components/controllers/about.controller.js'
+                    ]
+                });
+            }]
+
+        }
+    });
+    $stateProvider.state({
+        name: 'profile',
+        url: '/profile',
+        templateUrl: 'public/components/templates/profile.view.html',
+        controller: 'profileController',
+        controllerAs: 'vm',
+        resolve :
+        {
+            deps:  ['$ocLazyLoad', function($ocLazyLoad){
+                return $ocLazyLoad.load({
+                    name : 'app',
+                    files : [
+                        'public/components/controllers/profile.controller.js'
                     ]
                 });
             }]
