@@ -4,26 +4,21 @@
     <meta charset="utf-8" />
     <title>User Registration and Login</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-    <link href="pubic/components/app.css" />
+    <link href="public/components/app.css" rel="stylesheet"/>
+    <!-- <script src="bower_components/less/dist/less.min.js" ></script>  -->
 </head>
 <body>
     <div class="jumbotron">
-        <div class="container">
+            <ui-view></ui-view>
+        <!-- <div class="container">
             <div class="col-sm-8 col-sm-offset-2">
                 <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
-                <!-- <div ng-view></div> -->
+                
                 <ui-view></ui-view>
             </div>
-        </div>
+        </div> -->
     </div>
-    <div class="credits text-center">
-        <p>
-            <a href="">User Registration and Login </a>
-        </p>
-        <p>
-            <a href="">Speech To Text App</a>
-        </p>
-    </div>
+    
 
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
