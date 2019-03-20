@@ -1,32 +1,23 @@
-<span class="bckg"></span>
-<header>
-  <h1>Home</h1>
-  <nav>
-    <ul>
-      <li>
-        <!-- <a href="javascript:void(0);" data-title=>Transcript</a> -->
-        <a ng-click="vm.transcript()" data-title=>Transcript</a>
-      </li>
-      <li>
-        <a ng-click="vm.profile()" data-title=>Manage Profile</a>
-      </li>
-     
-      <li>
-        <a ng-click="vm.about()" data-title=>About</a>
-      </li>
-     
-    </ul>
-  </nav>
-</header>
-<main>
-  <div class="title">
-    <h2>Transcripts</h2>
-    
-  </div>
+<div class="form-group clearfix">
+  <h1>Dashboard</p>
 
-  <article class="larg">
-    <div>
-      
-    </div>
-  </article>
-</main>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Comment</th>
+        <th>Type</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="file in Files">
+        <td>{{file.Name}}</td>
+        <td>{{file.Comment}}</td>
+        <td>{{file.Type}}</td>
+        <td><button class="btn-btn-primary" ng-click="edit(file)"> Edit </button></td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
