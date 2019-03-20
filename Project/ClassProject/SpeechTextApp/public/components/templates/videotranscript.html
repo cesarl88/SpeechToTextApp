@@ -24,6 +24,18 @@
   transition: 0.4s;
 }
 
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
 body {margin:0;}
 
 .icon-bar {
@@ -54,7 +66,7 @@ body {margin:0;}
 <body>
 
 <div class="icon-bar">
-	<div class="container">
+	<div class="container" onclick="myFunction(this)">
 		<div class="bar1"></div>
 		<div class="bar2"></div>
 		<div class="bar3"></div>
@@ -118,6 +130,10 @@ angular.module('speech').controller('speechController', function($scope) {
   };
   
 });
+
+function myFunction(x) {
+  x.classList.toggle("change");
+}
 </script>
 
 </body>
