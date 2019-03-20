@@ -68,18 +68,18 @@
 
         function SetCredentials(username, password, token) {
             console.log("Setting credentials")
+            
             var authdata = Base64.encode(username + ':' + password);
 
             $rootScope.globals = {
                 currentUser: {
                     username: username,
-                    authdata: authdata,
-                    token : token
+                    authdata: authdata
                 }
             };
-
+            console.log(authdata)
             // set default auth header for http requests
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
+            //$http.defaults.headers.common['authorization'] = 'Token ' + authdata;
 
             // store user details in globals cookie that keeps user logged in for 1 week (or until they logout)
             var cookieExp = new Date();
@@ -90,7 +90,7 @@
         function ClearCredentials() {
             $rootScope.globals = {};
             $cookies.remove('globals');
-            $http.defaults.headers.common.Authorization = 'Basic';
+            //$http.defaults.headers.common.Authorization = 'Token';
         }
     }
 

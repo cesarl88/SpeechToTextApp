@@ -1,11 +1,58 @@
 (function () {
     'use strict';
 
-    angular
+    var app = angular
         .module('app', ['ngCookies', 'oc.lazyLoad', 'appRoutes'])
         //.config(config)
         .run(run);
 
+    //AppController.$inject = ['$scope', '$rootScope'];
+    app.controller('AppController', ['$scope', '$rootScope','$location',
+    function ($scope, $rootScope, $location) {
+        var vm = this;
+        $scope.IsLogin = false;
+        
+        console.log('In home')
+        $scope.transcript = function ()
+        {
+            console.log('Hey going to transcript')
+            $location.path("/dashboard")   
+        }
+
+        $scope.about = function ()
+        {
+            console.log('Hey going to about')
+            $location.path("/about")   
+        }
+
+        $scope.profile = function ()
+        {
+            console.log('Hey going to profile')
+            $location.path("/profile")   
+        }
+
+
+        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+            // redirect to login page if not logged in and trying to access a restricted page
+            //var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+            var loggedIn = $rootScope.globals.currentUser;
+            console.log(loggedIn)
+            if ((typeof loggedIn == 'undefined') )
+            {
+                console.log('Inside If')
+                $location.path('/login');
+                $scope.IsLogin = false;
+            }
+            else
+            {
+                $scope.IsLogin = true;
+                console.log('Inside else')
+            }
+            
+        });
+
+        
+    }]);
     //config.$inject = ['$routeProvider', '$locationProvider'];
     // function config($routeProvider, $locationProvider) {
     //     $routeProvider
@@ -37,14 +84,14 @@
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
         }
 
-        $rootScope.$on('$locationChangeStart', function (event, next, current) {
-            // redirect to login page if not logged in and trying to access a restricted page
-            var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
-            var loggedIn = $rootScope.globals.currentUser;
-            if (restrictedPage && !loggedIn) {
-                $location.path('/login');
-            }
-        });
+        // $rootScope.$on('$locationChangeStart', function (event, next, current) {
+        //     // redirect to login page if not logged in and trying to access a restricted page
+        //     var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+        //     var loggedIn = $rootScope.globals.currentUser;
+        //     if (restrictedPage && !loggedIn) {
+        //         $location.path('/login');
+        //     }
+        // });
     }
 
 })();
