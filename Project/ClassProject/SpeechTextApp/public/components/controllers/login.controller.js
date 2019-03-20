@@ -5,8 +5,8 @@
         .module('app')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location', 'AuthenticationService'];
-    function LoginController($location, AuthenticationService, FlashService) {
+    LoginController.$inject = ['$location','$cookies', 'AuthenticationService'];
+    function LoginController($location, $cookies, AuthenticationService, FlashService) {
         var vm = this;
 
         console.log("Login Controller")
@@ -25,7 +25,10 @@
             AuthenticationService.Login(vm.username, vm.password, function (response) {
                 console.log(response.data)
                 if (response.status == 200) {
-                    AuthenticationService.SetCredentials(vm.username, vm.password, response.token);
+                    $cookies.put('Token', response.data.token)
+                    console.log(response.data.token)
+                    console.log($cookies.get('Token'))
+                    AuthenticationService.SetCredentials(vm.username, vm.password, response.data.token);
                     $location.path('/home');
                 } else {
                     

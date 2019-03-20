@@ -5,35 +5,38 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = [ '$location', '$rootScope', '$http'];
-    function HomeController($location, $rootScope, $http) {
+    HomeController.$inject = [ '$scope','$location', '$rootScope', '$http','$cookies'];
+    function HomeController($scope,$location, $rootScope, $http,$cookies) {
         var vm = this;
-
+        $scope.Files = []
         vm.home = home;
-        console.log('In home')
-        vm.transcript = function ()
-        {
-            console.log('Hey going to transcript')
-            $location.path("/dashboard")   
-        }
+        console.log($rootScope.globals)
 
-        vm.about = function ()
-        {
-            console.log('Hey going to about')
-            $location.path("/about")   
-        }
+        vm.home();
 
-        vm.profile = function ()
+        $scope.edit = function (file)
         {
-            console.log('Hey going to profile')
-            $location.path("/profile")   
+            console.log('To edit')
+            console.log(file)
         }
 
         function home() {
             vm.dataLoading = true;
 
-            
-            
+            console.log($cookies.get('Token'));
+            $http.get('http://localhost:8000/account-files/files/', {
+                headers : 
+                {
+                    'authorization' : 'Token ' + $cookies.get('Token')
+                }
+            })
+               .then(function (response) {
+                    console.log(response.data)
+                    $scope.Files = response.data;
+               }, function (response) {
+                
+            });
+
             //  $http.post('http://localhost:8000/account/files/', { username: vm.username, password: vm.password, first_name : vm.first_name, last_name: vm.last_name, email: vm.email})//, config)
             //    .then(function (response) {
             //        console.log('Called home')
