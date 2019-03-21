@@ -61,6 +61,11 @@ body {margin:0;}
 .active {
   background-color: #ADD8E6;
 }
+
+button {
+  width: 90px;
+  height: 45px;
+}
 </style>
 </head>
 
@@ -83,7 +88,7 @@ body {margin:0;}
 </div>
 
 <div ng-app="speech" ng-controller="speechController as spc">
-	<textarea rows="4" cols="50" contenteditable="false" ng-model="spc.final">
+	<textarea rows="20" cols="100" contenteditable="false" ng-model="spc.final">
 	</textarea>
 	<button ng-click="spc.start()">
 	Start
