@@ -61,6 +61,16 @@ body {margin:0;}
 .active {
   background-color: #ADD8E6;
 }
+
+video {
+  width: 475px;
+  height: 275px;
+}
+
+button {
+  width: 90px;
+  height: 45px;
+}
 </style>
 </head>
 <body>
@@ -88,7 +98,7 @@ These methods, properties, and events allow you to manipulate <audio> and <video
 </div>
 
 <div ng-app="speech" ng-controller="speechController as spc">
-	<textarea rows="4" cols="50" contenteditable="false" ng-model="spc.final">
+	<textarea rows="10" cols="100" contenteditable="false" ng-model="spc.final">
 	</textarea>
 	<button ng-click="spc.start()">
 	Start
