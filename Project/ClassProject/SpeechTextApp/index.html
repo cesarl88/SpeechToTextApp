@@ -10,7 +10,7 @@
 <body ng-controller="AppController">
 
         <span class="bckg"></span>
-        <header ng-show="IsLogin == true">
+        <header ng-show="ShowSideMenu == true">
           <h1><a href='#!/home'>Home</a></h1>
           <nav>
             <ul>
@@ -25,22 +25,24 @@
               <li>
                 <a ng-click="about()" >About</a>
               </li>
-             
+              <li>
+                <a ng-click="logout()" >Log Out</a>
+              </li>
             </ul>
           </nav>
         </header>
         <main>
-                <div class="title">
-                  <h2>Transcripts</h2>
-                  
-                </div>
-              
-                <article class="larg">
-                  <div>
-                        <ui-view></ui-view>
-                  </div>
-                </article>
-              </main>
+          <div class="title">
+            <h2>Transcripts</h2>
+            
+          </div>
+        
+          <article class="larg">
+            <div>
+                  <ui-view></ui-view>
+            </div>
+          </article>
+        </main>
 
     <!-- <div class="jumbotron">
             <ui-view></ui-view>

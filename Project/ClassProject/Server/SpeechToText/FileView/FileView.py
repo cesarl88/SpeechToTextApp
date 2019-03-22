@@ -16,6 +16,7 @@ class UploadedFileView(mixins.CreateModelMixin,generics.ListAPIView):
     permission_classes      = [IsOwner]
 
     def get_queryset(self, *args, **kwargs):
+        print('Here')
         qs = File.objects.filter(User = self.request.user)
         if "id" in self.kwargs:
             print('ID')

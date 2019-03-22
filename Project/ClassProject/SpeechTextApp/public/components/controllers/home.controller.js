@@ -23,14 +23,13 @@
         function home() {
             vm.dataLoading = true;
 
-            console.log($cookies.get('Token'));
+            console.log($rootScope.globals.currentUser.token);
             $http.get('http://localhost:8000/account-files/files/', {
                 headers : 
                 {
-                    'authorization' : 'Token ' + $cookies.get('Token')
+                    'authorization' : 'Token ' + $rootScope.globals.currentUser.token
                 }
-            })
-               .then(function (response) {
+            }).then(function (response) {
                     console.log(response.data)
                     $scope.Files = response.data;
                }, function (response) {

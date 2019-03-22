@@ -7,8 +7,8 @@
         .run(run);
 
     //AppController.$inject = ['$scope', '$rootScope'];
-    app.controller('AppController', ['$scope', '$rootScope','$location',
-    function ($scope, $rootScope, $location) {
+    app.controller('AppController', ['$scope', '$rootScope','$location', '$cookies', '$http',
+    function ($scope, $rootScope, $location, $cookies, $http) {
         var vm = this;
         $scope.IsLogin = false;
         
@@ -31,20 +31,44 @@
             $location.path("/profile")   
         }
 
+        $scope.logout = function()
+        {
+            console.log($rootScope.globals.currentUser.token)
+            $http.post('http://localhost:8000/account/logout/', {},{
+                headers : 
+                {
+                    'authorization' : 'Token ' + $rootScope.globals.currentUser.token
+                }
+            }).then(function (response) {
+                console.log("Login out")
+                $location.path('/login');
+                $rootScope.globals = {};
+                $cookies.remove('globals');
+               }, function (response) {
+                console.log("Error on login " + response.data)
+            });
+
+            
+        }
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
             //var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
             var loggedIn = $rootScope.globals.currentUser;
             console.log(loggedIn)
-            if ((typeof loggedIn == 'undefined') )
+            if ((typeof loggedIn == 'undefined'))
             {
                 console.log('Inside If')
-                $location.path('/login');
+                if($location.path() != '/register')
+                { $location.path('/login');}
+
                 $scope.IsLogin = false;
+                $scope.ShowSideMenu =  false
+                
             }
             else
             {
+                $scope.ShowSideMenu = true
                 $scope.IsLogin = true;
                 console.log('Inside else')
             }

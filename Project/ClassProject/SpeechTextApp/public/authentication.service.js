@@ -17,31 +17,6 @@
 
         function Login(username, password, callback) {
 
-            /* Dummy authentication for testing, uses $timeout to simulate api call
-             ----------------------------------------------*/
-            // $timeout(function () {
-            //     var response;
-            //     UserService.GetByUsername(username)
-            //         .then(function (user) {
-            //             if (user !== null && user.password === password) {
-            //                 response = { success: true };
-            //             } else {
-            //                 response = { success: false, message: 'Username or password is incorrect' };
-            //             }
-            //             callback(response);
-            //         });
-            // }, 1000);
-
-            /* Use this for real authentication
-             ----------------------------------------------*/
-
-            //headers = { mode :'cors',}
-            // config = {
-            //     headers = {
-            //         'authorization' : 'Token ' + Token
-                
-            //     }
-            // }
             $http.post('http://localhost:8000/account/login/', { username: username, password: password })//, config)
                .then(function (response) {
                    console.log('Called login')
@@ -51,30 +26,22 @@
                 console.log("Error on login " + response)
                 callback(response);
             });
-
-
-            // $http.post('http://localhost:8000/account/register/', { username: username, password: password, first_name : firtsname, last_name: lastname })//, config)
-            //    .then(function (response) {
-            //        console.log('Called login')
-            //        console.log(response)
-            //        callback(response);
-            //    }, function (response) {
-            //     console.log("Error on login " + response)
-            //     callback(response);
-            // });
-
-            
         }
 
-        function SetCredentials(username, password, token) {
+        function SetCredentials(username, password, id, token, first_name, last_name, email) {
             console.log("Setting credentials")
             
             var authdata = Base64.encode(username + ':' + password);
 
             $rootScope.globals = {
                 currentUser: {
+                    id : id,
+                    first_name : first_name,
+                    last_name : last_name,
+                    email : email, 
                     username: username,
-                    authdata: authdata
+                    authdata: authdata, 
+                    token: token
                 }
             };
             console.log(authdata)

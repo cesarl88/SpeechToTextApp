@@ -25,14 +25,9 @@
             AuthenticationService.Login(vm.username, vm.password, function (response) {
                 console.log(response.data)
                 if (response.status == 200) {
-                    $cookies.put('Token', response.data.token)
-                    console.log(response.data.token)
-                    console.log($cookies.get('Token'))
-                    AuthenticationService.SetCredentials(vm.username, vm.password, response.data.token);
+                    AuthenticationService.SetCredentials(vm.username, vm.password,response.data.user.id, response.data.token, response.data.user.first_name, response.data.user.last_name, response.data.user.email);
                     $location.path('/home');
                 } else {
-                    
-                    //FlashService.Error(response.message);
                     vm.dataLoading = false;
                 }
             });
