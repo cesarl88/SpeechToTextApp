@@ -5,8 +5,8 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = [ '$scope','$location', '$rootScope', '$http','$cookies'];
-    function HomeController($scope,$location, $rootScope, $http,$cookies) {
+    HomeController.$inject = [ '$scope','$location', '$rootScope', '$http','$cookies', 'SweetAlert'];
+    function HomeController($scope,$location, $rootScope, $http, $cookies, SweetAlert) {
         var vm = this;
         $scope.Files = []
         vm.home = home;
@@ -18,6 +18,64 @@
         {
             console.log('To edit')
             console.log(file)
+
+            if(file.Type == 1)
+            {
+                console.log('Audio File')
+                $location.path('TranscriptAudio/' + file.id)
+            }
+            else if(file.Type == 2)
+            {
+                console.log('Video File')
+                $location.path('TranscriptVideo/' + file.id)
+            }
+            else if(file.Type == 3)
+            {
+                console.log('Microphone File')
+                $location.path('TranscriptMic/' + file.id)
+            }
+            else
+            { alert('File type not recognized'); }
+        }
+
+        $scope.Delete = function(file)
+        {
+            var r =  confirm("Do you want to delete " + file.Name + '?')
+            if(r == true)
+            { 
+                $http.delete('http://127.0.0.1:8000/account-files/files-delete/' + file.id + '/', {
+                    headers : { 'authorization' : 'Token ' + $rootScope.globals.currentUser.token} 
+                }).then(function (response) {
+                        alert(file.Name + ' has been deleted')
+                        vm.home();
+                   }, function (response) {
+                    alert('Error deleting ' + file.Name)
+                   });
+                
+            }
+            else
+            {
+                alert('Cancelled')
+            }
+            //  SweetAlert.swal({
+            //     title: "Are you sure?",
+            //     text: "Your will not be able to recover "+ file.Name,
+            //     type: "warning",
+            //     showCancelButton: true,
+            //     confirmButtonColor: "#DD6B55",confirmButtonText: "Yes, delete it!",
+            //     cancelButtonText: "No, cancel please!",
+            //     closeOnConfirm: false,
+            //     closeOnCancel: false }, 
+            //  function(isConfirm){ 
+            //      console.log(isConfirm)
+            //     if (isConfirm) {
+            //         console.log('yes')
+            //         SweetAlert.swal("Deleted!");
+            //     } else {
+            //         console.log('No ')
+            //        SweetAlert.swal("Cancelled");
+            //     }
+            //  });
         }
 
         function home() {

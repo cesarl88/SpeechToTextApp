@@ -1,0 +1,18 @@
+
+<div class="desc">
+	<h1>Microphone to Transcript</h1>
+</div>
+
+<div class="speechtext" ng-app="speech" ng-controller="speechController as spc">
+	<textarea rows="20" cols="100" contenteditable="false" ng-model="spc.final">
+	</textarea>
+	<button ng-click="spc.start()">
+	Start
+	</button>
+</div>
+
+<div class="comment">
+	<textarea rows="20" cols="100" placeholder="Type comments or notes here..."></textarea>
+</div>
+
+<hr>

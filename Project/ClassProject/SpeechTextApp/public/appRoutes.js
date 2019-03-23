@@ -116,6 +116,82 @@ angular
 
         }
     });
+    $stateProvider.state({
+        name: 'createTranscript',
+        url: '/createTranscript/:filetype',
+        templateUrl: 'public/components/templates/createfile.view.html',
+        controller: 'createFileController',
+        controllerAs: 'vm',
+        resolve :
+        {
+            deps:  ['$ocLazyLoad', function($ocLazyLoad){
+                return $ocLazyLoad.load({
+                    name : 'app',
+                    files : [
+                        'public/components/controllers/createFile.controller.js'
+                    ]
+                });
+            }]
 
-    $urlRouterProvider.otherwise('/');
+        }
+    });
+    $stateProvider.state({
+        name: 'TranscriptAudio',
+        url: '/TranscriptAudio/:id',
+        templateUrl: 'public/components/templates/audiotranscript.view.html',
+        controller: 'TranscriptController',
+        controllerAs: 'vm',
+        resolve :
+        {
+            deps:  ['$ocLazyLoad', function($ocLazyLoad){
+                return $ocLazyLoad.load({
+                    name : 'app',
+                    files : [
+                        'public/components/controllers/transcript.controller.js'
+                    ]
+                });
+            }]
+
+        }
+    });
+    $stateProvider.state({
+        name: 'TranscriptVideo',
+        url: '/TranscriptVideo/:id',
+        templateUrl: 'public/components/templates/videotranscript.view.html',
+        controller: 'TranscriptController',
+        controllerAs: 'vm',
+        resolve :
+        {
+            deps:  ['$ocLazyLoad', function($ocLazyLoad){
+                return $ocLazyLoad.load({
+                    name : 'app',
+                    files : [
+                        'public/components/controllers/transcript.controller.js'
+                    ]
+                });
+            }]
+
+        }
+    });
+    $stateProvider.state({
+        name: 'TranscriptMic',
+        url: '/TranscriptMic/:id',
+        templateUrl: 'public/components/templates/videotranscript.view.html',
+        controller: 'TranscriptController',
+        controllerAs: 'vm',
+        resolve :
+        {
+            deps:  ['$ocLazyLoad', function($ocLazyLoad){
+                return $ocLazyLoad.load({
+                    name : 'app',
+                    files : [
+                        'public/components/controllers/transcript.controller.js'
+                    ]
+                });
+            }]
+
+        }
+    });
+
+    $urlRouterProvider.otherwise('/home');
 }]);

@@ -1,0 +1,31 @@
+<div class="desc">
+	<h1>Video to Transcript</h1>
+</div>
+
+<!--The HTML5 DOM has methods, properties, and events for the <audio> and <video> elements.
+These methods, properties, and events allow you to manipulate <audio> and <video> elements using JavaScript.-->
+
+<div class="aud">
+        Name: <input type="text" ng-model="File.Name">
+</div>
+<div class="vid">
+        Source: <br/> <video controls src="{{File.Content}}" ></video>
+</div>
+
+<div class="speechtext">
+    Transcript:<br/> 
+    <textarea rows="20" cols="100" contenteditable="false" ng-model="File.Transcript">
+    </textarea>
+    <button ng-click="start()">
+    Start
+    </button>
+</div>
+
+<div class="comment">
+    Comment:<br/> 
+    <textarea rows="20" cols="100" placeholder="Type comments or notes here..." ng-model="File.Comment"></textarea>
+    
+</div>
+<button ng-click="save()">
+    Save
+</button>

@@ -2,7 +2,7 @@
     'use strict';
 
     var app = angular
-        .module('app', ['ngCookies', 'oc.lazyLoad', 'appRoutes'])
+        .module('app', ['ngCookies', 'oc.lazyLoad', 'appRoutes', 'oitozero.ngSweetAlert'])
         //.config(config)
         .run(run);
 

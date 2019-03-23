@@ -11,6 +11,13 @@ import os
 from .validators import validate_file_extension
 import speech_recognition as sr
 from os import path
+import urllib.request
+import urllib.error
+import re
+import sys
+import time
+import os
+import pipes
 
 # Create your models here.
 
@@ -46,6 +53,11 @@ class File(models.Model):
     User            = models.ForeignKey(User, on_delete = models.CASCADE)
     Comment         = models.CharField(max_length=250, null=True)
 
+
+    @property
+    def TypeName(self):
+        return self.Type.Name
+
     @property
     def owner(self):
         return self.User
@@ -66,26 +78,57 @@ class File(models.Model):
     def IsMic(self):
         return self.Type.id == 3
 
+    
+
     def TranscriptFile(self):
         print('About to Transcript')
 
-        self.Transcript = 'Just transcripted'
+        #self.Transcript = 'Just transcripted'
 
         
         AUDIO_FILE = self.Content.path
         print(AUDIO_FILE)
 
+        if(self.Type.id == 2): #Viewo
+            print("Converting to audo")
+            print(self.Content.path)
+            
+            TEMP = AUDIO_FILE.replace('mp4', 'wav')
+
+            if not os.path.isfile(TEMP):
+                try:
+                    file, file_extension = os.path.splitext(AUDIO_FILE)
+                    file = pipes.quote(file)
+                    video_to_wav = 'ffmpeg -i ' + file + file_extension + ' ' + file + '.wav'
+                    final_audio = 'lame '+ file + '.wav'# + ' ' + file + '.mp3'
+                    os.system(video_to_wav)
+                    os.system(final_audio)
+                    #file=pipes.quote(file)
+                    #os.remove(file + '.wav')
+                    AUDIO_FILE = AUDIO_FILE.replace('mp4', 'wav')
+                    print("sucessfully converted ", AUDIO_FILE, " into audio!")
+                except OSError as err:
+                    print(err.reason)
+                    exit(1)
+            else:
+                AUDIO_FILE = TEMP
+
+        
+
         r = sr.Recognizer()
         with sr.AudioFile(AUDIO_FILE) as source:
-            audio = r.record(source)  # read the entire audio file
+            audio = r.record(source, offset = 0, duration = 120)  # read the entire audio file
 
         # recognize speech using Google Speech Recognition
         try:
             # for testing purposes, we're just using the default API key
             # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
             # instead of `r.recognize_google(audio)`
+            print("Google Speech Recognition will start now " )
             self.Transcript = r.recognize_google(audio)
             print("Google Speech Recognition thinks you said " + self.Transcript)
+            
+
         except sr.UnknownValueError:
             print("Google Speech Recognition could not understand audio")
         except sr.RequestError as e:
