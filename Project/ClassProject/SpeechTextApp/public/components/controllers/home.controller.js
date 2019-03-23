@@ -5,8 +5,8 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = [ '$scope','$location', '$rootScope', '$http','$cookies', 'SweetAlert'];
-    function HomeController($scope,$location, $rootScope, $http, $cookies, SweetAlert) {
+    HomeController.$inject = [ '$scope','$location', '$rootScope', '$http','$cookies', 'SweetAlert', 'NgTableParams'];
+    function HomeController($scope,$location, $rootScope, $http, $cookies, SweetAlert,NgTableParams) {
         var vm = this;
         $scope.Files = []
         vm.home = home;
@@ -90,6 +90,13 @@
             }).then(function (response) {
                     console.log(response.data)
                     $scope.Files = response.data;
+                    $scope.filesTable = new NgTableParams({
+
+                        page: 1,
+                        
+                        count: 5
+                        
+                        },  { dataset: $scope.Files });
                }, function (response) {
                 
             });

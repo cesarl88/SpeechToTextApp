@@ -176,7 +176,7 @@ angular
     $stateProvider.state({
         name: 'TranscriptMic',
         url: '/TranscriptMic/:id',
-        templateUrl: 'public/components/templates/videotranscript.view.html',
+        templateUrl: 'public/components/templates/mictranscript.view.html',
         controller: 'TranscriptController',
         controllerAs: 'vm',
         resolve :

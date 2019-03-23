@@ -80,7 +80,7 @@ class File(models.Model):
 
     
 
-    def TranscriptFile(self):
+    def TranscriptFile(self, offset = 0):
         print('About to Transcript')
 
         #self.Transcript = 'Just transcripted'
@@ -108,7 +108,7 @@ class File(models.Model):
                     AUDIO_FILE = AUDIO_FILE.replace('mp4', 'wav')
                     print("sucessfully converted ", AUDIO_FILE, " into audio!")
                 except OSError as err:
-                    print(err.reason)
+                    #print(err.reason)
                     exit(1)
             else:
                 AUDIO_FILE = TEMP
@@ -117,7 +117,7 @@ class File(models.Model):
 
         r = sr.Recognizer()
         with sr.AudioFile(AUDIO_FILE) as source:
-            audio = r.record(source, offset = 0, duration = 120)  # read the entire audio file
+            audio = r.record(source, offset = offset, duration = 120)  # read the entire audio file
 
         # recognize speech using Google Speech Recognition
         try:

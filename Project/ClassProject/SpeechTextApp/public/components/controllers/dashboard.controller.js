@@ -10,7 +10,17 @@
             var vm = this;
     
             vm.dashboard = Dashboard;
+            vm.startAudio = startAudio;
+            vm.startVideo = startVideo;
+            vm.startMic = startMic;
     
+            function startAudio ()
+            { $location.path('/TranscriptAudio/-1')}
+            function startVideo ()
+            { $location.path('/TranscriptVideo/-1')}
+            function startMic ()
+            { $location.path('/TranscriptMic/-1')}
+
             function Dashboard() {
                 vm.dataLoading = true;
     

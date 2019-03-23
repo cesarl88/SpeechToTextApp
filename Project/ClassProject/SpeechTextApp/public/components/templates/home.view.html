@@ -1,7 +1,16 @@
 <div class="form-group clearfix">
   <h1>Dashboard</p>
 
-  <table class="table table-bordered">
+  <!-- <table ng-table ="filesTable" class="table table-striped">
+
+      <tr ng-repeat="file in Files">
+      <td data-title="'Name'">{{file.Name}}</td>
+      <td data-title="'Comment'">{{file.Comment}}</td>
+      <td data-title="'Type'">{{file.Type}}</td>
+       </tr>
+    </table> -->
+
+  <table ng-table ="filesTable" class="table table-bordered">
     <thead>
       <tr>
         <th>Name</th>
@@ -12,7 +21,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="file in Files">
+      <tr ng-repeat="file in $data">
         <td>{{file.Name}}</td>
         <td width="500">{{file.Comment}}</td>
         <td width="200">{{file.TypeName}}</td>

@@ -76,12 +76,20 @@ class UpdateFileView(generics.UpdateAPIView):
         print(self.request.data)
         instance = self.get_object()
         print(instance.id)
+        print(instance.Type)
         
         if(request.data.get("Name")):
             instance.Name = request.data.get("Name")
 
         if(request.data.get("Comment")):
             instance.Comment = request.data.get("Comment")
+
+        
+        if(request.data.get("Transcript") and instance.Type.id == 3):
+            instance.Transcript = request.data.get("Transcript")
+            print(request.data.get("Transcript"))
+            print("saving   ")
+        
         instance.save()
 
         #serializer = FileUpdateSerializer(instance)
