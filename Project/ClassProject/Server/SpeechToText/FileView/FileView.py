@@ -50,9 +50,10 @@ class InitTranscript(APIView):
         files = File.objects.filter(User = self.request.user)
         if(files):
             file = get_object_or_404(files, id = int(request.data['id']))
-            print(file.Name)
+            offset = 0
+            if('offset' in request.data):
+                offset = int(request.data['offset'])
 
-            print(file.IsAudio)
             if(file.IsAudio):
                 print('Processing Audio File')
             elif(file.IsVideo):
@@ -60,9 +61,9 @@ class InitTranscript(APIView):
             elif(file.IsMic):
                 print('Processing Microphonee File')
             
-            file.TranscriptFile()
+            status_code = file.TranscriptFile(offset)
 
-            return Response(status= 200, data = file.Transcript)
+            return Response(status= status_code, data = file.Transcript)
         return Response(status= 400)
 
 #@csrf_exempt

@@ -76,17 +76,25 @@
         }
         $scope.start = function()
         {
-            if($scope.File.Type != 3)
+            function Transcript(offset)
             {
-                var data = { "id" : $state.params.id}
+                var data = { id: $state.params.id, offset:  offset}
+
                 console.log(data)
-    
                 $http.post('http://localhost:8000/account-files/files-transcript/' + $state.params.id + '/', data, { 
                     headers : { 'authorization' : 'Token ' + $rootScope.globals.currentUser.token } 
                 }
                 ).then(function (response) {
                     console.log(response)
-                    $scope.File.Transcript = response.data
+                    if(response.status == 201)
+                    { $scope.File.Transcript = response.data }
+                    else if(response.status == 200)
+                    { 
+                        $scope.File.Transcript = response.data
+                        Transcript(offset + 30)
+                    }
+                    else
+                    { alert('Error processing the request')}
                 }, function (response) {
                     
                     console.log("Error on About ")
@@ -95,6 +103,10 @@
                 });
 
             }
+            if($scope.File.Type != 3)
+            {
+                Transcript(0);
+            }
             else
             {
                 $scope.Inprogress = true
@@ -102,6 +114,37 @@
             }
         
         }
+        $scope.download = function()
+        {
+
+            if(!$scope.File.Transcript) {
+                console.error('Console.save: No data')
+                return;
+                }
+        
+                var filename = $scope.File.Name + uuidv4() + '.txt'
+        
+                var blob = new Blob([$scope.File.Transcript], {type: 'text/plain'}),
+                    e    = document.createEvent('MouseEvents'),
+                    a    = document.createElement('a')
+            // FOR IE:
+            
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveOrOpenBlob(blob, filename);
+            }
+            else{
+                var e = document.createEvent('MouseEvents'),
+                    a = document.createElement('a');
+            
+                a.download = filename;
+                a.href = window.URL.createObjectURL(blob);
+                a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
+                e.initEvent('click', true, false, window,
+                    0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                a.dispatchEvent(e);
+            }
+        }
+
 
         $scope.save = function()
         {

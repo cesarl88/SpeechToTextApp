@@ -18,7 +18,9 @@ import sys
 import time
 import os
 import pipes
-
+import subprocess
+import wave
+import contextlib
 # Create your models here.
 
 def get_upload_path(instance, filename):
@@ -78,11 +80,24 @@ class File(models.Model):
     def IsMic(self):
         return self.Type.id == 3
 
-    
+    def get_file_length(self):
+        fname = self.Content.path.replace('.mp4', '.wav')
+        duration = 30
+
+        if(os.path.isfile(fname)):
+            with contextlib.closing(wave.open(fname,'r')) as f:
+                frames = f.getnframes()
+                rate = f.getframerate()
+                duration = frames / float(rate)
+        return duration
 
     def TranscriptFile(self, offset = 0):
         print('About to Transcript')
 
+        length = self.get_file_length()
+        print(length)
+        if(offset > 0 and  length < offset):
+            return 201
         #self.Transcript = 'Just transcripted'
 
         
@@ -117,7 +132,7 @@ class File(models.Model):
 
         r = sr.Recognizer()
         with sr.AudioFile(AUDIO_FILE) as source:
-            audio = r.record(source, offset = offset, duration = 120)  # read the entire audio file
+            audio = r.record(source, offset = offset, duration = 30)  # read the entire audio file
 
         # recognize speech using Google Speech Recognition
         try:
@@ -125,7 +140,10 @@ class File(models.Model):
             # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
             # instead of `r.recognize_google(audio)`
             print("Google Speech Recognition will start now " )
-            self.Transcript = r.recognize_google(audio)
+            if(offset != 0):
+                self.Transcript += ' ' + r.recognize_google(audio)
+            else:
+                self.Transcript = r.recognize_google(audio)
             print("Google Speech Recognition thinks you said " + self.Transcript)
             
 
@@ -135,6 +153,11 @@ class File(models.Model):
             print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
         self.save()
+
+        if(length < offset + 30):
+            return 201
+
+        return 200
 
 @receiver(post_delete, sender=File)
 def submission_delete(sender, instance, **kwargs):
