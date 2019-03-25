@@ -17,6 +17,7 @@ class UploadedFileView(mixins.CreateModelMixin,generics.ListAPIView):
 
     def get_queryset(self, *args, **kwargs):
         print('Here')
+        print(self.request)
         qs = File.objects.filter(User = self.request.user).prefetch_related('Type')
         if "id" in self.kwargs:
             print('ID')
