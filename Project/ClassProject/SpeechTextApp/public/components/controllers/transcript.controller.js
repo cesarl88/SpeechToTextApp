@@ -81,7 +81,7 @@
                 var data = { id: $state.params.id, offset:  offset}
 
                 console.log(data)
-                $http.post('http://localhost:8000/account-files/files-transcript/' + $state.params.id + '/', data, { 
+                $http.post('http://localhost:8000/account-files/files-transcript/', data, { 
                     headers : { 'authorization' : 'Token ' + $rootScope.globals.currentUser.token } 
                 }
                 ).then(function (response) {

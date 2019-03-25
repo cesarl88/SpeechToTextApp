@@ -81,7 +81,10 @@ class File(models.Model):
         return self.Type.id == 3
 
     def get_file_length(self):
-        fname = self.Content.path.replace('.mp4', '.wav')
+        if(self.Type.id == 2):
+            fname = self.Content.path.replace('.mp4', '.wav')
+        else:
+            fname = self.Content.path.replace('.mp3', '.wav')
         duration = 30
 
         if(os.path.isfile(fname)):
@@ -108,26 +111,40 @@ class File(models.Model):
             print("Converting to audo")
             print(self.Content.path)
             
-            TEMP = AUDIO_FILE.replace('mp4', 'wav')
+            TEMP = AUDIO_FILE.replace('.mp4', '.wav')
 
             if not os.path.isfile(TEMP):
                 try:
                     file, file_extension = os.path.splitext(AUDIO_FILE)
                     file = pipes.quote(file)
                     video_to_wav = 'ffmpeg -i ' + file + file_extension + ' ' + file + '.wav'
-                    final_audio = 'lame '+ file + '.wav'# + ' ' + file + '.mp3'
+                    #final_audio = 'lame '+ file + '.wav'# + ' ' + file + '.mp3'
                     os.system(video_to_wav)
-                    os.system(final_audio)
-                    #file=pipes.quote(file)
-                    #os.remove(file + '.wav')
-                    AUDIO_FILE = AUDIO_FILE.replace('mp4', 'wav')
+                    AUDIO_FILE = AUDIO_FILE.replace('.mp4', '.wav')
                     print("sucessfully converted ", AUDIO_FILE, " into audio!")
                 except OSError as err:
                     #print(err.reason)
                     exit(1)
             else:
                 AUDIO_FILE = TEMP
-
+        elif(self.Type.id == 1 and '.mp3' in AUDIO_FILE):
+            print("Converting to audo wav")
+            print(self.Content.path)
+            
+            TEMP = AUDIO_FILE.replace('.mp3', '.wav')
+            if not os.path.isfile(TEMP):
+                try:
+                    file, file_extension = os.path.splitext(AUDIO_FILE)
+                    file = pipes.quote(file)
+                    mp3_to_wav = 'ffmpeg -i ' + file + file_extension + ' ' + file + '.wav'
+                    os.system(mp3_to_wav)
+                    AUDIO_FILE = AUDIO_FILE.replace('.mp3', '.wav')
+                    print("sucessfully converted ", AUDIO_FILE, " into audio!")
+                except OSError as err:
+                    #print(err.reason)
+                    exit(1)
+            else:
+                AUDIO_FILE = TEMP
         
 
         r = sr.Recognizer()

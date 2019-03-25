@@ -43,7 +43,7 @@ class TestFiles:
         video_type = FileType.objects.create(id = 2, Name='Video')
         video_type.save()
 
-        audio_path = os.getcwd() + '/Test/TestFiles/AudioTestFile1.mp3'
+        audio_path = os.getcwd() + '/Test/TestFiles/test_video_1.mp3'
         f = open(audio_path, 'rb')
         audiotest1 = djFile(f)
         file_obj_Audio = File.objects.create(Name='Audio File', Type = audio_type, User = user_obj)
@@ -62,7 +62,7 @@ class TestFiles:
         #get Token
         token = AuthToken.objects.create(User.objects.first())
         #Get Audio file mp3
-        audio_path = os.getcwd() + '/Test/TestFiles/AudioTestFile1.mp3'
+        audio_path = os.getcwd() + '/Test/TestFiles/test_video_1.mp3'
         f = open(audio_path, 'rb')
         audio = SimpleUploadedFile(audio_path, content = f.read(), content_type="audio/mp3")
         #Preparing data
@@ -295,3 +295,141 @@ class TestFiles:
         response = cl.put('/account-files/files-update/' + str(id) + "/", data = data)
         print(response.status_code)
         assert response.status_code == 403 
+
+    #integration Test
+    def test_Login_List_GetFile(self, client):
+        #login
+        response = client.post('/account/login/', {
+            "username": "cesar_1",
+            "password": "1234",
+        })
+        assert response.status_code == 200
+
+        token = response.data['token']
+        #list files
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        response = cl.get('/account-files/files/')
+        
+        assert len(response.data) == File.objects.count()
+
+        
+        first_id = response.data[0]['id']
+        print(first_id)
+        #Getting file by Id
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        
+        #Calling EndPoint
+        response = cl.get('/account-files/files/' + str(first_id) + "/")
+        assert response.status_code == 200
+
+
+    #integration Test
+    def test_Login_List_GetFile(self, client):
+        #login
+        response = client.post('/account/login/', {
+            "username": "cesar_1",
+            "password": "1234",
+        })
+        assert response.status_code == 200
+
+        token = response.data['token']
+        #list files
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        response = cl.get('/account-files/files/')
+        
+        assert len(response.data) == File.objects.count()
+
+        
+        first_id = response.data[0]['id']
+        print(first_id)
+        #Getting file by Id
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        
+        #Calling EndPoint
+        response = cl.get('/account-files/files/' + str(first_id) + "/")
+        assert response.status_code == 200
+
+    def test_Login_List_GetFile_transcript_first30_seconds(self, client):
+        #login
+        response = client.post('/account/login/', {
+            "username": "cesar_1",
+            "password": "1234",
+        })
+        assert response.status_code == 200
+
+        token = response.data['token']
+        #list files
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        response = cl.get('/account-files/files/')
+        
+        assert len(response.data) == File.objects.count()
+
+        
+        first_id = response.data[0]['id']
+        print(first_id)
+        #Getting file by Id
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        
+        #Calling EndPoint
+        response = cl.get('/account-files/files/' + str(first_id) + "/")
+        assert response.status_code == 200
+
+        data = { 'id': first_id, 'offset':  0}
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        
+        #Calling EndPoint
+        response = cl.post('/account-files/files-transcript/' + str(first_id) + "/", data=data)
+        assert response.status_code == 200   
+
+    def test_Login_List_GetFile_transcript(self, client):
+        #login
+        response = client.post('/account/login/', {
+            "username": "cesar_1",
+            "password": "1234",
+        })
+        assert response.status_code == 200
+
+        token = response.data['token']
+        #list files
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        #Calling EndPoint
+        response = cl.get('/account-files/files/')
+        
+        assert len(response.data) == File.objects.count()
+
+        
+        first_id = response.data[0]['id']
+        print(first_id)
+        #Getting file by Id
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        
+        #Calling EndPoint
+        response = cl.get('/account-files/files/' + str(first_id) + "/")
+        assert response.status_code == 200
+
+        offset = 0
+        data = { 'id': first_id, 'offset':  offset}
+        cl = APIClient()
+        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        status_code = 200
+        #Calling EndPoint
+        while (status_code == 200):
+            response = cl.post('/account-files/files-transcript/' + str(first_id) + "/", data=data)
+            status_code = response.status_code 
+            offset += 30
+            data = { 'id': first_id, 'offset':  offset}
+
+        assert status_code == 201
+
