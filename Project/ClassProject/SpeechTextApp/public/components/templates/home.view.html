@@ -1,11 +1,40 @@
-<h1>Hi {{vm.user.firstName}}!</h1>
-<p>You're logged in!!</p>
-<h3>All registered users:</h3>
-<ul>
-    <li ng-repeat="user in vm.allUsers">
-        {{user.username}} ({{user.firstName}} {{user.lastName}})
-        - <a ng-click="vm.deleteUser(user.id)">Delete</a>
-    </li>
-</ul>
-<p>&nbsp;</p>
-<p><a href="#!/login" class="btn btn-primary">Logout</a></p>
+<div class="form-group clearfix">
+  <h1>Dashboard</h1>
+  <div>
+    Search: <input type="Text" ng-model="search">
+    <button class="btn-btn-primary" ng-click="filterFiles()"> Search </button>
+    <button class="btn-btn-primary" ng-click="home()"> Refresh </button>
+  </div>
+
+
+  <!-- <table ng-table ="filesTable" class="table table-striped">
+
+      <tr ng-repeat="file in Files">
+      <td data-title="'Name'">{{file.Name}}</td>
+      <td data-title="'Comment'">{{file.Comment}}</td>
+      <td data-title="'Type'">{{file.Type}}</td>
+       </tr>
+    </table> -->
+
+  <table ng-table ="filesTable" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th width="500">Comment</th>
+        <th width="200">Type</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="file in $data">
+        <td>{{file.Name}}</td>
+        <td width="500">{{file.Comment}}</td>
+        <td width="200">{{file.TypeName}}</td>
+        <td><button class="btn-btn-primary" ng-click="edit(file)"> Edit </button></td>
+        <td><button class="btn-btn-primary" ng-click="Delete(file)"> Delete </button></td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>

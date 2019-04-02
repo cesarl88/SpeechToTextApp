@@ -2,46 +2,91 @@
 <html ng-app="app">
 <head>
     <meta charset="utf-8" />
-    <title>User Registration and Login</title>
+    <title>Speech to Text</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-    <link href="app-content/app.css" rel="stylesheet" />
+    <link href="public/components/app.css" rel="stylesheet"/>
+    <link href="bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="bower_components/ng-table-bundle/ng-table.css">
+    <!-- <script src="bower_components/less/dist/less.min.js" https://rawgit.com/esvit/ng-table/master/dist/ng-table.min.css></script>  -->
 </head>
-<body>
-    <div class="jumbotron">
-        <div class="container">
+<body ng-controller="AppController">
+
+        <span class="bckg"></span>
+        <header ng-show="ShowSideMenu == true">
+          <h1><a href='#!/home'>Home</a></h1>
+          <nav>
+            <ul>
+              <li>
+                <!-- <a href="javascript:void(0);" data-title=>Transcript</a> -->
+                <a ng-click="transcript()" >Transcript</a>
+              </li>
+              <li>
+                <a ng-click="profile()" >Manage Profile</a>
+              </li>
+             
+              <li>
+                <a ng-click="about()" >About</a>
+              </li>
+              <li>
+                <a ng-click="logout()" >Log Out</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <main>
+          <div class="title">
+            <h2>Transcripts</h2>
+            
+          </div>
+        
+          <article class="larg">
+            <div>
+                  <ui-view></ui-view>
+            </div>
+          </article>
+        </main>
+
+    <!-- <div class="jumbotron">
+            <ui-view></ui-view>
+         <div class="container">
             <div class="col-sm-8 col-sm-offset-2">
                 <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
-                <div ng-view></div>
+                
+                <ui-view></ui-view>
             </div>
-        </div>
-    </div>
-    <div class="credits text-center">
-        <p>
-            <a href="">User Registration and Login </a>
-        </p>
-        <p>
-            <a href="">Speech To Text App</a>
-        </p>
-    </div>
+        </div> 
+    </div> -->
+    
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+
+    <script src="bower_components/angular-uuid-service/angular-uuid-service.min.js"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="bower_components/ngSweetAlert/SweetAlert.js"></script>
+    <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+    <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="bower_components/ng-table-bundle/ng-table.min.js"></script>
 
     <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
-    <script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
-    <script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
 
     <script src="public/app.js"></script>
+    <script src="public/authentication.service.js"></script>
     <script src="public/appRoutes.js"></script>
-    <script src="app-services/authentication.service.js"></script>
-    <script src="app-services/flash.service.js"></script>
+
+    <!-- <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script> -->
+    <!-- <script src="public/flash.service.js"></script> -->
 
     <!-- Real user service that uses an api -->
     <!-- <script src="app-services/user.service.js"></script> -->
 
     <!-- Fake user service for demo that uses local storage -->
-    <script src="app-services/user.service.local-storage.js"></script>
+    <!-- <script src="app-services/user.service.local-storage.js"></script> -->
 
-    <script src="public/components/controllers/home.controller.js"></script>
-    <script src="public/components/controllers/login.controller.js"></script>
-    <script src="public/components/controllers/register.controller.js"></script>
+    <!-- <script src="public/components/controllers/home.controller.js"></script> -->
+    <!-- <script src="public/components/controllers/login.controller.js"></script>
+    <script src="public/components/controllers/register.controller.js"></script> -->
 </body>
 </html>

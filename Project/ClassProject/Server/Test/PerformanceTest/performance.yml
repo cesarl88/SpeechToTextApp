@@ -1,0 +1,28 @@
+execution:
+- concurrency: 20
+  hold-for: 2m
+  ramp-up: 20s
+  scenario: Thread Group
+scenarios:
+  
+  Thread Group:
+    variables:
+      userToken: 'no token'
+    requests:
+    - label: login
+      method: POST
+      url: http://localhost:8000/account/login/
+      body-file: login.json
+      extract-jsonpath:
+        userToken: $.token
+      
+      headers:
+        Content-Type: application/json
+    - label: GetFilesList
+      url: http://localhost:8000/account-files/files/
+      method: GET
+      headers:
+        authorization: Token ${userToken}
+      timeoutInMinutes: 2
+
+        

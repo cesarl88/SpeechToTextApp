@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from django.db.backends.mysql.base import DatabaseWrapper
+DatabaseWrapper.data_types['DateTimeField'] = 'datetime' # fix for MySQL 5.5
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -38,7 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'SpeechToText',
-    'rest_framework'
+    'rest_framework',
+    'knox',
+    'corsheaders',
+    
+    #'django_jenkins'
 
 
 ]
@@ -51,7 +57,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware'
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8000',
+    'localhost:8081',
+)
 
 ROOT_URLCONF = 'urls'
 
@@ -77,14 +90,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
-        'USER': 'root',
-        'PASSWORD' : '15Agosto2010'
+        #'HOST' : '50.62.209.224',
+        'NAME': 'Test_2',#'speechtotext',#'test',
+        'USER': 'root',#'cls33',
+        'PASSWORD' : '15Agosto2010'#'!Bzti917'
         
     }
 }
@@ -127,3 +142,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+}
+MEDIA_ROOT = os.path.join(BASE_DIR, '.','Files')
+MEDIA_URL = '/Files/'
+
+# EMAIL_USER and EMAIL_PASSWORD Environment Variable
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_PASSWORD = 'Testing@Njit_2019'
+EMAIL_HOST_USER = 'CS684Testing@gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+

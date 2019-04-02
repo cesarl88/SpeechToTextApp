@@ -14,19 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from SpeechToText.views import UserListAPIView
-from rest_framework.routers import DefaultRouter
+#from SpeechToText.views import UserListAPIView
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
+from rest_framework_jwt.views import obtain_jwt_token
+from django.conf.urls.static import static
+from django.conf import settings
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
 urlpatterns += [
-    #url(r'^login/', UserListAPIView.as_view(), name = 'Login'),
-    url(r'^login/(?P<id>\d+)/', UserListAPIView.as_view(), name = 'Login-ID'),
+    #url(r'^api/', include(endpoints)),
+    #url(r'^api/auth/', include('knox.urls')),
     url(r'^test/', include('SpeechToText.TestViews.urls')),
+    url(r'^account/', include(('SpeechToText.AccountView.urls','app-name'), namespace ='account-api')),
+    url(r'^account-files/', include(('SpeechToText.FileView.urls','app-name'), namespace ='account-file-api')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+] 
 
-]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

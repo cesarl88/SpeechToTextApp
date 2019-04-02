@@ -1,0 +1,43 @@
+<div class="desc">
+	<h1>Video to Transcript</h1>
+</div>
+
+<!--The HTML5 DOM has methods, properties, and events for the <audio> and <video> elements.
+These methods, properties, and events allow you to manipulate <audio> and <video> elements using JavaScript.-->
+
+<div class="aud">
+        Name: <input type="text" ng-model="File.Name">
+</div>
+<div class="aud"  ng-show="IsNew == false">
+        Source: <br/> <video controls src="{{File.Content}}" ></video>
+</div>
+<div class="speechtext" ng-show="IsNew == true">
+        FileUpload:<br/> 
+        <div class="button" ngf-select ng-model="myFile" name="file" ngf-pattern="'video/*'"
+            ngf-accept="'.mp4'"  ngf-min-height="100"
+            ngf-resize="{width: 100, height: 100}">Select</div>
+            {{myFile.name}}
+        
+</div>
+
+<div class="speechtext" ng-show="IsNew == false">
+    Transcript:<br/> 
+    <textarea rows="20" cols="100" contenteditable="false" ng-model="File.Transcript">
+    </textarea>
+    <button ng-click="start()">
+    Start
+    </button>
+    <img src="../../../Images/progress.gif" ng-show="Inprogress == true" alt="Smiley face" ng- height="42" width="42">
+    <button ng-click="download()" ng-show="File.Transcript != '' && File.Transcript != null  && Inprogress == false">
+        Download
+    </button>
+</div>
+
+<div class="comment">
+    Comment:<br/> 
+    <textarea rows="20" cols="100" placeholder="Type comments or notes here..." ng-model="File.Comment"></textarea>
+    
+</div>
+<button ng-click="save()">
+    Save
+</button>

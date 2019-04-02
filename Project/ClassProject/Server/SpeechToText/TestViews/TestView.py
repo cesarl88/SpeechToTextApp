@@ -3,19 +3,26 @@ from rest_framework import viewsets
 from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from SpeechToText.serializers import UserSerializer
-from SpeechToText.models import User
+from SpeechToText.permissions import PublicEndpoint
+from rest_framework.reverse import reverse as api_reverse
+#from SpeechToText.models import User
 # Create your views here.
+class TestNotAuthenticatedAPIView(APIView):
+    permission_classes = [PublicEndpoint]
 
-class TestAPIView(APIView):
-    
     def get(self, request):
-        print(id)
-        return Response("Test Get")
+
+        return Response("TestNotAuthenticatedAPIView: " + api_reverse("account-api:Register-View"))
 
     
 
     def post(self, request, format = None):
-        print(request.data)
-        #serializer = UserSerializer(data = request.data)
-        return Response("Test Post", HTTP_200_OK)
+        return Response("TestNotAuthenticatedAPIView Post")
+
+class TestAuthenticatedAPIView(APIView):
+    
+    def get(self, request):
+        return Response("TestAuthenticatedAPIView Get")
+
+    def post(self, request, format = None):
+        return Response("TestAuthenticatedAPIView Post")

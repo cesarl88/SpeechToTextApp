@@ -1,0 +1,33 @@
+
+<div class="desc">
+	<h1>Microphone to Transcript</h1>
+</div>
+<div class="aud">
+		Name: <input type="text" ng-model="File.Name">
+	</div>
+
+<div class="speechtext" ng-app="speech" ng-show="IsNew == false">
+	<textarea rows="20" cols="100" contenteditable="false" ng-model="File.Transcript">
+	</textarea>
+	<button ng-click="start()" ng-show="Inprogress == false">
+		Start
+	</button>
+	<button ng-click="stop()" ng-show="Inprogress == true">
+			Stop
+		</button>
+		<img src="../../../Images/progress.gif" ng-show="Inprogress == true" alt="Smiley face" ng- height="42" width="42">
+		<button ng-click="download()" ng-show="File.Transcript != '' && File.Transcript != null  && Inprogress == false">
+				Download
+		</button>
+	</div>
+	
+</div>
+
+<div class="comment">
+	<textarea rows="20" cols="100" placeholder="Type comments or notes here..." ng-model="File.Comment"></textarea>
+    
+</div>
+<button ng-click="save()"  >
+    Save
+</button>
+<div>
