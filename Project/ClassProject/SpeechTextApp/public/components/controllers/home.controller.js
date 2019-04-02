@@ -9,10 +9,11 @@
     function HomeController($scope,$location, $rootScope, $http, $cookies, SweetAlert,NgTableParams) {
         var vm = this;
         $scope.Files = []
-        vm.home = home;
+        $scope.search = ''
+        ///vm.home = home;
         console.log($rootScope.globals)
 
-        vm.home();
+        
 
         $scope.edit = function (file)
         {
@@ -57,28 +58,37 @@
             {
                 alert('Cancelled')
             }
-            //  SweetAlert.swal({
-            //     title: "Are you sure?",
-            //     text: "Your will not be able to recover "+ file.Name,
-            //     type: "warning",
-            //     showCancelButton: true,
-            //     confirmButtonColor: "#DD6B55",confirmButtonText: "Yes, delete it!",
-            //     cancelButtonText: "No, cancel please!",
-            //     closeOnConfirm: false,
-            //     closeOnCancel: false }, 
-            //  function(isConfirm){ 
-            //      console.log(isConfirm)
-            //     if (isConfirm) {
-            //         console.log('yes')
-            //         SweetAlert.swal("Deleted!");
-            //     } else {
-            //         console.log('No ')
-            //        SweetAlert.swal("Cancelled");
-            //     }
-            //  });
         }
 
-        function home() {
+        $scope.filterFiles = function()
+        {
+            if($scope.search == '')
+            { vm.home();}
+            else
+            {
+                $http.get('http://localhost:8000/account-files/files/?q=' + $scope.search, {
+                headers : 
+                {
+                    'authorization' : 'Token ' + $rootScope.globals.currentUser.token
+                }
+            }).then(function (response) {
+                    console.log(response.data)
+                    $scope.Files = response.data;
+                    $scope.filesTable = new NgTableParams({
+
+                        page: 1,
+                        
+                        count: 5
+                        
+                        },  { dataset: $scope.Files });
+               }, function (response) {
+                
+            });
+
+            }
+
+        }
+        $scope.home = function() {
             vm.dataLoading = true;
 
             console.log($rootScope.globals.currentUser.token);
@@ -100,6 +110,8 @@
                }, function (response) {
                 
             });
+
+        
 
             //  $http.post('http://localhost:8000/account/files/', { username: vm.username, password: vm.password, first_name : vm.first_name, last_name: vm.last_name, email: vm.email})//, config)
             //    .then(function (response) {
@@ -125,6 +137,7 @@
             //         }
             //     });
         }
+        $scope.home();
     }
 
 })();

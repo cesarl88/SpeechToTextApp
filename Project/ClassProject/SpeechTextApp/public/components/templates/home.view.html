@@ -1,5 +1,11 @@
 <div class="form-group clearfix">
-  <h1>Dashboard</p>
+  <h1>Dashboard</h1>
+  <div>
+    Search: <input type="Text" ng-model="search">
+    <button class="btn-btn-primary" ng-click="filterFiles()"> Search </button>
+    <button class="btn-btn-primary" ng-click="home()"> Refresh </button>
+  </div>
+
 
   <!-- <table ng-table ="filesTable" class="table table-striped">
 

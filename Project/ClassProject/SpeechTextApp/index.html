@@ -2,7 +2,7 @@
 <html ng-app="app">
 <head>
     <meta charset="utf-8" />
-    <title>User Registration and Login</title>
+    <title>Speech to Text</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <link href="public/components/app.css" rel="stylesheet"/>
     <link href="bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet"/>
@@ -63,6 +63,7 @@
     <script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
     <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
 
+    <script src="bower_components/angular-uuid-service/angular-uuid-service.min.js"></script>
     <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
     <script src="bower_components/ngSweetAlert/SweetAlert.js"></script>
     <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
@@ -74,7 +75,8 @@
     <script src="public/app.js"></script>
     <script src="public/authentication.service.js"></script>
     <script src="public/appRoutes.js"></script>
-    <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script>
+
+    <!-- <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script> -->
     <!-- <script src="public/flash.service.js"></script> -->
 
     <!-- Real user service that uses an api -->

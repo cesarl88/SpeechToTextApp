@@ -5,8 +5,8 @@
         .module('app')
         .controller('TranscriptController', TranscriptController);
 
-    TranscriptController.$inject = [ '$location', '$rootScope', '$http', '$state', '$scope', 'Upload'];
-    function TranscriptController($location, $rootScope, $http, $state, $scope, Upload) {
+    TranscriptController.$inject = [ '$location', '$rootScope', '$http', '$state', '$scope', 'Upload', 'rfc4122'];
+    function TranscriptController($location, $rootScope, $http, $state, $scope, Upload,rfc4122) {
         $scope.File = { 
             id : -1,
             Name : '',
@@ -15,7 +15,6 @@
             Content :''
 
         }
-
         $scope.myFile = null
         $scope.IsNew = false
 
@@ -87,7 +86,11 @@
                 ).then(function (response) {
                     console.log(response)
                     if(response.status == 201)
-                    { $scope.File.Transcript = response.data }
+                    { 
+                        $scope.Inprogress = false
+                        $scope.File.Transcript = response.data 
+                        //alert('Transcript has finished')
+                    }
                     else if(response.status == 200)
                     { 
                         $scope.File.Transcript = response.data
@@ -105,6 +108,7 @@
             }
             if($scope.File.Type != 3)
             {
+                $scope.Inprogress = true
                 Transcript(0);
             }
             else
@@ -122,7 +126,7 @@
                 return;
                 }
         
-                var filename = $scope.File.Name + uuidv4() + '.txt'
+                var filename = $scope.File.Name + rfc4122.v4() + '.txt'//uuidv4() + '.txt'
         
                 var blob = new Blob([$scope.File.Transcript], {type: 'text/plain'}),
                     e    = document.createEvent('MouseEvents'),

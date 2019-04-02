@@ -2,7 +2,7 @@
     'use strict';
 
     var app = angular
-        .module('app', ['ngCookies', 'oc.lazyLoad', 'appRoutes', 'oitozero.ngSweetAlert', 'ngFileUpload', 'ngTable'])
+        .module('app', ['ngCookies', 'oc.lazyLoad', 'appRoutes', 'oitozero.ngSweetAlert', 'ngFileUpload', 'ngTable', 'uuid'])
         //.config(config)
         .run(run);
 
@@ -11,6 +11,7 @@
     function ($scope, $rootScope, $location, $cookies, $http) {
         var vm = this;
         $scope.IsLogin = false;
+        //$scope.Title = 'Speecth'
         
         console.log('In home')
         $scope.transcript = function ()

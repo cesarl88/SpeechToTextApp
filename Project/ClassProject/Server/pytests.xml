@@ -1,1 +1,229 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="1" time="42.967"><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="393" name="test_Login_List_GetFile_transcript" time="42.425"></testcase></testsuite>
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="26" time="59.766"><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="11" name="test_noAuthenticated" time="0.437"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="15" name="test_authenticated" time="0.130"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="19" name="test_register" time="0.260"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="29" name="test_register_no_user_name" time="0.132"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="39" name="test_register_no_user_password" time="0.135"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="49" name="test_login" time="0.264"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="56" name="test_login_wrong_username" time="0.259"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="63" name="test_login_wrong_password" time="0.258"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="70" name="test_login_wrong_credentials" time="0.260"></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="60" name="test_PostAudioFileMp3" time="0.296"><system-out>1
+./Files/user_1/bdd63abd-493f-4c9b-a7ce-fc5c039b5443.mp3
+1
+./Files/user_1/3ff04fe1-b22e-4f1a-b84c-8e51494eb8d0.mp3
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="78" name="test_GetAudioFileList" time="0.278"><system-out>1
+./Files/user_1/847c99d2-b4d3-4dc0-ac88-2fc481607b01.mp3
+Here
+&lt;rest_framework.request.Request object at 0x10bd341d0&gt;
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="91" name="test_GetAudioFileByID" time="0.276"><system-out>1
+./Files/user_1/264f14ec-cd00-4f04-8d05-c3905d8fd724.mp3
+Here
+&lt;rest_framework.request.Request object at 0x10bd347f0&gt;
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="103" name="test_DeleteAudioFileByID_ByOwner" time="0.284"><system-out>1
+./Files/user_1/d7855d31-b8e1-4f2d-9cb6-16c8c87f0405.mp3
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="116" name="test_GetAudioFileByID_WrongUser" time="0.277"><system-out>1
+./Files/user_1/31754671-fd36-4463-9659-8607dc05a2b6.mp3
+Here
+&lt;rest_framework.request.Request object at 0x10bc27a58&gt;
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="130" name="test_UpdateFileByID_ByOwner" time="0.288"><system-out>1
+./Files/user_1/459ad671-9669-4cfa-9c5f-c2edd13bbda1.mp3
+&lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;], &apos;Comment&apos;: [&apos;Comment 12&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x10bcb0ac8&gt;
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="150" name="test_UpdateFileNameByID_ByOwner" time="0.282"><system-out>1
+./Files/user_1/280b618e-f7f3-448c-b88d-8eb2c820fe63.mp3
+&lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x10bd4fac8&gt;
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="168" name="test_UpdateFileNameAndCommentByID_ByOwner" time="0.293"><system-out>1
+./Files/user_1/5f86ee3f-018b-43ff-87a9-37441e3fc575.mp3
+&lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;], &apos;Comment&apos;: [&apos;CommentModified&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x10c5e4a20&gt;
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="189" name="test_UpdateFileCommentByID_ByOwner" time="0.286"><system-out>1
+./Files/user_1/6a1d2de0-1157-45f3-bcf7-4b915316e105.mp3
+&lt;QueryDict: {&apos;Comment&apos;: [&apos;CommentModified&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x10c600780&gt;
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="209" name="test_TryUpdateFileContentByID_ByOwner" time="0.283"><system-out>1
+./Files/user_1/23896467-47aa-4e54-bb79-eebce00f37e2.mp3
+&lt;QueryDict: {&apos;Content&apos;: [&apos;ContentModified&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x10c6106d8&gt;
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="227" name="test_TryUpdateFileTranscriptByID_ByOwner" time="0.289"><system-out>1
+./Files/user_1/d2ccd034-719b-4561-a304-3eb623686109.mp3
+&lt;QueryDict: {&apos;Transcript&apos;: [&apos;TranscriptModified&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x10c626710&gt;
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="246" name="test_TryUpdateFileTypeByID_ByOwner" time="0.280"><system-out>1
+./Files/user_1/4f6dd34d-73ea-4cb4-b642-349b2ade309c.mp3
+&lt;QueryDict: {&apos;Type&apos;: [&apos;Type&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x10c63f5f8&gt;
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="265" name="test_UpdateFileNameByID_ByNotOwner" time="0.274"><system-out>1
+./Files/user_1/d7b632e4-5472-43fc-97d2-4ea08e63ebd8.mp3
+&lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;]}&gt;
+403
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="282" name="test_UpdateFileCommentByID_ByNotOwner" time="0.276"><system-out>1
+./Files/user_1/64ac3348-7869-4056-a255-5feeffb89e7e.mp3
+&lt;QueryDict: {&apos;Comment&apos;: [&apos;TCommentModified&apos;]}&gt;
+403
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="329" name="test_Login_List_GetFile" time="0.415"><system-out>1
+./Files/user_1/d6f983fb-08b6-40f8-a6dc-5c1e304dd61e.mp3
+Here
+&lt;rest_framework.request.Request object at 0x10c609630&gt;
+1
+Here
+&lt;rest_framework.request.Request object at 0x10c5f49b0&gt;
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="357" name="test_Login_List_GetFile_transcript_first30_seconds" time="8.990"><system-out>1
+./Files/user_1/5bb72ede-4507-415d-9184-007b9cd4da04.mp3
+Here
+&lt;rest_framework.request.Request object at 0x10bd4b9e8&gt;
+1
+Here
+&lt;rest_framework.request.Request object at 0x10bcb0748&gt;
+ID
+1
+Processing Audio File
+About to Transcript
+30
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/5bb72ede-4507-415d-9184-007b9cd4da04.mp3
+Converting to audo wav
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/5bb72ede-4507-415d-9184-007b9cd4da04.mp3
+sucessfully converted  /Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/5bb72ede-4507-415d-9184-007b9cd4da04.wav  into audio!
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said so it&apos;s two weeks from prom and you don&apos;t have a date what are you going to do or maybe you have a job interview for that dream job and you really want to win the employer over but how do you make sure the like you while there&apos;s actually a very simple solution and it&apos;s called not for you want to be not who you want to be turns you almost instantly into who someone else wants you to be for those last-minute date Fiasco&apos;s important job interviews awkward meet the families you name it
+</system-out><system-err>ffmpeg version 4.1.2 Copyright (c) 2000-2019 the FFmpeg developers
+  built with Apple LLVM version 10.0.0 (clang-1000.10.44.4)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/4.1.2 --enable-shared --enable-pthreads --enable-version3 --enable-hardcoded-tables --enable-avresample --cc=clang --host-cflags=&apos;-I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include -I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include/darwin&apos; --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libbluray --enable-libmp3lame --enable-libopus --enable-librubberband --enable-libsnappy --enable-libtesseract --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librtmp --enable-libspeex --enable-videotoolbox --disable-libjack --disable-indev=jack --enable-libaom --enable-libsoxr
+  libavutil      56. 22.100 / 56. 22.100
+  libavcodec     58. 35.100 / 58. 35.100
+  libavformat    58. 20.100 / 58. 20.100
+  libavdevice    58.  5.100 / 58.  5.100
+  libavfilter     7. 40.101 /  7. 40.101
+  libavresample   4.  0.  0 /  4.  0.  0
+  libswscale      5.  3.100 /  5.  3.100
+  libswresample   3.  3.100 /  3.  3.100
+  libpostproc    55.  3.100 / 55.  3.100
+Input #0, mp3, from &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/5bb72ede-4507-415d-9184-007b9cd4da04.mp3&apos;:
+  Duration: 00:02:26.94, start: 0.025057, bitrate: 128 kb/s
+    Stream #0:0: Audio: mp3, 44100 Hz, stereo, fltp, 128 kb/s
+    Metadata:
+      encoder         : LAME3.100
+    Side data:
+      replaygain: track gain - 4.700000, track peak - unknown, album gain - unknown, album peak - unknown, 
+Stream mapping:
+  Stream #0:0 -&gt; #0:0 (mp3 (mp3float) -&gt; pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, wav, to &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/5bb72ede-4507-415d-9184-007b9cd4da04.wav&apos;:
+  Metadata:
+    ISFT            : Lavf58.20.100
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s
+    Metadata:
+      encoder         : Lavc58.35.100 pcm_s16le
+    Side data:
+      replaygain: track gain - 4.700000, track peak - unknown, album gain - unknown, album peak - unknown, 
+size=   25308kB time=00:02:26.91 bitrate=1411.2kbits/s speed= 576x    
+video:0kB audio:25308kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.000301%
+</system-err></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="393" name="test_Login_List_GetFile_transcript" time="43.220"><system-out>1
+./Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.mp3
+Here
+&lt;rest_framework.request.Request object at 0x10c67dd68&gt;
+1
+Here
+&lt;rest_framework.request.Request object at 0x1080995c0&gt;
+ID
+1
+Processing Audio File
+About to Transcript
+30
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.mp3
+Converting to audo wav
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.mp3
+sucessfully converted  /Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.wav  into audio!
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said so it&apos;s two weeks from prom and you don&apos;t have a date what are you going to do or maybe you have a job interview for that dream job and you really want to win the employer over but how do you make sure the like you while there&apos;s actually a very simple solution and it&apos;s called not for you want to be not who you want to be turns you almost instantly into who someone else wants you to be for those last-minute date Fiasco&apos;s important job interviews awkward meet the families you name it
+1
+Processing Audio File
+About to Transcript
+146.9126530612245
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.mp3
+Converting to audo wav
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.mp3
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said so it&apos;s two weeks from prom and you don&apos;t have a date what are you going to do or maybe you have a job interview for that dream job and you really want to win the employer over but how do you make sure the like you while there&apos;s actually a very simple solution and it&apos;s called not for you want to be not who you want to be turns you almost instantly into who someone else wants you to be for those last-minute date Fiasco&apos;s important job interviews awkward meet the families you name it send me say you should always be who you are but take it from me this product can come in handy in a multitude of situation all you have to do to Ace that interview have the family fall in love with you or get that date is simply program the name of the person you&apos;re trying to impress into the machine and how long you&apos;ll be with them and out pops a pill and within 20 minutes you&apos;ll be their favorite person in the world this pill carefully Works to install a mental filter for those boys who seem to lack one
+1
+Processing Audio File
+About to Transcript
+146.9126530612245
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.mp3
+Converting to audo wav
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.mp3
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said so it&apos;s two weeks from prom and you don&apos;t have a date what are you going to do or maybe you have a job interview for that dream job and you really want to win the employer over but how do you make sure the like you while there&apos;s actually a very simple solution and it&apos;s called not for you want to be not who you want to be turns you almost instantly into who someone else wants you to be for those last-minute date Fiasco&apos;s important job interviews awkward meet the families you name it send me say you should always be who you are but take it from me this product can come in handy in a multitude of situation all you have to do to Ace that interview have the family fall in love with you or get that date is simply program the name of the person you&apos;re trying to impress into the machine and how long you&apos;ll be with them and out pops a pill and within 20 minutes you&apos;ll be their favorite person in the world this pill carefully Works to install a mental filter for those boys who seem to lack one white girl out of her shell or quiet the incessant talker nothing else can make you so instantly pleasing to those people you have to impress for short. Of time do you want to be as recommended by 4 out of 10 marriage counselors and nine out of 10 mother-in-law&apos;s is brought to you by who would want to be you the family company that&apos;s brought you such products as thanks hair dye and concealer who would want to be you was turning the expertise they possess and changing
+1
+Processing Audio File
+About to Transcript
+146.9126530612245
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.mp3
+Converting to audo wav
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.mp3
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said so it&apos;s two weeks from prom and you don&apos;t have a date what are you going to do or maybe you have a job interview for that dream job and you really want to win the employer over but how do you make sure the like you while there&apos;s actually a very simple solution and it&apos;s called not for you want to be not who you want to be turns you almost instantly into who someone else wants you to be for those last-minute date Fiasco&apos;s important job interviews awkward meet the families you name it send me say you should always be who you are but take it from me this product can come in handy in a multitude of situation all you have to do to Ace that interview have the family fall in love with you or get that date is simply program the name of the person you&apos;re trying to impress into the machine and how long you&apos;ll be with them and out pops a pill and within 20 minutes you&apos;ll be their favorite person in the world this pill carefully Works to install a mental filter for those boys who seem to lack one white girl out of her shell or quiet the incessant talker nothing else can make you so instantly pleasing to those people you have to impress for short. Of time do you want to be as recommended by 4 out of 10 marriage counselors and nine out of 10 mother-in-law&apos;s is brought to you by who would want to be you the family company that&apos;s brought you such products as thanks hair dye and concealer who would want to be you was turning the expertise they possess and changing physical exterior into a fantastic product that can change your personality just like Spanx and concealer don&apos;t actually get rid of that extra chub you got or that&apos;s it you just can&apos;t stop thinking about not who you want to be doesn&apos;t actually change who you are however I&apos;m like are other products that turn your interview the outwards not you want to be turns your outer beauty in words after years of laboratory research careful test and extensive studies
+1
+Processing Audio File
+About to Transcript
+146.9126530612245
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.mp3
+Converting to audo wav
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.mp3
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said so it&apos;s two weeks from prom and you don&apos;t have a date what are you going to do or maybe you have a job interview for that dream job and you really want to win the employer over but how do you make sure the like you while there&apos;s actually a very simple solution and it&apos;s called not for you want to be not who you want to be turns you almost instantly into who someone else wants you to be for those last-minute date Fiasco&apos;s important job interviews awkward meet the families you name it send me say you should always be who you are but take it from me this product can come in handy in a multitude of situation all you have to do to Ace that interview have the family fall in love with you or get that date is simply program the name of the person you&apos;re trying to impress into the machine and how long you&apos;ll be with them and out pops a pill and within 20 minutes you&apos;ll be their favorite person in the world this pill carefully Works to install a mental filter for those boys who seem to lack one white girl out of her shell or quiet the incessant talker nothing else can make you so instantly pleasing to those people you have to impress for short. Of time do you want to be as recommended by 4 out of 10 marriage counselors and nine out of 10 mother-in-law&apos;s is brought to you by who would want to be you the family company that&apos;s brought you such products as thanks hair dye and concealer who would want to be you was turning the expertise they possess and changing physical exterior into a fantastic product that can change your personality just like Spanx and concealer don&apos;t actually get rid of that extra chub you got or that&apos;s it you just can&apos;t stop thinking about not who you want to be doesn&apos;t actually change who you are however I&apos;m like are other products that turn your interview the outwards not you want to be turns your outer beauty in words after years of laboratory research careful test and extensive studies be sure and not who you want to be subtly changes your personality but never fails to return you back to normal so you can be who you want to be after you&apos;ve had your fill of being not who you want to be who you want to be is not recommended for people with multiple personality disorders not who you want to be when you feel like you&apos;re just not good enough thank you
+</system-out><system-err>ffmpeg version 4.1.2 Copyright (c) 2000-2019 the FFmpeg developers
+  built with Apple LLVM version 10.0.0 (clang-1000.10.44.4)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/4.1.2 --enable-shared --enable-pthreads --enable-version3 --enable-hardcoded-tables --enable-avresample --cc=clang --host-cflags=&apos;-I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include -I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include/darwin&apos; --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libbluray --enable-libmp3lame --enable-libopus --enable-librubberband --enable-libsnappy --enable-libtesseract --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librtmp --enable-libspeex --enable-videotoolbox --disable-libjack --disable-indev=jack --enable-libaom --enable-libsoxr
+  libavutil      56. 22.100 / 56. 22.100
+  libavcodec     58. 35.100 / 58. 35.100
+  libavformat    58. 20.100 / 58. 20.100
+  libavdevice    58.  5.100 / 58.  5.100
+  libavfilter     7. 40.101 /  7. 40.101
+  libavresample   4.  0.  0 /  4.  0.  0
+  libswscale      5.  3.100 /  5.  3.100
+  libswresample   3.  3.100 /  3.  3.100
+  libpostproc    55.  3.100 / 55.  3.100
+Input #0, mp3, from &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.mp3&apos;:
+  Duration: 00:02:26.94, start: 0.025057, bitrate: 128 kb/s
+    Stream #0:0: Audio: mp3, 44100 Hz, stereo, fltp, 128 kb/s
+    Metadata:
+      encoder         : LAME3.100
+    Side data:
+      replaygain: track gain - 4.700000, track peak - unknown, album gain - unknown, album peak - unknown, 
+Stream mapping:
+  Stream #0:0 -&gt; #0:0 (mp3 (mp3float) -&gt; pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, wav, to &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6d165136-cd6a-4e6a-8a17-570406fbcf69.wav&apos;:
+  Metadata:
+    ISFT            : Lavf58.20.100
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s
+    Metadata:
+      encoder         : Lavc58.35.100 pcm_s16le
+    Side data:
+      replaygain: track gain - 4.700000, track peak - unknown, album gain - unknown, album peak - unknown, 
+size=   25308kB time=00:02:26.91 bitrate=1411.2kbits/s speed= 551x    
+video:0kB audio:25308kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.000301%
+</system-err></testcase></testsuite>

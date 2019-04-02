@@ -18,10 +18,14 @@ class UploadedFileView(mixins.CreateModelMixin,generics.ListAPIView):
     def get_queryset(self, *args, **kwargs):
         print('Here')
         print(self.request)
+        print(self.kwargs)
         qs = File.objects.filter(User = self.request.user).prefetch_related('Type')
         if "id" in self.kwargs:
             print('ID')
             qs = qs.filter(id = int(self.kwargs["id"])).distinct()
+        elif "q" in self.request.GET:
+            print('search')
+            qs = qs.filter(Name__icontains = self.request.GET['q']).distinct()
         return qs
 
     def perform_create(self, serializer):
