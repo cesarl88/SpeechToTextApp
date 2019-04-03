@@ -192,18 +192,18 @@ angular
 
         }
     });
-    $stateProvider.state({
-        name: 'register',
-        url: '/register',
-        templateUrl: 'public/components/templates/register.view.html',
-        controller: 'RegisterController'
-    });
-    $stateProvider.state({
-        name: 'dashboard',
-        url: '/d',
-        templateUrl: 'public/components/templates/dashboard.html',
-        controller: 'DashboardController'
-    });
+    // $stateProvider.state({
+    //     name: 'register',
+    //     url: '/register',
+    //     templateUrl: 'public/components/templates/register.view.html',
+    //     controller: 'RegisterController'
+    // });
+    // $stateProvider.state({
+    //     name: 'dashboard',
+    //     url: '/d',
+    //     templateUrl: 'public/components/templates/dashboard.html',
+    //     controller: 'DashboardController'
+    // });
 
     $urlRouterProvider.otherwise('/home');
 }]);
