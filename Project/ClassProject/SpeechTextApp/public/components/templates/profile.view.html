@@ -1,76 +1,72 @@
 
 
 <div class="profile-name">
-<h1>Manage Profile</h1>
-<p>Update your profile and email and password</p>
-
+    <h1>Manage Profile</h1>
+    <p>Update your profile and email and password</p>
 </div>
 
 
      
 <div class="col-sm-12 control-label">
-<label for="profile_name"> Change First Name</label>
-
+    <label for="profile_name"> Change First Name</label>
 </div>
 
 
 <div class="col-sm-12">
-<input type=name class="form-control" id="profile_name" name="Change name" placeholder="Enter first name to update it"  ng-model="first_name">
+    <input type=name class="form-control" id="profile_name" name="Change name" placeholder="Enter first name to update it"  ng-model="first_name">
 </div>
 
 
 <div class="col-sm-12">
-<input type="name" class="form-control" id="profile_name_confirm" name="Confirm name" placeholder="Re-enter first name to confirm" ng-model="first_name_confirm">
+    <input type="name" class="form-control" id="profile_name_confirm" name="Confirm name" placeholder="Re-enter first name to confirm" ng-model="first_name_confirm">
 </div>
 
 
     
 <div class="col-sm-12 control-label">                 
-<label for="profile_name"> Change Last Name</label>
-
+    <label for="profile_name"> Change Last Name</label>
 </div>
 
 
 <div class="col-sm-12">
-<input type="name" class="form-control" id="profile_name" name="Change name" placeholder="Enter last name to update it" ng-model="last_name">
+    <input type="name" class="form-control" id="profile_name" name="Change name" placeholder="Enter last name to update it" ng-model="last_name">
 </div>
 
 
 
 <div class="col-sm-12">
-<input type="name" class="form-control" id="profile_name_confirm" name="Confirm name" placeholder="Re-enter last name to confirm" ng-model="last_name_confirm">
+    <input type="name" class="form-control" id="profile_name_confirm" name="Confirm name" placeholder="Re-enter last name to confirm" ng-model="last_name_confirm">
 </div>
 
 
  
 <div class="col-sm-12 control-label">               
-<label for="profile_email"> Change Email</label>
-
+    <label for="profile_email"> Change Email</label>
 </div>
 
 
 <div class="col-sm-12">
-<input type="email" class="form-control" id="profile_email" name="Change email" placeholder="Enter email to update it" ng-model="email">
+    <input type="email" class="form-control" id="profile_email" name="Change email" placeholder="Enter email to update it" ng-model="email">
 </div>
 
 
 
 <div class="col-sm-12">
-<input type="email" class="form-control" id="profile_email_confirm" name="Confirm email" placeholder="Re-enter email to confirm" ng-model="email_confirm">
+    <input type="email" class="form-control" id="profile_email_confirm" name="Confirm email" placeholder="Re-enter email to confirm" ng-model="email_confirm">
 </div>
 
-
-<div class="btn btn-primary" ng-click="EditInfo()">Save changes</div>
-<span ng-show='name_Error == true'>Names do not match</span>
-<span ng-show='last_name_Error == true'>Last name do not match</span>
-<span ng-show='email_Error == true'>Email do not match</span>
+<div class="form-btns clearfix">
+    <button class="btn btn-primary" ng-click="EditInfo()">Save changes</button>
+    <span ng-show='name_Error == true'>Names do not match</span>
+    <span ng-show='last_name_Error == true'>Last name do not match</span>
+    <span ng-show='email_Error == true'>Email do not match</span>
+</div>
 
 
 
      
 <div class="col-sm-12 control-label">                
-<label for="profile_password">Change password</label>
-
+    <label for="profile_password">Change password</label>
 </div>
 
 <div class="col-sm-12">
@@ -91,8 +87,8 @@
          
         
 <div class="form-btns clearfix">
-<div class="btn btn-primary" ng-click="EditPassword()">Save changes</div>
-<span ng-show='passwordError == true'>Please make sure the passwords match</span>
+    <button class="btn btn-primary" ng-click="EditPassword()">Save changes</button>
+    <span ng-show='passwordError == true'>Please make sure the passwords match</span>
 </div>
   
   
