@@ -24,7 +24,7 @@
             function Dashboard() {
                 vm.dataLoading = true;
     
-                 $http.post('http://localhost:8000/account/Dashboard/', { username: vm.username, password: vm.password, first_name : vm.first_name, last_name: vm.last_name, email: vm.email})//, config)
+                 $http.post('http://speech-backend.herokuapp.com/account/Dashboard/', { username: vm.username, password: vm.password, first_name : vm.first_name, last_name: vm.last_name, email: vm.email})//, config)
                    .then(function (response) {
                        console.log('Called Dashboard')
                        console.log(response)

@@ -17,7 +17,7 @@
 
         function Login(username, password, callback) {
 
-            $http.post('http://localhost:8000/account/login/', { username: username, password: password })//, config)
+            $http.post('http://speech-backend.herokuapp.com/account/login/', { username: username, password: password })//, config)
                .then(function (response) {
                    console.log('Called login')
                    console.log(response)

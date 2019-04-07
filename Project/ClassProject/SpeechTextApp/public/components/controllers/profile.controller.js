@@ -76,7 +76,7 @@
             {
 
                 console.log($scope.data)
-                $http.put('http://localhost:8000/account/update-profile/' + $rootScope.globals.currentUser.id + '/', 
+                $http.put('http://speech-backend.herokuapp.com/account/update-profile/' + $rootScope.globals.currentUser.id + '/', 
                 $scope.data ,
                     {
                         headers : 
@@ -118,7 +118,7 @@
             { $scope.passwordError = true; }
             else
             {
-                $http.post('http://localhost:8000/account/update-password/', 
+                $http.post('http://speech-backend.herokuapp.com/account/update-password/', 
                 { 
                     Password : $scope.Password, 
                     newPassword: $scope.newPassword, 
