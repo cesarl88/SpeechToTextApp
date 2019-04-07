@@ -35,7 +35,7 @@
         $scope.logout = function()
         {
             console.log($rootScope.globals.currentUser.token)
-            $http.post('http://localhost:8000/account/logout/', {},{
+            $http.post('http://speech-backend.herokuapp.com/account/logout/', {},{
                 headers : 
                 {
                     'authorization' : 'Token ' + $rootScope.globals.currentUser.token

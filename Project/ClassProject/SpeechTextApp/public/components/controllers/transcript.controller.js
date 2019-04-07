@@ -52,7 +52,7 @@
         {
             console.log($rootScope.globals.currentUser.token);
             console.log($state.params.id);
-            $http.get('http://localhost:8000/account-files/files/' + $state.params.id + '/', {
+            $http.get('ttp://speech-backend.herokuapp.com/account-files/files/' + $state.params.id + '/', {
                 headers : { 'authorization' : 'Token ' + $rootScope.globals.currentUser.token }
             }).then(function (response) {
                     console.log(response.data)
@@ -80,7 +80,7 @@
                 var data = { id: $state.params.id, offset:  offset}
 
                 console.log(data)
-                $http.post('http://localhost:8000/account-files/files-transcript/', data, { 
+                $http.post('http://speech-backend.herokuapp.com/account-files/files-transcript/', data, { 
                     headers : { 'authorization' : 'Token ' + $rootScope.globals.currentUser.token } 
                 }
                 ).then(function (response) {
@@ -164,7 +164,7 @@
                     }
                     console.log(data)
         
-                    $http.post('http://127.0.0.1:8000/account-files/files/', data,{ 
+                    $http.post('ttp://speech-backend.herokuapp.com/account-files/files/', data,{ 
                         headers : { 'authorization' : 'Token ' + $rootScope.globals.currentUser.token } 
                     }
                     ).then(function (response) {
@@ -191,7 +191,7 @@
                     }
                     console.log(data)
                     Upload.upload({
-                        url: 'http://127.0.0.1:8000/account-files/files/',
+                        url: 'ttp://speech-backend.herokuapp.com/account-files/files/',
                         data : data,
                         headers : { 'authorization' : 'Token ' + $rootScope.globals.currentUser.token }
                     }).then(function (response) {
@@ -232,7 +232,7 @@
 
                 console.log(data)
     
-                $http.put('http://localhost:8000/account-files/files-update/' + $state.params.id + '/', data, { 
+                $http.put('ttp://speech-backend.herokuapp.com/account-files/files-update/' + $state.params.id + '/', data, { 
                     headers : { 'authorization' : 'Token ' + $rootScope.globals.currentUser.token } 
                 }
                 ).then(function (response) {

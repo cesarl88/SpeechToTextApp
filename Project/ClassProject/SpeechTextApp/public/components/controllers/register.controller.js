@@ -14,7 +14,7 @@
         function register() {
             vm.dataLoading = true;
 
-             $http.post('http://localhost:8000/account/register/', { username: vm.username, password: vm.password, first_name : vm.first_name, last_name: vm.last_name, email: vm.email})//, config)
+             $http.post('http://speech-backend.herokuapp.com/account/register/', { username: vm.username, password: vm.password, first_name : vm.first_name, last_name: vm.last_name, email: vm.email})//, config)
                .then(function (response) {
                    console.log('Called register')
                    console.log(response)
