@@ -44,7 +44,7 @@
             var r =  confirm("Do you want to delete " + file.Name + '?')
             if(r == true)
             { 
-                $http.delete('ttp://speech-backend.herokuapp.com/account-files/files-delete/' + file.id + '/', {
+                $http.delete('http://speech-backend.herokuapp.com/account-files/files-delete/' + file.id + '/', {
                     headers : { 'authorization' : 'Token ' + $rootScope.globals.currentUser.token} 
                 }).then(function (response) {
                         alert(file.Name + ' has been deleted')
@@ -66,7 +66,7 @@
             { vm.home();}
             else
             {
-                $http.get('ttp://speech-backend.herokuapp.com/account-files/files/?q=' + $scope.search, {
+                $http.get('http://speech-backend.herokuapp.com/account-files/files/?q=' + $scope.search, {
                 headers : 
                 {
                     'authorization' : 'Token ' + $rootScope.globals.currentUser.token
@@ -92,7 +92,7 @@
             vm.dataLoading = true;
 
             console.log($rootScope.globals.currentUser.token);
-            $http.get('ttp://speech-backend.herokuapp.com/account-files/files/', {
+            $http.get('http://speech-backend.herokuapp.com/account-files/files/', {
                 headers : 
                 {
                     'authorization' : 'Token ' + $rootScope.globals.currentUser.token
