@@ -1,9 +1,192 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="1" time="12.394"><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="341" name="test_transcript_first30_seconds" time="11.805"><system-out>1
-./Files/user_1/f7bdb36e-05c4-403f-95a4-0200405f32ae.wav
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="28" time="35.675"><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="14" name="test_noAuthenticated" time="0.479"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="18" name="test_authenticated" time="0.130"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="22" name="test_register" time="0.257"><system-out>200
+200
+</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="42" name="test_register_no_user_name" time="0.131"><system-out>400
+400
+</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="62" name="test_register_no_user_password" time="0.132"><system-out>400
+400
+</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="81" name="test_login" time="0.263"><system-out>200
+200
+{&apos;username&apos;: &apos;cesar&apos;, &apos;password&apos;: &apos;1234&apos;}
+cesar
+pbkdf2_sha256$120000$bmEE0hwzXOVr$746GZYh8cbC3quwJ6yeTHSdBOg0IYmBYp+ftl3STcJM=
+</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="95" name="test_login_wrong_username" time="0.259"><system-out>400
+400
+{&apos;username&apos;: &apos;cesarl&apos;, &apos;password&apos;: &apos;1234&apos;}
+cesar
+pbkdf2_sha256$120000$nqTgeQKWeJqG$ZR+h27Xgq26hgdbpwdT5ON4l74nLqsXVIBvcreKhY9Q=
+</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="109" name="test_login_wrong_password" time="0.254"><system-out>400
+400
+{&apos;username&apos;: &apos;cesar&apos;, &apos;password&apos;: &apos;123ddsd&apos;}
+cesar
+pbkdf2_sha256$120000$FyBqLWdknE0H$rjVXdEQl5UnpJNaOvj717d22pEhOCrlF45AT8DHafCc=
+</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="123" name="test_login_wrong_credentials" time="0.254"><system-out>400
+400
+{&apos;username&apos;: &apos;cesar&apos;, &apos;password&apos;: &apos;123ddsd&apos;}
+cesar
+pbkdf2_sha256$120000$PwcXo0ZFwse9$YJFv2OG6+MF6BPblnMfIzg3od8Fv9JCayh+Z8VH/Lj8=
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="65" name="test_PostAudioFileMp3" time="0.303"><system-out>1
+./Files/user_1/744eba19-d546-49df-9737-73a5e18bbd1f.wav
+audio/mp3
+1
+./Files/user_1/cfb0a146-83be-4a46-9798-30153a8d6842.mp3
+audio/mp3
+201
+/Test/TestFiles/test_video_1.mp3
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="84" name="test_PostAudioFileWav" time="0.284"><system-out>1
+./Files/user_1/bb7ed77c-4464-4104-8570-e3c8efd2b28a.wav
+audio/wav
+1
+./Files/user_1/1ffd190b-5fd3-4c09-aebc-b69585f488ae.wav
+audio/wav
+201
+/Test/TestFiles/test_audio_1.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="90" name="test_GetAudioFileList" time="0.271"><system-out>1
+./Files/user_1/436a7c42-fe05-4044-b9b4-2353117a4ff0.wav
+Here
+&lt;rest_framework.request.Request object at 0x108e91a20&gt;
+{}
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="103" name="test_GetAudioFileByID" time="0.272"><system-out>1
+./Files/user_1/0fbe38f5-a25a-438f-9998-bdc862e09e61.wav
+Here
+&lt;rest_framework.request.Request object at 0x108e91588&gt;
+{&apos;id&apos;: &apos;1&apos;}
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="115" name="test_DeleteAudioFileByID_ByOwner" time="0.272"><system-out>1
+./Files/user_1/2deab519-3232-420d-846b-3698a84f6bb1.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="128" name="test_GetAudioFileByID_WrongUser" time="0.271"><system-out>1
+./Files/user_1/4626b089-977a-4097-afbd-33f5bab5d6bd.wav
+Here
+&lt;rest_framework.request.Request object at 0x108e25710&gt;
+{&apos;id&apos;: &apos;1&apos;}
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="142" name="test_UpdateFileByID_ByOwner" time="0.283"><system-out>1
+./Files/user_1/655d82d9-ed3e-49f4-b607-7fa0a55f44a1.wav
+&lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;], &apos;Comment&apos;: [&apos;Comment 12&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x108e69e48&gt;
+{&apos;id&apos;: &apos;1&apos;}
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="162" name="test_UpdateFileNameByID_ByOwner" time="0.281"><system-out>1
+./Files/user_1/11311ecf-4d0d-4ad2-9f81-06c096859141.wav
+&lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x108ed00b8&gt;
+{&apos;id&apos;: &apos;1&apos;}
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="180" name="test_UpdateFileNameAndCommentByID_ByOwner" time="0.284"><system-out>1
+./Files/user_1/3a44e2d9-0014-4cc3-a6ca-b877f0312b3a.wav
+&lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;], &apos;Comment&apos;: [&apos;CommentModified&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x108ee40b8&gt;
+{&apos;id&apos;: &apos;1&apos;}
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="201" name="test_UpdateFileCommentByID_ByOwner" time="0.278"><system-out>1
+./Files/user_1/c2bfd9fb-6edd-423b-a407-492d48223c0f.wav
+&lt;QueryDict: {&apos;Comment&apos;: [&apos;CommentModified&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x10986c400&gt;
+{&apos;id&apos;: &apos;1&apos;}
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="221" name="test_TryUpdateFileContentByID_ByOwner" time="0.284"><system-out>1
+./Files/user_1/bc72f4a3-251c-4e03-bbfa-697dfb29274b.wav
+&lt;QueryDict: {&apos;Content&apos;: [&apos;ContentModified&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x1098925f8&gt;
+{&apos;id&apos;: &apos;1&apos;}
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="239" name="test_TryUpdateFileTranscriptByID_ByOwner" time="0.284"><system-out>1
+./Files/user_1/b8049481-59e7-4e02-a44b-663824fcec01.wav
+&lt;QueryDict: {&apos;Transcript&apos;: [&apos;TranscriptModified&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x1098a96a0&gt;
+{&apos;id&apos;: &apos;1&apos;}
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="258" name="test_TryUpdateFileTypeByID_ByOwner" time="0.282"><system-out>1
+./Files/user_1/aa0d05c1-0eb6-471d-a2c8-17968c27ba30.wav
+&lt;QueryDict: {&apos;Type&apos;: [&apos;Type&apos;]}&gt;
+1
+FileType object (1)
+Here
+&lt;rest_framework.request.Request object at 0x1098a9278&gt;
+{&apos;id&apos;: &apos;1&apos;}
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="277" name="test_UpdateFileNameByID_ByNotOwner" time="0.277"><system-out>1
+./Files/user_1/2176e264-5bc2-49a1-bf95-1398ba93779b.wav
+&lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;]}&gt;
+403
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="294" name="test_UpdateFileCommentByID_ByNotOwner" time="0.274"><system-out>1
+./Files/user_1/ae1042de-1b42-4ee6-ac23-3d2826f5e21b.wav
+&lt;QueryDict: {&apos;Comment&apos;: [&apos;TCommentModified&apos;]}&gt;
+403
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="311" name="test_Login_List_GetFile" time="0.422"><system-out>1
+./Files/user_1/bbc0f1ad-115b-4046-ba53-3aa2330d1b22.wav
+Here
+&lt;rest_framework.request.Request object at 0x10988b780&gt;
+{}
+1
+Here
+&lt;rest_framework.request.Request object at 0x108e77ef0&gt;
+{&apos;id&apos;: &apos;1&apos;}
+ID
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="341" name="test_transcript_first30_seconds" time="9.918"><system-out>1
+./Files/user_1/a455833d-c895-4a1e-9e79-2c14f6335dd1.wav
 File object (1)
 About to Transcript
 33.623125
-/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/f7bdb36e-05c4-403f-95a4-0200405f32ae.wav
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/a455833d-c895-4a1e-9e79-2c14f6335dd1.wav
 Google Speech Recognition will start now 
 Google Speech Recognition thinks you said the Birch canoe slid on the smooth planks glue the seat to the dark blue background it is easy to tell the depth of a well these days a chicken leg is a verb dish rice is often served in round Bowls the juice of lemons makes fine punch the box was the one beside the pump truck the Hogs are such hot corn and garbage 4 hours of study works
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="377" name="test_Login_List_GetFile_transcript_first30_seconds" time="8.420"><system-out>1
+./Files/user_1/13c8aa86-9711-4f3d-9521-833a8a639892.wav
+Here
+&lt;rest_framework.request.Request object at 0x1098d84a8&gt;
+{}
+1
+Here
+&lt;rest_framework.request.Request object at 0x1098dbcf8&gt;
+{&apos;id&apos;: &apos;1&apos;}
+ID
+1
+Processing Audio File
+About to Transcript
+33.623125
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/13c8aa86-9711-4f3d-9521-833a8a639892.wav
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said the Birch canoe slid on the smooth planks glue the seat to the dark blue background it is easy to tell the depth of a well these days a chicken leg is a verb dish rice is often served in round Bowls the juice of lemons makes fine punch the box was the one beside the pump truck the Hogs are such hot corn and garbage 4 hours of study works
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="413" name="test_Login_List_GetFile_transcript" time="9.892"><system-out>1
+./Files/user_1/440f0bc1-b9af-4bb6-bbf5-d6887b259ac8.wav
+Here
+&lt;rest_framework.request.Request object at 0x1099b93c8&gt;
+{}
+1
+Here
+&lt;rest_framework.request.Request object at 0x1099bec18&gt;
+{&apos;id&apos;: &apos;1&apos;}
+ID
+1
+Processing Audio File
+About to Transcript
+33.623125
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/440f0bc1-b9af-4bb6-bbf5-d6887b259ac8.wav
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said the Birch canoe slid on the smooth planks glue the seat to the dark blue background it is easy to tell the depth of a well these days a chicken leg is a verb dish rice is often served in round Bowls the juice of lemons makes fine punch the box was the one beside the pump truck the Hogs are such hot corn and garbage 4 hours of study works
+1
+Processing Audio File
+About to Transcript
+33.623125
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/440f0bc1-b9af-4bb6-bbf5-d6887b259ac8.wav
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said the Birch canoe slid on the smooth planks glue the seat to the dark blue background it is easy to tell the depth of a well these days a chicken leg is a verb dish rice is often served in round Bowls the juice of lemons makes fine punch the box was the one beside the pump truck the Hogs are such hot corn and garbage 4 hours of study works a large size in stockings is hard to sell
 </system-out></testcase></testsuite>

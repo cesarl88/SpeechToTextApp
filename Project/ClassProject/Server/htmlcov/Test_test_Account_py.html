@@ -195,8 +195,14 @@
 <p id="n126" class="pln"><a href="#n126">126</a></p>
 <p id="n127" class="pln"><a href="#n127">127</a></p>
 <p id="n128" class="pln"><a href="#n128">128</a></p>
-<p id="n129" class="stm run hide_run"><a href="#n129">129</a></p>
-<p id="n130" class="pln"><a href="#n130">130</a></p>
+<p id="n129" class="pln"><a href="#n129">129</a></p>
+<p id="n130" class="stm run hide_run"><a href="#n130">130</a></p>
+<p id="n131" class="pln"><a href="#n131">131</a></p>
+<p id="n132" class="pln"><a href="#n132">132</a></p>
+<p id="n133" class="pln"><a href="#n133">133</a></p>
+<p id="n134" class="pln"><a href="#n134">134</a></p>
+<p id="n135" class="pln"><a href="#n135">135</a></p>
+<p id="n136" class="pln"><a href="#n136">136</a></p>
 
             </td>
             <td class="text">
@@ -324,12 +330,18 @@
 <p id="t122" class="pln">        <span class="com"># assert response.status_code == 400</span><span class="strut">&nbsp;</span></p>
 <p id="t123" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t124" class="stm run hide_run">    <span class="key">def</span> <span class="nam">test_login_wrong_credentials</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">client</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t125" class="stm run hide_run">        <span class="nam">response</span> <span class="op">=</span> <span class="nam">client</span><span class="op">.</span><span class="nam">post</span><span class="op">(</span><span class="str">'/account/login/'</span><span class="op">,</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
-<p id="t126" class="pln">            <span class="str">"username"</span><span class="op">:</span> <span class="str">"cesar2"</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t127" class="pln">            <span class="str">"password"</span><span class="op">:</span> <span class="str">"123433"</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t125" class="stm run hide_run">        <span class="nam">passes</span> <span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">TestOracle</span><span class="op">.</span><span class="nam">login_endPoint</span><span class="op">(</span><span class="op">{</span><span class="strut">&nbsp;</span></p>
+<p id="t126" class="pln">            <span class="str">"username"</span><span class="op">:</span> <span class="str">"cesar"</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t127" class="pln">            <span class="str">"password"</span><span class="op">:</span> <span class="str">"123ddsd"</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t128" class="pln">        <span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t129" class="stm run hide_run">        <span class="key">assert</span> <span class="nam">response</span><span class="op">.</span><span class="nam">status_code</span> <span class="op">==</span> <span class="num">400</span><span class="strut">&nbsp;</span></p>
-<p id="t130" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t129" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t130" class="stm run hide_run">        <span class="key">assert</span> <span class="nam">passes</span> <span class="op">==</span> <span class="key">True</span><span class="strut">&nbsp;</span></p>
+<p id="t131" class="pln">        <span class="com"># response = client.post('/account/login/', {</span><span class="strut">&nbsp;</span></p>
+<p id="t132" class="pln">        <span class="com">#     "username": "cesar2",</span><span class="strut">&nbsp;</span></p>
+<p id="t133" class="pln">        <span class="com">#     "password": "123433",</span><span class="strut">&nbsp;</span></p>
+<p id="t134" class="pln">        <span class="com"># })</span><span class="strut">&nbsp;</span></p>
+<p id="t135" class="pln">        <span class="com"># assert response.status_code == 400</span><span class="strut">&nbsp;</span></p>
+<p id="t136" class="pln"><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -340,7 +352,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-04-08 18:01
+            created at 2019-04-08 19:00
         </p>
     </div>
 </div>
