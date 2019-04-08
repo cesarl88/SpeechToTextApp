@@ -164,7 +164,7 @@
                     }
                     console.log(data)
         
-                    $http.post('ttp://speech-backend.herokuapp.com/account-files/files/', data,{ 
+                    $http.post('http://speech-backend.herokuapp.com/account-files/files/', data,{ 
                         headers : { 'authorization' : 'Token ' + $rootScope.globals.currentUser.token } 
                     }
                     ).then(function (response) {
@@ -191,7 +191,7 @@
                     }
                     console.log(data)
                     Upload.upload({
-                        url: 'ttp://speech-backend.herokuapp.com/account-files/files/',
+                        url: 'http://speech-backend.herokuapp.com/account-files/files/',
                         data : data,
                         headers : { 'authorization' : 'Token ' + $rootScope.globals.currentUser.token }
                     }).then(function (response) {
@@ -232,7 +232,7 @@
 
                 console.log(data)
     
-                $http.put('ttp://speech-backend.herokuapp.com/account-files/files-update/' + $state.params.id + '/', data, { 
+                $http.put('http://speech-backend.herokuapp.com/account-files/files-update/' + $state.params.id + '/', data, { 
                     headers : { 'authorization' : 'Token ' + $rootScope.globals.currentUser.token } 
                 }
                 ).then(function (response) {
