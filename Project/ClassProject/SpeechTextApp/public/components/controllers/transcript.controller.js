@@ -52,7 +52,7 @@
         {
             console.log($rootScope.globals.currentUser.token);
             console.log($state.params.id);
-            $http.get('ttp://speech-backend.herokuapp.com/account-files/files/' + $state.params.id + '/', {
+            $http.get('http://speech-backend.herokuapp.com/account-files/files/' + $state.params.id + '/', {
                 headers : { 'authorization' : 'Token ' + $rootScope.globals.currentUser.token }
             }).then(function (response) {
                     console.log(response.data)
