@@ -122,9 +122,15 @@ class TestAccount:
         # assert response.status_code == 400
 
     def test_login_wrong_credentials(self, client):
-        response = client.post('/account/login/', {
-            "username": "cesar2",
-            "password": "123433",
+        passes = self.TestOracle.login_endPoint({
+            "username": "cesar",
+            "password": "123ddsd",
         })
-        assert response.status_code == 400
+
+        assert passes == True
+        # response = client.post('/account/login/', {
+        #     "username": "cesar2",
+        #     "password": "123433",
+        # })
+        # assert response.status_code == 400
 
