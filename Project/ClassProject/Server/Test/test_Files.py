@@ -337,35 +337,42 @@ class TestFiles:
         response = cl.get('/account-files/files/' + str(first_id) + "/")
         assert response.status_code == 200
 
+    #unit
 
-    #integration Test
-    def test_Login_List_GetFile(self, client):
-        #login
-        response = client.post('/account/login/', {
-            "username": "cesar_1",
-            "password": "1234",
-        })
-        assert response.status_code == 200
+    def test_transcript_first30_seconds(self):
+        file = File.objects.first()
+        print(file)
+        result = file.TranscriptFile(0)
+        assert result == 200
 
-        token = response.data['token']
-        #list files
-        cl = APIClient()
-        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
-        #Calling EndPoint
-        response = cl.get('/account-files/files/')
+    # #integration Test
+    # def test_Login_List_GetFile(self, client):
+    #     #login
+    #     response = client.post('/account/login/', {
+    #         "username": "cesar_1",
+    #         "password": "1234",
+    #     })
+    #     assert response.status_code == 200
+
+    #     token = response.data['token']
+    #     #list files
+    #     cl = APIClient()
+    #     cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+    #     #Calling EndPoint
+    #     response = cl.get('/account-files/files/')
         
-        assert len(response.data) == File.objects.count()
+    #     assert len(response.data) == File.objects.count()
 
         
-        first_id = response.data[0]['id']
-        print(first_id)
-        #Getting file by Id
-        cl = APIClient()
-        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+    #     first_id = response.data[0]['id']
+    #     print(first_id)
+    #     #Getting file by Id
+    #     cl = APIClient()
+    #     cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
         
-        #Calling EndPoint
-        response = cl.get('/account-files/files/' + str(first_id) + "/")
-        assert response.status_code == 200
+    #     #Calling EndPoint
+    #     response = cl.get('/account-files/files/' + str(first_id) + "/")
+    #     assert response.status_code == 200
 
     def test_Login_List_GetFile_transcript_first30_seconds(self, client):
         #login

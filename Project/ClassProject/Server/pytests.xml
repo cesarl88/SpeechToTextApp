@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="1" time="23.931"><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="65" name="test_PostAudioFileMp3" time="0.711"><system-out>1
-./Files/user_1/fa6eea42-21ea-4ffa-9689-ba2a50917c46.wav
-audio/mp3
-1
-./Files/user_1/f7345203-ea65-447b-995e-ebe55e768beb.mp3
-audio/mp3
-201
-/Test/TestFiles/test_video_1.mp3
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="1" time="12.394"><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="341" name="test_transcript_first30_seconds" time="11.805"><system-out>1
+./Files/user_1/f7bdb36e-05c4-403f-95a4-0200405f32ae.wav
+File object (1)
+About to Transcript
+33.623125
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/f7bdb36e-05c4-403f-95a4-0200405f32ae.wav
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said the Birch canoe slid on the smooth planks glue the seat to the dark blue background it is easy to tell the depth of a well these days a chicken leg is a verb dish rice is often served in round Bowls the juice of lemons makes fine punch the box was the one beside the pump truck the Hogs are such hot corn and garbage 4 hours of study works
 </system-out></testcase></testsuite>
