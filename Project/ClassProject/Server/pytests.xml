@@ -1,22 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="9" time="2.445"><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="14" name="test_noAuthenticated" time="0.426"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="18" name="test_authenticated" time="0.128"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="22" name="test_register" time="0.259"><system-out>200
-200
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="42" name="test_register_no_user_name" time="0.129"><system-out>400
-400
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="62" name="test_register_no_user_password" time="0.130"><system-out>400
-400
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="81" name="test_login" time="0.261"><system-out>200
-200
-{&apos;username&apos;: &apos;cesar&apos;, &apos;password&apos;: &apos;1234&apos;}
-cesar
-pbkdf2_sha256$120000$8SOO4nOF6u1l$4gxzgGXHHjGfKCRvtumTWs3fL1+Bnpe2edaY4fORCro=
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="95" name="test_login_wrong_username" time="0.258"><system-out>400
-400
-{&apos;username&apos;: &apos;cesarl&apos;, &apos;password&apos;: &apos;1234&apos;}
-cesar
-pbkdf2_sha256$120000$wE7u1kPKHoKh$nM30ZWEk65MUtt6J9dOmwzdpyoxEVoAiulPuNd5kPHQ=
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="109" name="test_login_wrong_password" time="0.255"><system-out>400
-400
-{&apos;username&apos;: &apos;cesar&apos;, &apos;password&apos;: &apos;123ddsd&apos;}
-cesar
-pbkdf2_sha256$120000$B2J3KhoPjbwY$ISfG+HosS38z8dtte/kL8eGO3oulwXRQH9M8k5+9iTY=
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="123" name="test_login_wrong_credentials" time="0.261"></testcase></testsuite>
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="1" time="23.931"><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="65" name="test_PostAudioFileMp3" time="0.711"><system-out>1
+./Files/user_1/fa6eea42-21ea-4ffa-9689-ba2a50917c46.wav
+audio/mp3
+1
+./Files/user_1/f7345203-ea65-447b-995e-ebe55e768beb.mp3
+audio/mp3
+201
+/Test/TestFiles/test_video_1.mp3
+</system-out></testcase></testsuite>

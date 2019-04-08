@@ -14,6 +14,9 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test.client import BOUNDARY, MULTIPART_CONTENT, encode_multipart, Client, RequestFactory
 from rest_framework.test import APIClient
 
+
+from  TestOracle import TestOracle as T_Oracle
+
 @pytest.fixture(autouse=True)
 def cleanup_files():
     pass
@@ -32,23 +35,25 @@ def get_audio_file():
 class TestFiles:
 
     def setup(self):
-        user_obj = User.objects.create_user(username = "cesar_1", password="1234", email="cls33@njit.edu")
-        user_obj.save()
+        self.TestOracle = T_Oracle()
+        self.TestOracle.initFileTesting()
+        # user_obj = User.objects.create_user(username = "cesar_1", password="1234", email="cls33@njit.edu")
+        # user_obj.save()
 
-        user_obj_2 = User.objects.create_user(username = "cesar_2", password="1234", email="cls33@njit.edu")
-        user_obj_2.save()
+        # user_obj_2 = User.objects.create_user(username = "cesar_2", password="1234", email="cls33@njit.edu")
+        # user_obj_2.save()
 
-        audio_type = FileType.objects.create(id = 1, Name='Audio')
-        audio_type.save()
-        video_type = FileType.objects.create(id = 2, Name='Video')
-        video_type.save()
+        # audio_type = FileType.objects.create(id = 1, Name='Audio')
+        # audio_type.save()
+        # video_type = FileType.objects.create(id = 2, Name='Video')
+        # video_type.save()
 
-        audio_path = os.getcwd() + '/Test/TestFiles/test_video_1.mp3'
-        f = open(audio_path, 'rb')
-        audiotest1 = djFile(f)
-        file_obj_Audio = File.objects.create(Name='Audio File', Type = audio_type, User = user_obj)
-        file_obj_Audio.Content = audiotest1
-        file_obj_Audio.save()
+        # audio_path = os.getcwd() + '/Test/TestFiles/test_video_1.mp3'
+        # f = open(audio_path, 'rb')
+        # audiotest1 = djFile(f)
+        # file_obj_Audio = File.objects.create(Name='Audio File', Type = audio_type, User = user_obj)
+        # file_obj_Audio.Content = audiotest1
+        # file_obj_Audio.save()
 
 
     def teardown_method(self, method):
@@ -61,20 +66,27 @@ class TestFiles:
     def test_PostAudioFileMp3(self, client):
         #get Token
         token = AuthToken.objects.create(User.objects.first())
+        passes = self.TestOracle.File_UploadEndPoints(1, '/Test/TestFiles/test_video_1.mp3', token)
+        assert passes == True
         #Get Audio file mp3
-        audio_path = os.getcwd() + '/Test/TestFiles/test_video_1.mp3'
-        f = open(audio_path, 'rb')
-        audio = SimpleUploadedFile(audio_path, content = f.read(), content_type="audio/mp3")
-        #Preparing data
-        data = { 'Type' : 1, 'Name' : 'Tes1', 'Content' : audio}
+        # audio_path = os.getcwd() + '/Test/TestFiles/test_video_1.mp3'
+        # f = open(audio_path, 'rb')
+        # audio = SimpleUploadedFile(audio_path, content = f.read(), content_type="audio/mp3")
+        # #Preparing data
+        # data = { 'Type' : 1, 'Name' : 'Tes1', 'Content' : audio}
         
-        #Authenticating user
-        cl = APIClient()
-        cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
-        #Calling endPoint
-        response = cl.post('/account-files/files/', data=data)
-        assert response.status_code == 201
+        # #Authenticating user
+        # cl = APIClient()
+        # cl.credentials(HTTP_AUTHORIZATION='Token ' + token)
+        # #Calling endPoint
+        # response = cl.post('/account-files/files/', data=data)
+        # assert response.status_code == 201
 
+    def test_PostAudioFileWav(self, client):
+        #get Token
+        token = AuthToken.objects.create(User.objects.first())
+        passes = self.TestOracle.File_UploadEndPoints(1, '/Test/TestFiles/test_audio_1.wav', token)
+        assert passes == True
 
     def test_GetAudioFileList(self, client):
         #get Token
