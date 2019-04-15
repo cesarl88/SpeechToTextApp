@@ -9,6 +9,10 @@ class UserRegisterSerializer(ModelSerializer):
         fields = ("first_name", "last_name", "username", "password", "email")#, "templates")
 
 class UserSerializer(ModelSerializer):
+    password = serializers.CharField()
+    newpassword = serializers.CharField()
+    confirmnewpassword = serializers.CharField()
+    
     class Meta:
         model = User
         fields = ('id', 'username', "first_name", "last_name", "email")

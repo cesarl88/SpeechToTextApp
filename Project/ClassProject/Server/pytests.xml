@@ -1,192 +1,529 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="28" time="35.675"><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="14" name="test_noAuthenticated" time="0.479"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="18" name="test_authenticated" time="0.130"></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="22" name="test_register" time="0.257"><system-out>200
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="27" time="117.939"><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="66" name="test_transcript_wav_first_30_Seconds" time="8.208"><system-out>1
+./Files/user_1/560b6e89-4de6-41c8-9f92-49b4e89ca0ae.wav
+1
+./Files/user_1/95f3209a-80dc-492c-ba5c-0b191e091d29.mp4
+About to Transcript
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/560b6e89-4de6-41c8-9f92-49b4e89ca0ae.wav
+138
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said so scrolls are the bad guys and your tree erase of noble Warriors
+{&apos;test_case&apos;: &apos;transcript_wav_first_30_sec&apos;, &apos;File&apos;: &lt;File: File object (1)&gt;}
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="77" name="test_transcript_wav_middle_file" time="9.726"><system-out>1
+./Files/user_1/045b1530-a46c-409f-b808-c8bb243e8680.wav
+1
+./Files/user_1/48fcaa7d-5e9c-4a72-9d29-6b1c71132921.mp4
+About to Transcript
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/045b1530-a46c-409f-b808-c8bb243e8680.wav
+138
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said  something in my past is the key to all of this or no question
+{&apos;test_case&apos;: &apos;transcript_wav_middle_file&apos;, &apos;File&apos;: &lt;File: File object (1)&gt;, &apos;offset&apos;: 60}
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="87" name="test_transcript_wav_end_file" time="5.525"><system-out>1
+./Files/user_1/03b88379-03aa-4887-b33c-958467ca9678.wav
+1
+./Files/user_1/4a814285-4d2c-4544-a039-2601c2d465a8.mp4
+About to Transcript
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/03b88379-03aa-4887-b33c-958467ca9678.wav
+138
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said  cutest little thing and what&apos;s your name
+{&apos;test_case&apos;: &apos;transcript_wav_final_30_sec&apos;, &apos;File&apos;: &lt;File: File object (1)&gt;, &apos;offset&apos;: 120}
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="98" name="test_transcript_video_first_30_Seconds" time="9.252"><system-out>1
+./Files/user_1/9305ce1c-a2a2-4622-8f68-8e9a0b5f6b76.wav
+1
+./Files/user_1/929b4091-f641-4fac-8f02-e8a3b03569de.mp4
+Hey
+Video File
+About to Transcript
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/929b4091-f641-4fac-8f02-e8a3b03569de.mp4
+Converting to audo
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/929b4091-f641-4fac-8f02-e8a3b03569de.mp4
+sucessfully converted  /Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/929b4091-f641-4fac-8f02-e8a3b03569de.wav  into audio!
+147
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said so it&apos;s two weeks from prom and you don&apos;t have a date what are you going to do or maybe you have a job interview for that dream job and you really want to win the employer over but how do you make sure the like you while there&apos;s actually a very simple solution and it&apos;s called not for you want to be not who you want to be turns you almost instantly into whose someone else wants you to be for those last-minute date Fiasco&apos;s important job interviews awkward meet the families you name it
 200
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="42" name="test_register_no_user_name" time="0.131"><system-out>400
-400
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="62" name="test_register_no_user_password" time="0.132"><system-out>400
-400
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="81" name="test_login" time="0.263"><system-out>200
-200
-{&apos;username&apos;: &apos;cesar&apos;, &apos;password&apos;: &apos;1234&apos;}
-cesar
-pbkdf2_sha256$120000$bmEE0hwzXOVr$746GZYh8cbC3quwJ6yeTHSdBOg0IYmBYp+ftl3STcJM=
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="95" name="test_login_wrong_username" time="0.259"><system-out>400
-400
-{&apos;username&apos;: &apos;cesarl&apos;, &apos;password&apos;: &apos;1234&apos;}
-cesar
-pbkdf2_sha256$120000$nqTgeQKWeJqG$ZR+h27Xgq26hgdbpwdT5ON4l74nLqsXVIBvcreKhY9Q=
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="109" name="test_login_wrong_password" time="0.254"><system-out>400
-400
-{&apos;username&apos;: &apos;cesar&apos;, &apos;password&apos;: &apos;123ddsd&apos;}
-cesar
-pbkdf2_sha256$120000$FyBqLWdknE0H$rjVXdEQl5UnpJNaOvj717d22pEhOCrlF45AT8DHafCc=
-</system-out></testcase><testcase classname="Test.test_Account.TestAccount" file="Test/test_Account.py" line="123" name="test_login_wrong_credentials" time="0.254"><system-out>400
-400
-{&apos;username&apos;: &apos;cesar&apos;, &apos;password&apos;: &apos;123ddsd&apos;}
-cesar
-pbkdf2_sha256$120000$PwcXo0ZFwse9$YJFv2OG6+MF6BPblnMfIzg3od8Fv9JCayh+Z8VH/Lj8=
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="65" name="test_PostAudioFileMp3" time="0.303"><system-out>1
-./Files/user_1/744eba19-d546-49df-9737-73a5e18bbd1f.wav
+{&apos;test_case&apos;: &apos;transcript_video_first_30_sec&apos;, &apos;File&apos;: &lt;File: File object (2)&gt;}
+</system-out><system-err>ffmpeg version 4.1.2 Copyright (c) 2000-2019 the FFmpeg developers
+  built with Apple LLVM version 10.0.0 (clang-1000.10.44.4)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/4.1.2 --enable-shared --enable-pthreads --enable-version3 --enable-hardcoded-tables --enable-avresample --cc=clang --host-cflags=&apos;-I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include -I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include/darwin&apos; --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libbluray --enable-libmp3lame --enable-libopus --enable-librubberband --enable-libsnappy --enable-libtesseract --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librtmp --enable-libspeex --enable-videotoolbox --disable-libjack --disable-indev=jack --enable-libaom --enable-libsoxr
+  libavutil      56. 22.100 / 56. 22.100
+  libavcodec     58. 35.100 / 58. 35.100
+  libavformat    58. 20.100 / 58. 20.100
+  libavdevice    58.  5.100 / 58.  5.100
+  libavfilter     7. 40.101 /  7. 40.101
+  libavresample   4.  0.  0 /  4.  0.  0
+  libswscale      5.  3.100 /  5.  3.100
+  libswresample   3.  3.100 /  3.  3.100
+  libpostproc    55.  3.100 / 55.  3.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/929b4091-f641-4fac-8f02-e8a3b03569de.mp4&apos;:
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    creation_time   : 2015-08-23T06:56:32.000000Z
+  Duration: 00:02:26.91, start: 0.000000, bitrate: 378 kb/s
+    Stream #0:0(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p, 480x360 [SAR 1:1 DAR 4:3], 280 kb/s, 29.97 fps, 29.97 tbr, 30k tbn, 59.94 tbc (default)
+    Metadata:
+      handler_name    : VideoHandler
+    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 96 kb/s (default)
+    Metadata:
+      creation_time   : 2015-08-23T06:56:33.000000Z
+      handler_name    : IsoMedia File Produced by Google, 5-11-2011
+Stream mapping:
+  Stream #0:1 -&gt; #0:0 (aac (native) -&gt; pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, wav, to &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/929b4091-f641-4fac-8f02-e8a3b03569de.wav&apos;:
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    ISFT            : Lavf58.20.100
+    Stream #0:0(und): Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s (default)
+    Metadata:
+      creation_time   : 2015-08-23T06:56:33.000000Z
+      handler_name    : IsoMedia File Produced by Google, 5-11-2011
+      encoder         : Lavc58.35.100 pcm_s16le
+size=   25308kB time=00:02:26.91 bitrate=1411.2kbits/s speed= 678x    
+video:0kB audio:25308kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.000301%
+</system-err></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="112" name="test_transcript_video_middle_file" time="9.072"><system-out>1
+./Files/user_1/f8926abb-56cc-4e2b-9c8c-e974720c097e.wav
+1
+./Files/user_1/39177ec0-dc7a-4a7b-974f-3cdfdef170a6.mp4
+Hey
+{&apos;test_case&apos;: &apos;transcript_video_middle_file&apos;, &apos;File&apos;: &lt;File: File object (2)&gt;, &apos;offset&apos;: 60}
+About to Transcript
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/39177ec0-dc7a-4a7b-974f-3cdfdef170a6.mp4
+Converting to audo
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/39177ec0-dc7a-4a7b-974f-3cdfdef170a6.mp4
+sucessfully converted  /Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/39177ec0-dc7a-4a7b-974f-3cdfdef170a6.wav  into audio!
+147
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said  white girl out of her shell or quiet the incessant talker nothing else can make you so instantly pleasing to those people you have to impress for short. Of time is recommended by 4 out of 10 and 9 out of 10 mother-in-law&apos;s who would want to be you was turning the expertise they possess and changing
+{&apos;test_case&apos;: &apos;transcript_video_middle_file&apos;, &apos;File&apos;: &lt;File: File object (2)&gt;, &apos;offset&apos;: 60}
+</system-out><system-err>ffmpeg version 4.1.2 Copyright (c) 2000-2019 the FFmpeg developers
+  built with Apple LLVM version 10.0.0 (clang-1000.10.44.4)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/4.1.2 --enable-shared --enable-pthreads --enable-version3 --enable-hardcoded-tables --enable-avresample --cc=clang --host-cflags=&apos;-I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include -I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include/darwin&apos; --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libbluray --enable-libmp3lame --enable-libopus --enable-librubberband --enable-libsnappy --enable-libtesseract --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librtmp --enable-libspeex --enable-videotoolbox --disable-libjack --disable-indev=jack --enable-libaom --enable-libsoxr
+  libavutil      56. 22.100 / 56. 22.100
+  libavcodec     58. 35.100 / 58. 35.100
+  libavformat    58. 20.100 / 58. 20.100
+  libavdevice    58.  5.100 / 58.  5.100
+  libavfilter     7. 40.101 /  7. 40.101
+  libavresample   4.  0.  0 /  4.  0.  0
+  libswscale      5.  3.100 /  5.  3.100
+  libswresample   3.  3.100 /  3.  3.100
+  libpostproc    55.  3.100 / 55.  3.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/39177ec0-dc7a-4a7b-974f-3cdfdef170a6.mp4&apos;:
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    creation_time   : 2015-08-23T06:56:32.000000Z
+  Duration: 00:02:26.91, start: 0.000000, bitrate: 378 kb/s
+    Stream #0:0(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p, 480x360 [SAR 1:1 DAR 4:3], 280 kb/s, 29.97 fps, 29.97 tbr, 30k tbn, 59.94 tbc (default)
+    Metadata:
+      handler_name    : VideoHandler
+    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 96 kb/s (default)
+    Metadata:
+      creation_time   : 2015-08-23T06:56:33.000000Z
+      handler_name    : IsoMedia File Produced by Google, 5-11-2011
+Stream mapping:
+  Stream #0:1 -&gt; #0:0 (aac (native) -&gt; pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, wav, to &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/39177ec0-dc7a-4a7b-974f-3cdfdef170a6.wav&apos;:
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    ISFT            : Lavf58.20.100
+    Stream #0:0(und): Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s (default)
+    Metadata:
+      creation_time   : 2015-08-23T06:56:33.000000Z
+      handler_name    : IsoMedia File Produced by Google, 5-11-2011
+      encoder         : Lavc58.35.100 pcm_s16le
+size=   25308kB time=00:02:26.91 bitrate=1411.2kbits/s speed= 531x    
+video:0kB audio:25308kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.000301%
+</system-err></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="125" name="test_transcript_video_end_file" time="7.881"><system-out>1
+./Files/user_1/888dfedf-0b88-4f55-a6ef-68b39ec0f7d7.wav
+1
+./Files/user_1/419b7720-5f40-4b38-86b4-ec1cbd8bd628.mp4
+Hey
+{&apos;test_case&apos;: &apos;transcript_video_final_30_sec&apos;, &apos;File&apos;: &lt;File: File object (2)&gt;, &apos;offset&apos;: 120}
+About to Transcript
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/419b7720-5f40-4b38-86b4-ec1cbd8bd628.mp4
+Converting to audo
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/419b7720-5f40-4b38-86b4-ec1cbd8bd628.mp4
+sucessfully converted  /Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/419b7720-5f40-4b38-86b4-ec1cbd8bd628.wav  into audio!
+147
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said  be sure and not who you want to be subtly changes your personality but never fails to return you back to normal so you can be who you want to be after you&apos;ve had your fill of being not who you want to be who you want to be is not recommended for people with multiple personality disorders not who you want to be when you feel like you&apos;re just not good enough thank you
+{&apos;test_case&apos;: &apos;transcript_video_final_30_sec&apos;, &apos;File&apos;: &lt;File: File object (2)&gt;, &apos;offset&apos;: 120}
+</system-out><system-err>ffmpeg version 4.1.2 Copyright (c) 2000-2019 the FFmpeg developers
+  built with Apple LLVM version 10.0.0 (clang-1000.10.44.4)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/4.1.2 --enable-shared --enable-pthreads --enable-version3 --enable-hardcoded-tables --enable-avresample --cc=clang --host-cflags=&apos;-I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include -I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include/darwin&apos; --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libbluray --enable-libmp3lame --enable-libopus --enable-librubberband --enable-libsnappy --enable-libtesseract --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librtmp --enable-libspeex --enable-videotoolbox --disable-libjack --disable-indev=jack --enable-libaom --enable-libsoxr
+  libavutil      56. 22.100 / 56. 22.100
+  libavcodec     58. 35.100 / 58. 35.100
+  libavformat    58. 20.100 / 58. 20.100
+  libavdevice    58.  5.100 / 58.  5.100
+  libavfilter     7. 40.101 /  7. 40.101
+  libavresample   4.  0.  0 /  4.  0.  0
+  libswscale      5.  3.100 /  5.  3.100
+  libswresample   3.  3.100 /  3.  3.100
+  libpostproc    55.  3.100 / 55.  3.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/419b7720-5f40-4b38-86b4-ec1cbd8bd628.mp4&apos;:
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    creation_time   : 2015-08-23T06:56:32.000000Z
+  Duration: 00:02:26.91, start: 0.000000, bitrate: 378 kb/s
+    Stream #0:0(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p, 480x360 [SAR 1:1 DAR 4:3], 280 kb/s, 29.97 fps, 29.97 tbr, 30k tbn, 59.94 tbc (default)
+    Metadata:
+      handler_name    : VideoHandler
+    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 96 kb/s (default)
+    Metadata:
+      creation_time   : 2015-08-23T06:56:33.000000Z
+      handler_name    : IsoMedia File Produced by Google, 5-11-2011
+Stream mapping:
+  Stream #0:1 -&gt; #0:0 (aac (native) -&gt; pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, wav, to &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/419b7720-5f40-4b38-86b4-ec1cbd8bd628.wav&apos;:
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    ISFT            : Lavf58.20.100
+    Stream #0:0(und): Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s (default)
+    Metadata:
+      creation_time   : 2015-08-23T06:56:33.000000Z
+      handler_name    : IsoMedia File Produced by Google, 5-11-2011
+      encoder         : Lavc58.35.100 pcm_s16le
+size=   25308kB time=00:02:26.91 bitrate=1411.2kbits/s speed= 713x    
+video:0kB audio:25308kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.000301%
+</system-err></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="138" name="test_file_length" time="0.654"><system-out>1
+./Files/user_1/e9726624-dc15-4127-a34f-d5d48cc7917b.wav
+1
+./Files/user_1/6dd5c7b9-69a6-4e43-8876-383875f768e1.mp4
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6dd5c7b9-69a6-4e43-8876-383875f768e1.mp4
+Converting to audo
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6dd5c7b9-69a6-4e43-8876-383875f768e1.mp4
+sucessfully converted  /Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6dd5c7b9-69a6-4e43-8876-383875f768e1.wav  into audio!
+{&apos;test_case&apos;: &apos;file_length&apos;, &apos;File&apos;: &lt;File: File object (2)&gt;}
+</system-out><system-err>ffmpeg version 4.1.2 Copyright (c) 2000-2019 the FFmpeg developers
+  built with Apple LLVM version 10.0.0 (clang-1000.10.44.4)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/4.1.2 --enable-shared --enable-pthreads --enable-version3 --enable-hardcoded-tables --enable-avresample --cc=clang --host-cflags=&apos;-I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include -I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include/darwin&apos; --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libbluray --enable-libmp3lame --enable-libopus --enable-librubberband --enable-libsnappy --enable-libtesseract --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librtmp --enable-libspeex --enable-videotoolbox --disable-libjack --disable-indev=jack --enable-libaom --enable-libsoxr
+  libavutil      56. 22.100 / 56. 22.100
+  libavcodec     58. 35.100 / 58. 35.100
+  libavformat    58. 20.100 / 58. 20.100
+  libavdevice    58.  5.100 / 58.  5.100
+  libavfilter     7. 40.101 /  7. 40.101
+  libavresample   4.  0.  0 /  4.  0.  0
+  libswscale      5.  3.100 /  5.  3.100
+  libswresample   3.  3.100 /  3.  3.100
+  libpostproc    55.  3.100 / 55.  3.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6dd5c7b9-69a6-4e43-8876-383875f768e1.mp4&apos;:
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    creation_time   : 2015-08-23T06:56:32.000000Z
+  Duration: 00:02:26.91, start: 0.000000, bitrate: 378 kb/s
+    Stream #0:0(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p, 480x360 [SAR 1:1 DAR 4:3], 280 kb/s, 29.97 fps, 29.97 tbr, 30k tbn, 59.94 tbc (default)
+    Metadata:
+      handler_name    : VideoHandler
+    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 96 kb/s (default)
+    Metadata:
+      creation_time   : 2015-08-23T06:56:33.000000Z
+      handler_name    : IsoMedia File Produced by Google, 5-11-2011
+Stream mapping:
+  Stream #0:1 -&gt; #0:0 (aac (native) -&gt; pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, wav, to &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/6dd5c7b9-69a6-4e43-8876-383875f768e1.wav&apos;:
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    ISFT            : Lavf58.20.100
+    Stream #0:0(und): Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s (default)
+    Metadata:
+      creation_time   : 2015-08-23T06:56:33.000000Z
+      handler_name    : IsoMedia File Produced by Google, 5-11-2011
+      encoder         : Lavc58.35.100 pcm_s16le
+size=   25308kB time=00:02:26.91 bitrate=1411.2kbits/s speed= 701x    
+video:0kB audio:25308kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.000301%
+</system-err></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="151" name="test_file_convert_to_wav" time="0.661"><system-out>1
+./Files/user_1/81179754-1e2d-4a12-baad-1b851969b59c.wav
+1
+./Files/user_1/47daac3e-9090-4eaf-b2b1-0f2dbba0cfc7.mp4
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/47daac3e-9090-4eaf-b2b1-0f2dbba0cfc7.mp4
+Converting to audo
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/47daac3e-9090-4eaf-b2b1-0f2dbba0cfc7.mp4
+sucessfully converted  /Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/47daac3e-9090-4eaf-b2b1-0f2dbba0cfc7.wav  into audio!
+{&apos;test_case&apos;: &apos;file_convert_to_wav&apos;, &apos;File&apos;: &lt;File: File object (2)&gt;}
+</system-out><system-err>ffmpeg version 4.1.2 Copyright (c) 2000-2019 the FFmpeg developers
+  built with Apple LLVM version 10.0.0 (clang-1000.10.44.4)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/4.1.2 --enable-shared --enable-pthreads --enable-version3 --enable-hardcoded-tables --enable-avresample --cc=clang --host-cflags=&apos;-I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include -I/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/include/darwin&apos; --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libbluray --enable-libmp3lame --enable-libopus --enable-librubberband --enable-libsnappy --enable-libtesseract --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librtmp --enable-libspeex --enable-videotoolbox --disable-libjack --disable-indev=jack --enable-libaom --enable-libsoxr
+  libavutil      56. 22.100 / 56. 22.100
+  libavcodec     58. 35.100 / 58. 35.100
+  libavformat    58. 20.100 / 58. 20.100
+  libavdevice    58.  5.100 / 58.  5.100
+  libavfilter     7. 40.101 /  7. 40.101
+  libavresample   4.  0.  0 /  4.  0.  0
+  libswscale      5.  3.100 /  5.  3.100
+  libswresample   3.  3.100 /  3.  3.100
+  libpostproc    55.  3.100 / 55.  3.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/47daac3e-9090-4eaf-b2b1-0f2dbba0cfc7.mp4&apos;:
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    creation_time   : 2015-08-23T06:56:32.000000Z
+  Duration: 00:02:26.91, start: 0.000000, bitrate: 378 kb/s
+    Stream #0:0(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p, 480x360 [SAR 1:1 DAR 4:3], 280 kb/s, 29.97 fps, 29.97 tbr, 30k tbn, 59.94 tbc (default)
+    Metadata:
+      handler_name    : VideoHandler
+    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 96 kb/s (default)
+    Metadata:
+      creation_time   : 2015-08-23T06:56:33.000000Z
+      handler_name    : IsoMedia File Produced by Google, 5-11-2011
+Stream mapping:
+  Stream #0:1 -&gt; #0:0 (aac (native) -&gt; pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, wav, to &apos;/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/47daac3e-9090-4eaf-b2b1-0f2dbba0cfc7.wav&apos;:
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    ISFT            : Lavf58.20.100
+    Stream #0:0(und): Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s (default)
+    Metadata:
+      creation_time   : 2015-08-23T06:56:33.000000Z
+      handler_name    : IsoMedia File Produced by Google, 5-11-2011
+      encoder         : Lavc58.35.100 pcm_s16le
+size=   25308kB time=00:02:26.91 bitrate=1411.2kbits/s speed= 665x    
+video:0kB audio:25308kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.000301%
+</system-err></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="160" name="test_PostAudioFileMp3" time="0.550"><system-out>1
+./Files/user_1/3d4fa64e-273a-4559-b986-256f23fb0c9c.wav
+1
+./Files/user_1/135055f8-ec28-40b4-8599-3a0d26186c0e.mp4
 audio/mp3
 1
-./Files/user_1/cfb0a146-83be-4a46-9798-30153a8d6842.mp3
+./Files/user_1/bd92e349-4e01-480b-b6e7-3911cd3f5028.mp3
 audio/mp3
 201
 /Test/TestFiles/test_video_1.mp3
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="84" name="test_PostAudioFileWav" time="0.284"><system-out>1
-./Files/user_1/bb7ed77c-4464-4104-8570-e3c8efd2b28a.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="179" name="test_PostAudioFileWav" time="0.395"><system-out>1
+./Files/user_1/c0dc7267-cbe5-43ae-a3be-90b2655390d4.wav
+1
+./Files/user_1/b99822d8-dc02-4df4-9177-58080355a9de.mp4
 audio/wav
 1
-./Files/user_1/1ffd190b-5fd3-4c09-aebc-b69585f488ae.wav
+./Files/user_1/41051b52-79fb-4e8f-af9b-3956928d2f68.wav
 audio/wav
 201
 /Test/TestFiles/test_audio_1.wav
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="90" name="test_GetAudioFileList" time="0.271"><system-out>1
-./Files/user_1/436a7c42-fe05-4044-b9b4-2353117a4ff0.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="185" name="test_GetAudioFileList" time="0.382"><system-out>1
+./Files/user_1/571c6086-698d-4836-89f6-a432b86eb96d.wav
+1
+./Files/user_1/c834c17a-736a-49df-8107-d3a39ad70633.mp4
 Here
-&lt;rest_framework.request.Request object at 0x108e91a20&gt;
+&lt;rest_framework.request.Request object at 0x1077d0a58&gt;
 {}
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="103" name="test_GetAudioFileByID" time="0.272"><system-out>1
-./Files/user_1/0fbe38f5-a25a-438f-9998-bdc862e09e61.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="198" name="test_GetAudioFileByID" time="0.379"><system-out>1
+./Files/user_1/8a6f372c-8b88-44c1-9c04-fa8b3246124c.wav
+1
+./Files/user_1/bdfc7576-6246-4d4f-b407-dab7b41cbd74.mp4
 Here
-&lt;rest_framework.request.Request object at 0x108e91588&gt;
+&lt;rest_framework.request.Request object at 0x1077ed518&gt;
 {&apos;id&apos;: &apos;1&apos;}
 ID
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="115" name="test_DeleteAudioFileByID_ByOwner" time="0.272"><system-out>1
-./Files/user_1/2deab519-3232-420d-846b-3698a84f6bb1.wav
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="128" name="test_GetAudioFileByID_WrongUser" time="0.271"><system-out>1
-./Files/user_1/4626b089-977a-4097-afbd-33f5bab5d6bd.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="210" name="test_DeleteAudioFileByID_ByOwner" time="0.407"><system-out>1
+./Files/user_1/d5f75831-a4e8-46c3-8614-3edcc99d5866.wav
+1
+./Files/user_1/f9700d51-b352-44d3-92b8-65900b152960.mp4
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="223" name="test_GetAudioFileByID_WrongUser" time="0.427"><system-out>1
+./Files/user_1/290558c1-99f0-4a9b-8ac6-7e5914c078f4.wav
+1
+./Files/user_1/80fbb3e7-b71c-41b2-92aa-5e2a20fc9f79.mp4
 Here
-&lt;rest_framework.request.Request object at 0x108e25710&gt;
+&lt;rest_framework.request.Request object at 0x1077fed30&gt;
 {&apos;id&apos;: &apos;1&apos;}
 ID
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="142" name="test_UpdateFileByID_ByOwner" time="0.283"><system-out>1
-./Files/user_1/655d82d9-ed3e-49f4-b607-7fa0a55f44a1.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="237" name="test_UpdateFileByID_ByOwner" time="0.403"><system-out>1
+./Files/user_1/f90081ac-f71b-4719-aa64-d931e747802f.wav
+1
+./Files/user_1/02a89886-610a-4995-b53d-cdffac3161a3.mp4
 &lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;], &apos;Comment&apos;: [&apos;Comment 12&apos;]}&gt;
 1
 FileType object (1)
 Here
-&lt;rest_framework.request.Request object at 0x108e69e48&gt;
+&lt;rest_framework.request.Request object at 0x1077f52e8&gt;
 {&apos;id&apos;: &apos;1&apos;}
 ID
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="162" name="test_UpdateFileNameByID_ByOwner" time="0.281"><system-out>1
-./Files/user_1/11311ecf-4d0d-4ad2-9f81-06c096859141.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="257" name="test_UpdateFileNameByID_ByOwner" time="0.395"><system-out>1
+./Files/user_1/a1e4416e-0515-4088-8149-7330feaa59ca.wav
+1
+./Files/user_1/68283272-cad9-4825-aa7e-9b7bf44b421c.mp4
 &lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;]}&gt;
 1
 FileType object (1)
 Here
-&lt;rest_framework.request.Request object at 0x108ed00b8&gt;
+&lt;rest_framework.request.Request object at 0x10b1b82e8&gt;
 {&apos;id&apos;: &apos;1&apos;}
 ID
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="180" name="test_UpdateFileNameAndCommentByID_ByOwner" time="0.284"><system-out>1
-./Files/user_1/3a44e2d9-0014-4cc3-a6ca-b877f0312b3a.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="275" name="test_UpdateFileNameAndCommentByID_ByOwner" time="0.404"><system-out>1
+./Files/user_1/091d68ec-d318-45b0-99cf-b2d27b821522.wav
+1
+./Files/user_1/a8420af1-2bc0-4674-bd5f-37923732464d.mp4
 &lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;], &apos;Comment&apos;: [&apos;CommentModified&apos;]}&gt;
 1
 FileType object (1)
 Here
-&lt;rest_framework.request.Request object at 0x108ee40b8&gt;
+&lt;rest_framework.request.Request object at 0x10b1cb7b8&gt;
 {&apos;id&apos;: &apos;1&apos;}
 ID
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="201" name="test_UpdateFileCommentByID_ByOwner" time="0.278"><system-out>1
-./Files/user_1/c2bfd9fb-6edd-423b-a407-492d48223c0f.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="296" name="test_UpdateFileCommentByID_ByOwner" time="0.613"><system-out>1
+./Files/user_1/42ca7fb8-0fd4-4a6e-b33e-33dfcdbf9c70.wav
+1
+./Files/user_1/1e26536c-ff40-4212-95ed-9175ceee28b7.mp4
 &lt;QueryDict: {&apos;Comment&apos;: [&apos;CommentModified&apos;]}&gt;
 1
 FileType object (1)
 Here
-&lt;rest_framework.request.Request object at 0x10986c400&gt;
+&lt;rest_framework.request.Request object at 0x10b1e59b0&gt;
 {&apos;id&apos;: &apos;1&apos;}
 ID
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="221" name="test_TryUpdateFileContentByID_ByOwner" time="0.284"><system-out>1
-./Files/user_1/bc72f4a3-251c-4e03-bbfa-697dfb29274b.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="316" name="test_TryUpdateFileContentByID_ByOwner" time="0.586"><system-out>1
+./Files/user_1/e329a29b-b285-4790-890c-45b1260f425b.wav
+1
+./Files/user_1/658179c8-27a9-4189-a4d6-fcb3a8fac904.mp4
 &lt;QueryDict: {&apos;Content&apos;: [&apos;ContentModified&apos;]}&gt;
 1
 FileType object (1)
 Here
-&lt;rest_framework.request.Request object at 0x1098925f8&gt;
+&lt;rest_framework.request.Request object at 0x1077fe518&gt;
 {&apos;id&apos;: &apos;1&apos;}
 ID
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="239" name="test_TryUpdateFileTranscriptByID_ByOwner" time="0.284"><system-out>1
-./Files/user_1/b8049481-59e7-4e02-a44b-663824fcec01.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="334" name="test_TryUpdateFileTranscriptByID_ByOwner" time="0.418"><system-out>1
+./Files/user_1/c1568f33-1293-4577-acb0-d29b5bb0ddf2.wav
+1
+./Files/user_1/694c25ad-8e52-4528-b0d8-330d027753cb.mp4
 &lt;QueryDict: {&apos;Transcript&apos;: [&apos;TranscriptModified&apos;]}&gt;
 1
 FileType object (1)
 Here
-&lt;rest_framework.request.Request object at 0x1098a96a0&gt;
+&lt;rest_framework.request.Request object at 0x1077b8400&gt;
 {&apos;id&apos;: &apos;1&apos;}
 ID
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="258" name="test_TryUpdateFileTypeByID_ByOwner" time="0.282"><system-out>1
-./Files/user_1/aa0d05c1-0eb6-471d-a2c8-17968c27ba30.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="353" name="test_TryUpdateFileTypeByID_ByOwner" time="0.430"><system-out>1
+./Files/user_1/cac661f0-cf74-4c01-a29e-f9d5be8f0f1e.wav
+1
+./Files/user_1/b3864333-12ab-4b3f-b225-9c383d9f59e7.mp4
 &lt;QueryDict: {&apos;Type&apos;: [&apos;Type&apos;]}&gt;
 1
 FileType object (1)
 Here
-&lt;rest_framework.request.Request object at 0x1098a9278&gt;
+&lt;rest_framework.request.Request object at 0x1077c0da0&gt;
 {&apos;id&apos;: &apos;1&apos;}
 ID
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="277" name="test_UpdateFileNameByID_ByNotOwner" time="0.277"><system-out>1
-./Files/user_1/2176e264-5bc2-49a1-bf95-1398ba93779b.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="372" name="test_UpdateFileNameByID_ByNotOwner" time="0.384"><system-out>1
+./Files/user_1/a5e9221d-1bf8-4265-a23d-22f6d817ae63.wav
+1
+./Files/user_1/75d247c1-d77f-4f0f-bd73-3e36e874d40f.mp4
 &lt;QueryDict: {&apos;Name&apos;: [&apos;Test1Modified&apos;]}&gt;
 403
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="294" name="test_UpdateFileCommentByID_ByNotOwner" time="0.274"><system-out>1
-./Files/user_1/ae1042de-1b42-4ee6-ac23-3d2826f5e21b.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="389" name="test_UpdateFileCommentByID_ByNotOwner" time="0.401"><system-out>1
+./Files/user_1/c1c96474-5661-485c-954a-d7470a106880.wav
+1
+./Files/user_1/2769c985-59ab-4b81-84b6-281193ee2d7c.mp4
 &lt;QueryDict: {&apos;Comment&apos;: [&apos;TCommentModified&apos;]}&gt;
 403
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="311" name="test_Login_List_GetFile" time="0.422"><system-out>1
-./Files/user_1/bbc0f1ad-115b-4046-ba53-3aa2330d1b22.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="406" name="test_Login_List_GetFile" time="0.563"><system-out>1
+./Files/user_1/f8751e57-8698-4b98-a2d4-44bcc3e9b7d1.wav
+1
+./Files/user_1/8f7c36a1-93c2-4ada-8f71-4bee46bc57a2.mp4
 Here
-&lt;rest_framework.request.Request object at 0x10988b780&gt;
+&lt;rest_framework.request.Request object at 0x10bd558d0&gt;
 {}
 1
 Here
-&lt;rest_framework.request.Request object at 0x108e77ef0&gt;
+&lt;rest_framework.request.Request object at 0x10bd7e320&gt;
 {&apos;id&apos;: &apos;1&apos;}
 ID
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="341" name="test_transcript_first30_seconds" time="9.918"><system-out>1
-./Files/user_1/a455833d-c895-4a1e-9e79-2c14f6335dd1.wav
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="436" name="test_transcript_first30_seconds" time="8.410"><system-out>1
+./Files/user_1/4257a6b2-06b1-4d96-8b21-9b2d85cb69bf.wav
+1
+./Files/user_1/2e0b22db-6f35-44ac-a6ec-0128d027494e.mp4
 File object (1)
 About to Transcript
-33.623125
-/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/a455833d-c895-4a1e-9e79-2c14f6335dd1.wav
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/4257a6b2-06b1-4d96-8b21-9b2d85cb69bf.wav
+138
 Google Speech Recognition will start now 
-Google Speech Recognition thinks you said the Birch canoe slid on the smooth planks glue the seat to the dark blue background it is easy to tell the depth of a well these days a chicken leg is a verb dish rice is often served in round Bowls the juice of lemons makes fine punch the box was the one beside the pump truck the Hogs are such hot corn and garbage 4 hours of study works
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="377" name="test_Login_List_GetFile_transcript_first30_seconds" time="8.420"><system-out>1
-./Files/user_1/13c8aa86-9711-4f3d-9521-833a8a639892.wav
+Google Speech Recognition thinks you said so scrolls are the bad guys and your tree erase of noble Warriors
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="472" name="test_Login_List_GetFile_transcript_first30_seconds" time="9.110"><system-out>1
+./Files/user_1/53d86f97-c808-4556-b7c4-827342a9d8f6.wav
+1
+./Files/user_1/b84dba92-78c7-4683-b9c3-88699b71464f.mp4
 Here
-&lt;rest_framework.request.Request object at 0x1098d84a8&gt;
+&lt;rest_framework.request.Request object at 0x10bda0a20&gt;
 {}
 1
 Here
-&lt;rest_framework.request.Request object at 0x1098dbcf8&gt;
+&lt;rest_framework.request.Request object at 0x10bcc4470&gt;
 {&apos;id&apos;: &apos;1&apos;}
 ID
 1
 Processing Audio File
 About to Transcript
-33.623125
-/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/13c8aa86-9711-4f3d-9521-833a8a639892.wav
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/53d86f97-c808-4556-b7c4-827342a9d8f6.wav
+138
 Google Speech Recognition will start now 
-Google Speech Recognition thinks you said the Birch canoe slid on the smooth planks glue the seat to the dark blue background it is easy to tell the depth of a well these days a chicken leg is a verb dish rice is often served in round Bowls the juice of lemons makes fine punch the box was the one beside the pump truck the Hogs are such hot corn and garbage 4 hours of study works
-</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="413" name="test_Login_List_GetFile_transcript" time="9.892"><system-out>1
-./Files/user_1/440f0bc1-b9af-4bb6-bbf5-d6887b259ac8.wav
+Google Speech Recognition thinks you said so scrolls are the bad guys and your tree erase of noble Warriors
+</system-out></testcase><testcase classname="Test.test_Files.TestFiles" file="Test/test_Files.py" line="508" name="test_Login_List_GetFile_transcript" time="41.383"><system-out>1
+./Files/user_1/08d78679-ffbc-4129-85d7-8539cdf451be.wav
+1
+./Files/user_1/6b6b0200-1202-43bf-a059-1ec80d3ab1d8.mp4
 Here
-&lt;rest_framework.request.Request object at 0x1099b93c8&gt;
+&lt;rest_framework.request.Request object at 0x10bd55780&gt;
 {}
 1
 Here
-&lt;rest_framework.request.Request object at 0x1099bec18&gt;
+&lt;rest_framework.request.Request object at 0x1077bf550&gt;
 {&apos;id&apos;: &apos;1&apos;}
 ID
 1
 Processing Audio File
 About to Transcript
-33.623125
-/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/440f0bc1-b9af-4bb6-bbf5-d6887b259ac8.wav
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/08d78679-ffbc-4129-85d7-8539cdf451be.wav
+138
 Google Speech Recognition will start now 
-Google Speech Recognition thinks you said the Birch canoe slid on the smooth planks glue the seat to the dark blue background it is easy to tell the depth of a well these days a chicken leg is a verb dish rice is often served in round Bowls the juice of lemons makes fine punch the box was the one beside the pump truck the Hogs are such hot corn and garbage 4 hours of study works
+Google Speech Recognition thinks you said so scrolls are the bad guys and your tree erase of noble Warriors
 1
 Processing Audio File
 About to Transcript
-33.623125
-/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/440f0bc1-b9af-4bb6-bbf5-d6887b259ac8.wav
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/08d78679-ffbc-4129-85d7-8539cdf451be.wav
+138
 Google Speech Recognition will start now 
-Google Speech Recognition thinks you said the Birch canoe slid on the smooth planks glue the seat to the dark blue background it is easy to tell the depth of a well these days a chicken leg is a verb dish rice is often served in round Bowls the juice of lemons makes fine punch the box was the one beside the pump truck the Hogs are such hot corn and garbage 4 hours of study works a large size in stockings is hard to sell
+Google Speech Recognition thinks you said so scrolls are the bad guys and your tree erase of noble Warriors your life began the day is nearly ended we found you with no memory they made you one of us so you could live longer stronger Superior you were reborn I keep having these memories
+1
+Processing Audio File
+About to Transcript
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/08d78679-ffbc-4129-85d7-8539cdf451be.wav
+138
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said so scrolls are the bad guys and your tree erase of noble Warriors your life began the day is nearly ended we found you with no memory they made you one of us so you could live longer stronger Superior you were reborn I keep having these memories something in my past is the key to all of this or no question
+1
+Processing Audio File
+About to Transcript
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/08d78679-ffbc-4129-85d7-8539cdf451be.wav
+138
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said so scrolls are the bad guys and your tree erase of noble Warriors your life began the day is nearly ended we found you with no memory they made you one of us so you could live longer stronger Superior you were reborn I keep having these memories something in my past is the key to all of this or no question what aren&apos;t you telling me
+1
+Processing Audio File
+About to Transcript
+/Users/cesarsalazar/Documents/NJIT/Spring 2019/CS 684/Project/ClassProject/Server/Files/Files/user_1/08d78679-ffbc-4129-85d7-8539cdf451be.wav
+138
+Google Speech Recognition will start now 
+Google Speech Recognition thinks you said so scrolls are the bad guys and your tree erase of noble Warriors your life began the day is nearly ended we found you with no memory they made you one of us so you could live longer stronger Superior you were reborn I keep having these memories something in my past is the key to all of this or no question what aren&apos;t you telling me cutest little thing and what&apos;s your name
 </system-out></testcase></testsuite>

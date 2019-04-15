@@ -92,18 +92,9 @@ class File(models.Model):
                 frames = f.getnframes()
                 rate = f.getframerate()
                 duration = frames / float(rate)
-        return duration
+        return round(duration)
 
-    def TranscriptFile(self, offset = 0):
-        print('About to Transcript')
-
-        length = self.get_file_length()
-        print(length)
-        if(offset > 0 and  length < offset):
-            return 201
-        #self.Transcript = 'Just transcripted'
-
-        
+    def convert_to_wav(self):
         AUDIO_FILE = self.Content.path
         print(AUDIO_FILE)
 
@@ -145,7 +136,19 @@ class File(models.Model):
                     exit(1)
             else:
                 AUDIO_FILE = TEMP
+
+
+        return AUDIO_FILE
+
+    def TranscriptFile(self, offset = 0):
+        print('About to Transcript')
+
+        AUDIO_FILE = self.convert_to_wav()
         
+        length = self.get_file_length()
+        print(length)
+        if(offset > 0 and  length < offset):
+            return 201
 
         r = sr.Recognizer()
         with sr.AudioFile(AUDIO_FILE) as source:
@@ -158,7 +161,10 @@ class File(models.Model):
             # instead of `r.recognize_google(audio)`
             print("Google Speech Recognition will start now " )
             if(offset != 0):
-                self.Transcript += ' ' + r.recognize_google(audio)
+                if(self.Transcript):
+                    self.Transcript += ' ' + r.recognize_google(audio)
+                else:
+                    self.Transcript = ' ' + r.recognize_google(audio)
             else:
                 self.Transcript = r.recognize_google(audio)
             print("Google Speech Recognition thinks you said " + self.Transcript)
@@ -166,8 +172,10 @@ class File(models.Model):
 
         except sr.UnknownValueError:
             print("Google Speech Recognition could not understand audio")
+            return 501
         except sr.RequestError as e:
             print("Could not request results from Google Speech Recognition service; {0}".format(e))
+            return 501
 
         self.save()
 

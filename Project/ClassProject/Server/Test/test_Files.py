@@ -16,6 +16,7 @@ from rest_framework.test import APIClient
 
 
 from  TestOracle import TestOracle as T_Oracle
+import TestDriver as td
 
 @pytest.fixture(autouse=True)
 def cleanup_files():
@@ -62,6 +63,100 @@ class TestFiles:
         #Cleaingin files
         for f in file_obj_Audios:
             f.delete()
+
+    def test_transcript_wav_first_30_Seconds(self):
+
+        test_input = td.transcript_wav_first_30_sec()
+        #testing
+        result = test_input["File"].TranscriptFile()
+        #Checking Oracle
+        passes = self.TestOracle.Passes(test_input, result)
+        
+        #Assertion
+        assert passes == True
+
+    def test_transcript_wav_middle_file(self):
+
+        test_input = td.transcript_wav_middle_file()
+        #testing
+        result = test_input["File"].TranscriptFile(test_input["offset"])
+        #Checking Oracle
+        passes = self.TestOracle.Passes(test_input, result)
+        #Assertion
+        assert passes == True
+
+    def test_transcript_wav_end_file(self):
+
+        test_input = td.transcript_wav_end_file()
+        #testing
+        result = test_input["File"].TranscriptFile(test_input["offset"])
+        #Checking Oracle
+        passes = self.TestOracle.Passes(test_input, result)
+        #Assertion
+        assert passes == True
+
+
+    def test_transcript_video_first_30_Seconds(self):
+
+        test_input = td.transcript_video_first_30_sec()
+        print("Hey")
+        print(test_input["File"].Name)
+        #testing
+        result = test_input["File"].TranscriptFile()
+        print(result)
+        #Checking Oracle
+        passes = self.TestOracle.Passes(test_input, result)
+        
+        #Assertion
+        assert passes == True
+
+    def test_transcript_video_middle_file(self):
+
+        test_input = td.transcript_video_middle_file()
+        print("Hey")
+        print(test_input)
+        #testing
+        result = test_input["File"].TranscriptFile(test_input["offset"])
+        #Checking Oracle
+        passes = self.TestOracle.Passes(test_input, result)
+        
+        #Assertion
+        assert passes == True
+
+    def test_transcript_video_end_file(self):
+
+        test_input = td.transcript_video_end_file()
+        print("Hey")
+        print(test_input)
+        #testing
+        result = test_input["File"].TranscriptFile(test_input["offset"])
+        #Checking Oracle
+        passes = self.TestOracle.Passes(test_input, result)
+        
+        #Assertion
+        assert passes == True
+
+    def test_file_length(self):
+        test_input = td.file_length()
+        
+        #Precondition
+        test_input["File"].convert_to_wav()
+        #testing
+        result = test_input["File"].get_file_length()
+        #Checking Oracle
+        passes = self.TestOracle.Passes(test_input, result)
+        
+        #Assertion
+        assert passes == True
+
+    def test_file_convert_to_wav(self):
+        test_input = td.file_convert_to_wav()
+        #testing
+        test_input["File"].convert_to_wav()
+        #Checking Oracle
+        passes = self.TestOracle.Passes(test_input, test_input["File"])
+        #Assertion
+        assert passes == True
 
     def test_PostAudioFileMp3(self, client):
         #get Token

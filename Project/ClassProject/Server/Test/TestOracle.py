@@ -41,12 +41,22 @@ class TestOracle():
         self.video_type = FileType.objects.create(id = 2, Name='Video')
         self.video_type.save()
 
-        audio_path = os.getcwd() + '/Test/TestFiles/test_audio_1.wav'
+        #Audio Content
+        audio_path = os.getcwd() + '/Test/TestFiles/AudioTestFile1.wav'
         f = open(audio_path, 'rb')
         audiotest1 = djFile(f)
         file_obj_Audio = File.objects.create(Name='Audio File', Type = self.audio_type, User = self.user_obj_1)
         file_obj_Audio.Content = audiotest1
         file_obj_Audio.save()
+
+        #Video Content
+        video_path = os.getcwd() + '/Test/TestFiles/test_video_1.mp4'
+        fv = open(video_path, 'rb')
+        videotest1 = djFile(fv)
+        file_obj_video = File.objects.create(Name='Video File', Type = self.video_type, User = self.user_obj_1)
+        file_obj_video.Content = videotest1
+        file_obj_video.save()
+
 
     def registration_endPoint(self, data):
         expected_response = registration_responses[0]
@@ -115,3 +125,31 @@ class TestOracle():
         print(path)
 
         return response.status_code == expected_response
+
+    
+    def Passes(self, test_input, result):
+
+        print(test_input)
+        if(test_input["test_case"] == "transcript_wav_first_30_sec"):
+            return result == 200
+        elif(test_input["test_case"] == "transcript_wav_middle_file"):
+            return result == 200
+        elif(test_input["test_case"] == "transcript_wav_final_30_sec"):
+            return result == 201
+        elif(test_input["test_case"] == "transcript_video_first_30_sec"):
+            return result == 200
+        elif(test_input["test_case"] == "transcript_video_middle_file"):
+            return result == 200
+        elif(test_input["test_case"] == "transcript_video_final_30_sec"):
+            return result == 201
+        elif(test_input["test_case"] == "file_length"):
+            return result == 147
+        elif(test_input["test_case"] == "file_convert_to_wav"):
+            path = result.Content.path.replace('.mp4', '.wav')
+            return os.path.isfile(path)
+            
+
+        
+
+
+        return -1
