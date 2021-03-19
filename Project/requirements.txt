@@ -19,7 +19,7 @@ Django==2.1.7
 django-cors-headers==2.5.0
 django-filter==2.1.0
 django-rest-knox==3.6.0
-djangorestframework==3.9.1
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 EasyProcess==0.2.5
 fuzzyset==0.0.19
